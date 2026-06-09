@@ -15,8 +15,10 @@ SRC_PATH = PROJECT_ROOT / "src"
 if str(SRC_PATH) not in sys.path:
     sys.path.insert(0, str(SRC_PATH))
 
-from floodrisk.data.normalize import load_json_records, write_records_csv  # noqa: E402
-
+from floodrisk.data.normalize import (  # noqa: E402
+    load_json_records,
+    write_records_csv,
+)
 
 RAW_WEATHER_DIR = PROJECT_ROOT / "data" / "raw" / "weather"
 INTERIM_WEATHER_DIR = PROJECT_ROOT / "data" / "interim" / "weather"
