@@ -1,6 +1,10 @@
 $ErrorActionPreference = "Stop"
+$PSNativeCommandUseErrorActionPreference = $true
 
-Set-Location "C:\Users\Danish\Coding\Project\AI\malaysia-flood-risk-ai"
+$ScriptDirectory = Split-Path -Parent $MyInvocation.MyCommand.Path
+$ProjectRoot = Split-Path -Parent $ScriptDirectory
+
+Set-Location $ProjectRoot
 
 conda activate flood-ai
 
