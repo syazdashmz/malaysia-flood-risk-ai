@@ -55,7 +55,8 @@ Completed:
 
 Current local pipeline command:
 
-    .\scriptsun_weather_pipeline.ps1
+    .\scripts
+un_weather_pipeline.ps1
 
 Current weather pipeline outputs:
 
@@ -69,6 +70,20 @@ Git tracking rule:
 
 - Raw, interim, and processed data files remain ignored.
 - Lightweight metadata and quality reports may be tracked.
+
+## App/API Weather Integration Progress
+
+Completed:
+
+- FastAPI weather summary endpoint at GET /weather/summary
+- Streamlit sidebar display for latest weather pipeline summary
+- Streamlit manual-mode default weather signal from local generated summary
+- Weather summary loader utility for app/API reuse
+
+Current limitation:
+
+- Weather integration uses the latest local sample summary.
+- It is not yet location-specific or historical.
 
 ## Next Major Phase
 

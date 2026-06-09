@@ -4,6 +4,12 @@
 
 ### Added
 
+- Weather summary loader utility for app/API integration
+
+- Streamlit weather pipeline summary display
+
+- FastAPI weather summary endpoint
+
 - MET Malaysia weather API client
 - Small real weather sample acquisition workflow
 - Weather JSON normalization utility

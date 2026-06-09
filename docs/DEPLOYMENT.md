@@ -47,3 +47,29 @@ This app is for research, education, portfolio, and public awareness only.
 It is not an official flood warning system.
 
 Always follow official Malaysian flood warnings, local authorities, and emergency instructions.
+
+## Weather Summary Endpoint
+
+The FastAPI backend exposes a weather summary endpoint:
+
+    GET /weather/summary
+
+This endpoint reads the generated local summary file:
+
+    reports/weather_risk_signal_summary.json
+
+Example local call:
+
+    curl http://127.0.0.1:8000/weather/summary
+
+The endpoint returns a compact JSON payload containing:
+
+- availability status
+- risk-engine-compatible weather warning signal
+- forecast row count
+- warning row count
+- signal count breakdown
+
+Before using this endpoint with fresh data, run:
+
+    .\scriptsun_weather_pipeline.ps1

@@ -41,3 +41,23 @@ Output file:
 Use:
 
     Ctrl + C
+
+## Weather Pipeline Integration
+
+The Streamlit app can now read the latest local weather pipeline summary from:
+
+    reports/weather_risk_signal_summary.json
+
+When the summary is available, the app:
+
+- Shows the latest weather pipeline signal in the sidebar
+- Displays record counts from the local weather sample workflow
+- Uses the generated weather warning signal as the default manual-mode weather input
+
+To refresh the local weather signal before opening the app:
+
+    .\scriptsun_weather_pipeline.ps1
+
+Then run the app:
+
+    .\scriptsun_app.ps1
