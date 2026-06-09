@@ -194,6 +194,16 @@ Planned.
 - Docker support
 - GitHub-ready documentation
 
+## Deployment
+
+The current MVP can be deployed as a Streamlit demo.
+
+- App entry point: app/streamlit_app.py
+- Lightweight dependency file: requirements.txt
+- Deployment guide: docs/DEPLOYMENT.md
+
+This deployment uses the transparent scoring engine and sample demo data only.
+
 ## License
 
 This project is released under the MIT License.
