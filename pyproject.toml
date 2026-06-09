@@ -5,7 +5,7 @@ description = "Malaysia-wide flood risk prediction and explainability platform."
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 authors = [
-  { name = "Danish Syazani" }
+  { name = "Danish Syazani", email = "syazdashmz@gmail.com" }
 ]
 
 [tool.ruff]
@@ -19,4 +19,4 @@ ignore = []
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["src"]
+pythonpath = [".", "src"]
