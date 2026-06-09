@@ -16,16 +16,6 @@ SRC_PATH = PROJECT_ROOT / "src"
 if str(SRC_PATH) not in sys.path:
     sys.path.insert(0, str(SRC_PATH))
 
-from floodrisk.data.manifest import (  # noqa: E402
-    DataSourceRecord,
-    append_manifest_record,
-    current_utc_date,
-)
-from floodrisk.data.weather_client import (  # noqa: E402
-    fetch_weather_forecast,
-    fetch_weather_warnings,
-    save_json,
-)
 
 RAW_WEATHER_DIR = PROJECT_ROOT / "data" / "raw" / "weather"
 STRUCTURED_MANIFEST_PATH = PROJECT_ROOT / "data" / "raw" / "manifest.jsonl"
@@ -37,6 +27,17 @@ LICENSE_OR_USAGE = (
 
 
 def main() -> None:
+    from floodrisk.data.manifest import (
+        DataSourceRecord,
+        current_utc_date,
+        upsert_manifest_record,
+    )
+    from floodrisk.data.weather_client import (
+        fetch_weather_forecast,
+        fetch_weather_warnings,
+        save_json,
+    )
+
     access_date = current_utc_date()
 
     forecast_data = fetch_weather_forecast(limit=3)
@@ -51,7 +52,7 @@ def main() -> None:
         RAW_WEATHER_DIR / "weather_warning_sample.json",
     )
 
-    append_manifest_record(
+    upsert_manifest_record(
         DataSourceRecord(
             dataset_name="MET Malaysia 7-day weather forecast sample",
             source_organization="MET Malaysia via data.gov.my",
@@ -68,7 +69,7 @@ def main() -> None:
         STRUCTURED_MANIFEST_PATH,
     )
 
-    append_manifest_record(
+    upsert_manifest_record(
         DataSourceRecord(
             dataset_name="MET Malaysia weather warning sample",
             source_organization="MET Malaysia via data.gov.my",
