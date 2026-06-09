@@ -152,11 +152,11 @@ factors_df = pd.DataFrame(
     ]
 )
 
-st.dataframe(factors_df, use_container_width=True, hide_index=True)
+st.dataframe(factors_df, width="stretch", hide_index=True)
 
 st.bar_chart(
     factors_df.set_index("Factor")["Score"],
-    use_container_width=True,
+    width="stretch",
 )
 
 st.subheader("Location preview")
