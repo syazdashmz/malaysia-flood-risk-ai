@@ -186,3 +186,8 @@ Planned.
 - FastAPI deployment
 - Docker support
 - GitHub-ready documentation
+
+## License
+
+This project is released under the MIT License.
+
