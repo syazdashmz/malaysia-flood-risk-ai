@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Test and lint
+    runs-on: windows-latest
+
+    defaults:
+      run:
+        shell: pwsh
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Miniforge
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          miniforge-version: latest
+          environment-file: environment.yml
+          activate-environment: flood-ai
+          auto-activate-base: false
+
+      - name: Run Ruff format check
+        run: |
+          conda activate flood-ai
+          ruff format . --check
+
+      - name: Run Ruff lint
+        run: |
+          conda activate flood-ai
+          ruff check .
+
+      - name: Run tests
+        run: |
+          conda activate flood-ai
+          $env:PYTHONPATH = "src;."
+          pytest
