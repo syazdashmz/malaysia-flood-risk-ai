@@ -55,3 +55,13 @@ Recommended next geospatial steps:
 4. Add GeoDataFrame loading utilities
 5. Add geometry validity checks
 6. Add point-in-boundary validation after a boundary dataset is selected
+
+## Data Source Registry
+
+The planned geospatial data source registry is documented in:
+
+    docs/GEOSPATIAL_DATA_SOURCES.md
+
+The code registry is located at:
+
+    src/floodrisk/geospatial/sources.py
