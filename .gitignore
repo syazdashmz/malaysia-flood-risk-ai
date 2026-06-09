@@ -52,3 +52,7 @@ desktop.ini
 !data/interim/MANIFEST.md
 !data/processed/MANIFEST.md
 !data/external/MANIFEST.md
+!data/raw/manifest.jsonl
+!data/interim/manifest.jsonl
+!data/processed/manifest.jsonl
+!data/external/manifest.jsonl
