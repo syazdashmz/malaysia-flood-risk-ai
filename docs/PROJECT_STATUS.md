@@ -112,3 +112,18 @@ Planned work:
 This project is for research, education, portfolio, and public awareness only.
 
 It is not an official flood warning system.
+
+## Patch Status - 0.2.1
+
+Completed:
+
+- Improved no-risk weather signal handling.
+- Added tests for no-rain and no-advisory phrases.
+- Rebuilt weather pipeline reports after classification fix.
+
+Current weather sample signal counts:
+
+- none: 4
+- advisory: 0
+- warning: 2
+- severe: 0

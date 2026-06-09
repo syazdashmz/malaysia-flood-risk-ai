@@ -21,6 +21,20 @@
 - Lightweight metadata and reports are tracked for review.
 - Weather integration currently uses small sample data only.
 
+## 0.2.1 - Weather Signal Classification Patch
+
+### Fixed
+
+- Improved no-risk weather text classification.
+- Prevented phrases such as Tiada hujan, No rain, No Advisory, and No weather advisory from being misclassified as advisory.
+- Preserved mixed forecast behavior where a no-risk phrase and a valid positive signal can still produce an advisory.
+
+### Validation
+
+- 55 tests passed locally.
+- Weather pipeline validation report shows Valid: True.
+- Weather signal summary now reports none: 4, warning: 2, advisory: 0, severe: 0 for the current sample.
+
 ## Unreleased
 
 ### Added
