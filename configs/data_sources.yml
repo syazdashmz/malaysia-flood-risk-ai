@@ -1,0 +1,94 @@
+project:
+  name: malaysia-flood-risk-ai
+  country: Malaysia
+  purpose: Flood risk prediction, explainability, and public awareness
+
+sources:
+  weather_forecast:
+    name: MET Malaysia Weather Forecast API
+    provider: Malaysia OpenAPI / MET Malaysia
+    type: realtime_api
+    status: planned
+    usage:
+      - rainfall_forecast
+      - weather_condition
+      - near_term_hazard_signal
+    notes: "Use for dynamic rainfall and forecast-based flood hazard features."
+
+  weather_warning:
+    name: MET Malaysia Weather Warning API
+    provider: Malaysia OpenAPI / MET Malaysia
+    type: realtime_api
+    status: planned
+    usage:
+      - warning_status
+      - severe_weather_signal
+    notes: "Use as warning/advisory input for near-term risk scoring."
+
+  infobanjir:
+    name: Public InfoBanjir
+    provider: Department of Irrigation and Drainage Malaysia
+    type: web_public_hydrology
+    status: planned
+    usage:
+      - water_level_status
+      - rainfall_station_status
+      - river_station_context
+    notes: "Use for river/water-level and rainfall station context."
+
+  elevation:
+    name: NASA SRTM DEM
+    provider: NASA / USGS
+    type: raster
+    status: planned
+    usage:
+      - elevation_m
+      - slope_deg
+      - terrain_susceptibility
+    notes: "Use for terrain-derived susceptibility features."
+
+  land_cover:
+    name: Copernicus Global Land Cover
+    provider: Copernicus
+    type: raster
+    status: planned
+    usage:
+      - land_cover_class
+      - built_up_fraction
+      - water_fraction
+      - vegetation_fraction
+    notes: "Use for runoff and surface-condition features."
+
+  openstreetmap:
+    name: OpenStreetMap
+    provider: OSM contributors
+    type: vector
+    status: planned
+    usage:
+      - river_distance_m
+      - road_access
+      - building_exposure
+      - urban_context
+    notes: "Use via OSMnx for rivers, waterways, roads, buildings, and amenities."
+
+  historical_flood:
+    name: Historical Flood Inventory
+    provider: JPS/DID reports, official records, curated datasets
+    type: tabular_geospatial
+    status: manual_collection_required
+    usage:
+      - historical_flood_distance_m
+      - flood_frequency
+      - model_label
+    notes: "Most important dataset for supervised ML. Must be cleaned carefully."
+
+  malaysia_boundary:
+    name: Malaysia Boundary
+    provider: public administrative boundary source
+    type: vector
+    status: planned
+    usage:
+      - coordinate_validation
+      - state_district_join
+      - national_grid_generation
+    notes: "Use to validate points and prevent geocoding errors outside Malaysia."
