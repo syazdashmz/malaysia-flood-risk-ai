@@ -16,16 +16,24 @@ SRC_PATH = PROJECT_ROOT / "src"
 if str(SRC_PATH) not in sys.path:
     sys.path.insert(0, str(SRC_PATH))
 
-from floodrisk.data.manifest import DataSourceRecord, append_manifest_record, current_utc_date
-from floodrisk.data.weather_client import (
+from floodrisk.data.manifest import (  # noqa: E402
+    DataSourceRecord,
+    append_manifest_record,
+    current_utc_date,
+)
+from floodrisk.data.weather_client import (  # noqa: E402
     fetch_weather_forecast,
     fetch_weather_warnings,
     save_json,
 )
 
-
 RAW_WEATHER_DIR = PROJECT_ROOT / "data" / "raw" / "weather"
 STRUCTURED_MANIFEST_PATH = PROJECT_ROOT / "data" / "raw" / "manifest.jsonl"
+
+LICENSE_OR_USAGE = (
+    "Public API sample for research and portfolio use. "
+    "Confirm official terms before production use."
+)
 
 
 def main() -> None:
@@ -49,10 +57,12 @@ def main() -> None:
             source_organization="MET Malaysia via data.gov.my",
             source_url="https://api.data.gov.my/weather/forecast",
             access_date=access_date,
-            license_or_usage="Public API sample for research and portfolio use. Confirm official terms before production use.",
+            license_or_usage=LICENSE_OR_USAGE,
             raw_path=str(forecast_path.relative_to(PROJECT_ROOT)),
             processing_script="scripts/fetch_weather_sample.py",
-            known_limitations="Small API sample only; not a complete historical or modelling dataset.",
+            known_limitations=(
+                "Small API sample only; not a complete historical or modelling dataset."
+            ),
             notes={"limit": 3, "api": "data.gov.my weather forecast"},
         ),
         STRUCTURED_MANIFEST_PATH,
@@ -64,7 +74,7 @@ def main() -> None:
             source_organization="MET Malaysia via data.gov.my",
             source_url="https://api.data.gov.my/weather/warning",
             access_date=access_date,
-            license_or_usage="Public API sample for research and portfolio use. Confirm official terms before production use.",
+            license_or_usage=LICENSE_OR_USAGE,
             raw_path=str(warning_path.relative_to(PROJECT_ROOT)),
             processing_script="scripts/fetch_weather_sample.py",
             known_limitations="Small API sample only; warning data updates when required.",

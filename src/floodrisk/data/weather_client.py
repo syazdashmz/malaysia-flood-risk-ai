@@ -8,7 +8,6 @@ from typing import Any
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
-
 BASE_WEATHER_URL = "https://api.data.gov.my/weather"
 USER_AGENT = "malaysia-flood-risk-ai/0.1.0"
 
