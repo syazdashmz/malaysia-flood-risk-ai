@@ -36,3 +36,24 @@ def test_predict_endpoint():
     assert 0 <= data["risk_score"] <= 100
     assert data["risk_class"] in ["Very Low", "Low", "Moderate", "High", "Very High"]
     assert len(data["factors"]) == 10
+
+
+def test_predict_endpoint_rejects_coordinate_outside_malaysia():
+    payload = {
+        "latitude": 49.3198,
+        "longitude": 6.3722,
+        "elevation_m": 30,
+        "slope_deg": 2,
+        "river_distance_m": 500,
+        "historical_flood_distance_m": 1200,
+        "rainfall_24h_mm": 80,
+        "rainfall_72h_mm": 160,
+        "water_level_status": "warning",
+        "weather_warning_status": "warning",
+        "land_cover_class": "urban",
+        "population_density_per_km2": 7000,
+    }
+
+    response = client.post("/predict", json=payload)
+
+    assert response.status_code == 422

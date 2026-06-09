@@ -7,6 +7,7 @@ from pathlib import Path
 
 import pandas as pd
 import streamlit as st
+from pydantic import ValidationError
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 SRC_PATH = PROJECT_ROOT / "src"
@@ -102,20 +103,26 @@ with col5:
         index=1,
     )
 
-payload = FloodRiskInput(
-    latitude=latitude,
-    longitude=longitude,
-    elevation_m=elevation_m,
-    slope_deg=slope_deg,
-    river_distance_m=river_distance_m,
-    historical_flood_distance_m=historical_flood_distance_m,
-    rainfall_24h_mm=rainfall_24h_mm,
-    rainfall_72h_mm=rainfall_72h_mm,
-    water_level_status=water_level_status,
-    weather_warning_status=weather_warning_status,
-    land_cover_class=land_cover_class,
-    population_density_per_km2=population_density_per_km2,
-)
+try:
+    payload = FloodRiskInput(
+        latitude=latitude,
+        longitude=longitude,
+        elevation_m=elevation_m,
+        slope_deg=slope_deg,
+        river_distance_m=river_distance_m,
+        historical_flood_distance_m=historical_flood_distance_m,
+        rainfall_24h_mm=rainfall_24h_mm,
+        rainfall_72h_mm=rainfall_72h_mm,
+        water_level_status=water_level_status,
+        weather_warning_status=weather_warning_status,
+        land_cover_class=land_cover_class,
+        population_density_per_km2=population_density_per_km2,
+    )
+except ValidationError as error:
+    st.error("Invalid input. Please make sure the coordinate is inside Malaysia.")
+    with st.expander("Validation details"):
+        st.json(error.errors())
+    st.stop()
 
 result = calculate_risk(payload)
 
