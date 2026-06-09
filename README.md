@@ -243,5 +243,6 @@ Release history and milestone notes are documented in:
 
 Latest release:
 
-    v0.2.0 - Phase 2 Weather Pipeline
+    v0.2.1 - Weather Signal Classification Patch
+
 

@@ -1,5 +1,30 @@
 # Release Index
 
+## v0.2.1 - Weather Signal Classification Patch
+
+Release page:
+
+    https://github.com/syazdashmz/malaysia-flood-risk-ai/releases/tag/v0.2.1
+
+Main focus:
+
+- Patch release after v0.2.0
+- Improved no-risk weather text classification
+- Prevented no-rain and no-advisory phrases from being misclassified as advisory
+- Preserved mixed forecast behavior where positive weather signals still count
+
+Validation:
+
+- 55 tests passed locally
+- Weather pipeline validation: Valid True
+
+Current weather sample signal counts:
+
+- none: 4
+- advisory: 0
+- warning: 2
+- severe: 0
+
 ## v0.2.0 - Phase 2 Weather Pipeline
 
 Release page:
