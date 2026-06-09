@@ -4,7 +4,7 @@
 
 This pipeline runs the current Phase 2 weather data workflow end to end.
 
-It fetches small weather API samples, normalizes them, creates a feature table, and generates a data quality report.
+It fetches small weather API samples, normalizes them, creates a feature table, summarizes the strongest weather signal, and generates a data quality report.
 
 ## Command
 
@@ -26,7 +26,11 @@ Run from the project root:
 
     python scripts\build_weather_features.py
 
-4. Generate weather sample data quality profile
+4. Summarize weather risk signal
+
+    python scripts\summarize_weather_features.py
+
+5. Generate weather sample data quality profile
 
     python scripts\profile_weather_samples.py
 
@@ -51,6 +55,10 @@ Processed weather feature table:
 
     data/processed/weather/
 
+Weather risk signal summary:
+
+    reports/weather_risk_signal_summary.json
+
 Weather quality report:
 
     reports/weather_sample_profile.md
@@ -65,7 +73,7 @@ Raw, interim, and processed data artifacts are ignored by Git.
 
 The structured manifest is tracked because it records dataset metadata.
 
-The quality report is tracked because it is lightweight and useful for review.
+The quality report and weather risk summary are tracked because they are lightweight and useful for review.
 
 ## Current Limitation
 
