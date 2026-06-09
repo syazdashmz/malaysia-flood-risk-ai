@@ -1,0 +1,64 @@
+name: flood-ai
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+
+  # Core data
+  - numpy
+  - pandas
+  - scipy
+  - pyarrow
+  - duckdb
+  - openpyxl
+
+  # Geospatial
+  - geopandas
+  - shapely
+  - pyproj
+  - pyogrio
+  - rasterio
+  - rioxarray
+  - xarray
+  - osmnx
+  - geopy
+  - folium
+  - streamlit-folium
+  - mapclassify
+  - contextily
+
+  # Machine learning
+  - scikit-learn
+  - xgboost
+  - lightgbm
+  - imbalanced-learn
+  - optuna
+  - shap
+  - joblib
+
+  # Visualization
+  - matplotlib
+  - plotly
+
+  # API and app
+  - fastapi
+  - uvicorn
+  - pydantic
+  - pydantic-settings
+  - streamlit
+  - requests
+  - httpx
+  - python-dotenv
+
+  # Research workflow
+  - jupyterlab
+  - notebook
+  - ipykernel
+
+  # MLOps and quality
+  - mlflow
+  - dvc
+  - pytest
+  - ruff
+  - pre-commit
