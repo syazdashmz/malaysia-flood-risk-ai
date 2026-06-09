@@ -1,17 +1,46 @@
-# Data Acquisition Scripts
+# Scripts
 
-This folder will contain scripts for downloading or fetching real public datasets.
+## Portable Runner Scripts
 
-Current status:
+These scripts detect the project root from their own file location.
 
-- No real external data acquisition scripts have been implemented yet.
-- The project currently uses only generated sample demo data.
+Run them from the repository root with PowerShell.
 
-Planned script categories:
+## Main Scripts
 
-- Boundary data acquisition
-- Elevation data acquisition
-- Weather and rainfall API clients
-- Water-level station data clients
-- Land-cover data acquisition
-- Historical flood inventory preparation
+### Run tests
+
+    .\scripts\run_tests.ps1
+
+### Run quality checks
+
+    .\scripts\run_quality.ps1
+
+### Run API
+
+    .\scripts\run_api.ps1
+
+### Run Streamlit app
+
+    .\scripts\run_app.ps1
+
+### Run weather data pipeline
+
+    .\scripts\run_weather_pipeline.ps1
+
+## Weather Pipeline Scripts
+
+These are called by the weather pipeline runner:
+
+    python scripts\fetch_weather_sample.py
+    python scripts\normalize_weather_samples.py
+    python scripts\build_weather_features.py
+    python scripts\summarize_weather_features.py
+    python scripts\profile_weather_samples.py
+    python scripts\validate_weather_pipeline.py
+
+## API Helper
+
+Use this only when the API server is already running:
+
+    .\scripts\test_predict_api.ps1

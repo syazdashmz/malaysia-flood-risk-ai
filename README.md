@@ -228,3 +228,9 @@ This deployment uses the transparent scoring engine and sample demo data only.
 
 This project is released under the MIT License.
 
+## Project Runbook
+
+For daily commands, local development workflow, weather pipeline usage, and app/API run instructions, see:
+
+    docs/RUNBOOK.md
+
