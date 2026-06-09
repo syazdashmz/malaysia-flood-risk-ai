@@ -1,0 +1,7 @@
+location_name,state,latitude,longitude,elevation_m,slope_deg,river_distance_m,historical_flood_distance_m,rainfall_24h_mm,rainfall_72h_mm,water_level_status,weather_warning_status,land_cover_class,population_density_per_km2,risk_score,risk_class,confidence
+Kuala Lumpur City Centre,Kuala Lumpur,3.1579,101.7123,35,2.0,450,1200,80,160,warning,warning,urban,7500,76.26,High,High
+Shah Alam,Selangor,3.0738,101.5183,25,1.5,700,900,95,190,warning,warning,urban,4200,77.95,High,High
+Kota Bharu,Kelantan,6.1254,102.2381,8,0.8,350,500,120,260,danger,severe,urban,1800,89.56,Very High,High
+Kuantan,Pahang,3.8077,103.326,15,1.2,600,800,110,240,warning,warning,built_up,900,80.94,Very High,High
+Cyberjaya,Selangor,2.9225,101.655,45,3.0,1800,3500,45,90,normal,advisory,urban,1400,49.83,Moderate,High
+Cameron Highlands,Pahang,4.4721,101.3801,1450,18.0,2500,9000,25,70,normal,none,forest,120,16.5,Very Low,High
