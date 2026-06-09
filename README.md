@@ -1,5 +1,7 @@
 # Malaysia Flood Risk AI
 
+[![CI](https://github.com/syazdashmz/malaysia-flood-risk-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/syazdashmz/malaysia-flood-risk-ai/actions/workflows/ci.yml)
+
 A Malaysia-focused flood risk prediction and explainability research project.
 
 This project estimates flood risk for locations in Malaysia using geospatial, rainfall, hydrology, exposure, and machine-learning-ready features.
@@ -17,6 +19,11 @@ MVP foundation completed.
 - Data source registry
 - Research methodology documentation
 - Automated tests
+
+## Repository
+
+- GitHub: https://github.com/syazdashmz/malaysia-flood-risk-ai
+- CI Workflow: https://github.com/syazdashmz/malaysia-flood-risk-ai/actions/workflows/ci.yml
 
 ## Project Goal
 
