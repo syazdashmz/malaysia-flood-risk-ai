@@ -44,3 +44,7 @@ These are called by the weather pipeline runner:
 Use this only when the API server is already running:
 
     .\scripts\test_predict_api.ps1
+
+### Run geospatial checks
+
+    .\scripts\run_geospatial_checks.ps1

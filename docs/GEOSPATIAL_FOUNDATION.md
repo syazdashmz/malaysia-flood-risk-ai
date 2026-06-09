@@ -96,3 +96,21 @@ The validator checks:
 - empty geometry count
 
 This prepares the project for safe validation of future GeoJSON or Shapefile boundary datasets.
+
+## Geospatial Check Runner
+
+The geospatial check runner is:
+
+    .\scripts\run_geospatial_checks.ps1
+
+It regenerates:
+
+    reports/geospatial_artifact_plan.md
+    reports/geospatial_validation_report.md
+
+The validation report summarizes:
+
+- planned artifacts
+- available artifacts
+- missing artifacts
+- valid vector datasets
