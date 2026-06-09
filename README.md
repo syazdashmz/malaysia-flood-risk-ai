@@ -6,6 +6,15 @@ A Malaysia-focused flood risk prediction and explainability research project.
 
 This project estimates flood risk for locations in Malaysia using geospatial, rainfall, hydrology, exposure, and machine-learning-ready features.
 
+## Project Status
+
+- Current version: v0.1.0 MVP foundation
+- Status document: docs/PROJECT_STATUS.md
+- Changelog: CHANGELOG.md
+
+No real external datasets have been downloaded yet.
+No machine-learning model has been trained yet.
+
 ## Current Status
 
 MVP foundation completed.
