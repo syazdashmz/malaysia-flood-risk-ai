@@ -1,9 +1,17 @@
 """FastAPI backend for Malaysia Flood Risk AI."""
 
+from pathlib import Path
+from typing import Any
+
 from fastapi import FastAPI
 
+from floodrisk.data.weather_summary import build_weather_summary_status
 from floodrisk.risk_engine import calculate_risk
 from floodrisk.schemas import FloodRiskInput, FloodRiskOutput
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+WEATHER_SUMMARY_PATH = PROJECT_ROOT / "reports" / "weather_risk_signal_summary.json"
+
 
 app = FastAPI(
     title="Malaysia Flood Risk AI API",
@@ -27,6 +35,11 @@ def root() -> dict[str, str]:
 @app.get("/health")
 def health() -> dict[str, str]:
     return {"status": "ok"}
+
+
+@app.get("/weather/summary")
+def weather_summary() -> dict[str, Any]:
+    return build_weather_summary_status(WEATHER_SUMMARY_PATH)
 
 
 @app.post("/predict", response_model=FloodRiskOutput)

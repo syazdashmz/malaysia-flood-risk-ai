@@ -11,6 +11,24 @@ def test_health_endpoint():
     assert response.json() == {"status": "ok"}
 
 
+def test_weather_summary_endpoint():
+    response = client.get("/weather/summary")
+
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert data["available"] is True
+    assert data["risk_engine_weather_warning"] in [
+        "none",
+        "advisory",
+        "warning",
+        "severe",
+    ]
+    assert "record_count" in data
+    assert "signal_counts" in data
+
+
 def test_predict_endpoint():
     payload = {
         "latitude": 3.139,
