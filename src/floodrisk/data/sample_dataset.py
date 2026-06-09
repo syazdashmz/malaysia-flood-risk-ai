@@ -13,7 +13,6 @@ import pandas as pd
 from floodrisk.risk_engine import calculate_risk
 from floodrisk.schemas import FloodRiskInput
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 OUTPUT_PATH = PROJECT_ROOT / "data" / "samples" / "sample_malaysia_locations.csv"
 

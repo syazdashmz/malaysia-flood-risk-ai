@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-
 MALAYSIA_MIN_LAT = -1.5
 MALAYSIA_MAX_LAT = 7.5
 MALAYSIA_MIN_LON = 99.0

@@ -9,7 +9,6 @@ from floodrisk.data.validation import (
     malaysia_coordinate_error,
 )
 
-
 WaterLevelStatus = Literal["unknown", "normal", "alert", "warning", "danger"]
 WeatherWarningStatus = Literal["none", "advisory", "warning", "severe"]
 

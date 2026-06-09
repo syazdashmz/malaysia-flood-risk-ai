@@ -165,7 +165,9 @@ land_cover_options = [
 ]
 
 default_water_status = str(get_sample_value(selected_sample_row, "water_level_status", "warning"))
-default_weather_status = str(get_sample_value(selected_sample_row, "weather_warning_status", "warning"))
+default_weather_status = str(
+    get_sample_value(selected_sample_row, "weather_warning_status", "warning")
+)
 default_land_cover = str(get_sample_value(selected_sample_row, "land_cover_class", "urban"))
 
 with col3:

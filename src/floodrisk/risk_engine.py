@@ -8,7 +8,6 @@ from __future__ import annotations
 
 from floodrisk.schemas import FloodRiskInput, FloodRiskOutput, RiskFactor
 
-
 LAND_COVER_RISK = {
     "urban": 0.75,
     "built_up": 0.75,
