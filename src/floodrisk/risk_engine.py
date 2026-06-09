@@ -83,7 +83,9 @@ def recommendation_for(risk_class: str) -> str:
         "Low": "Flood risk appears low. Stay aware of local weather updates.",
         "Moderate": "Monitor weather and nearby river conditions. Prepare basic precautions.",
         "High": "Prepare for possible flooding. Avoid low-lying roads and monitor official alerts.",
-        "Very High": "Take immediate precautions. Follow official flood warnings and evacuation guidance.",
+        "Very High": (
+            "Take immediate precautions. Follow official flood warnings and evacuation guidance."
+        ),
     }
     return recommendations[risk_class]
 
@@ -120,7 +122,9 @@ def calculate_risk(data: FloodRiskInput) -> FloodRiskOutput:
         RiskFactor(
             name="Elevation",
             score=round(elevation_risk, 3),
-            explanation=f"Lower elevation increases flood susceptibility. Input: {data.elevation_m} m.",
+            explanation=(
+                f"Lower elevation increases flood susceptibility. Input: {data.elevation_m} m."
+            ),
         ),
         RiskFactor(
             name="Slope",
@@ -130,7 +134,10 @@ def calculate_risk(data: FloodRiskInput) -> FloodRiskOutput:
         RiskFactor(
             name="River proximity",
             score=round(river_risk, 3),
-            explanation=f"Closer distance to rivers increases flood exposure. Input: {data.river_distance_m} m.",
+            explanation=(
+                "Closer distance to rivers increases flood exposure. "
+                f"Input: {data.river_distance_m} m."
+            ),
         ),
         RiskFactor(
             name="Historical flood proximity",
@@ -143,12 +150,18 @@ def calculate_risk(data: FloodRiskInput) -> FloodRiskOutput:
         RiskFactor(
             name="24-hour rainfall",
             score=round(rainfall_24h_risk, 3),
-            explanation=f"Higher recent rainfall increases near-term flood hazard. Input: {data.rainfall_24h_mm} mm.",
+            explanation=(
+                "Higher recent rainfall increases near-term flood hazard. "
+                f"Input: {data.rainfall_24h_mm} mm."
+            ),
         ),
         RiskFactor(
             name="72-hour rainfall",
             score=round(rainfall_72h_risk, 3),
-            explanation=f"Accumulated rainfall can saturate soil and drainage systems. Input: {data.rainfall_72h_mm} mm.",
+            explanation=(
+                "Accumulated rainfall can saturate soil and drainage systems. "
+                f"Input: {data.rainfall_72h_mm} mm."
+            ),
         ),
         RiskFactor(
             name="Water level status",

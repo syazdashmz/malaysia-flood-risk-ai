@@ -16,8 +16,8 @@ SAMPLE_DATA_PATH = PROJECT_ROOT / "data" / "samples" / "sample_malaysia_location
 if str(SRC_PATH) not in sys.path:
     sys.path.insert(0, str(SRC_PATH))
 
-from floodrisk.risk_engine import calculate_risk
-from floodrisk.schemas import FloodRiskInput
+from floodrisk.risk_engine import calculate_risk  # noqa: E402
+from floodrisk.schemas import FloodRiskInput  # noqa: E402
 
 
 def load_sample_locations() -> pd.DataFrame:

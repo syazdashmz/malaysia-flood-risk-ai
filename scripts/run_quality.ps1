@@ -1,4 +1,5 @@
 $ErrorActionPreference = "Stop"
+$PSNativeCommandUseErrorActionPreference = $true
 
 Set-Location "C:\Users\Danish\Coding\Project\AI\malaysia-flood-risk-ai"
 
