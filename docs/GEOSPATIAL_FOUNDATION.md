@@ -65,3 +65,17 @@ The planned geospatial data source registry is documented in:
 The code registry is located at:
 
     src/floodrisk/geospatial/sources.py
+
+## Artifact Planning
+
+The expected local geospatial artifact paths are documented in:
+
+    reports/geospatial_artifact_plan.md
+
+The artifact planning utility is located at:
+
+    src/floodrisk/geospatial/artifacts.py
+
+Generate the report with:
+
+    python scripts/generate_geospatial_artifact_plan.py
