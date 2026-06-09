@@ -6,8 +6,16 @@ from floodrisk.data.weather_features import (
     build_warning_feature_records,
     classify_weather_signal,
     load_csv_records,
+    remove_no_risk_terms,
     write_feature_records,
 )
+
+
+def test_remove_no_risk_terms_removes_negative_phrases():
+    text = remove_no_risk_terms("no advisory and tiada hujan")
+
+    assert "advisory" not in text
+    assert "hujan" not in text
 
 
 def test_classify_weather_signal_detects_severe():
@@ -24,6 +32,22 @@ def test_classify_weather_signal_detects_warning():
 
 def test_classify_weather_signal_detects_advisory():
     status = classify_weather_signal("Afternoon thunderstorms")
+
+    assert status == "advisory"
+
+
+def test_classify_weather_signal_detects_no_rain_as_none():
+    assert classify_weather_signal("Tiada hujan") == "none"
+    assert classify_weather_signal("No rain") == "none"
+
+
+def test_classify_weather_signal_detects_no_advisory_as_none():
+    assert classify_weather_signal("No Advisory") == "none"
+    assert classify_weather_signal("Tiada amaran") == "none"
+
+
+def test_classify_weather_signal_keeps_positive_signal_when_mixed():
+    status = classify_weather_signal("No rain in morning", "Afternoon thunderstorms")
 
     assert status == "advisory"
 
@@ -54,6 +78,24 @@ def test_build_forecast_feature_records():
     assert features[0]["weather_signal"] == "advisory"
 
 
+def test_build_forecast_feature_records_detects_no_risk_forecast():
+    records = [
+        {
+            "location.location_id": "Ds001",
+            "location.location_name": "Langkawi",
+            "date": "2026-06-10",
+            "summary_forecast": "Tiada hujan",
+            "morning_forecast": "Tiada hujan",
+            "afternoon_forecast": "Tiada hujan",
+            "night_forecast": "Tiada hujan",
+        }
+    ]
+
+    features = build_forecast_feature_records(records)
+
+    assert features[0]["weather_signal"] == "none"
+
+
 def test_build_warning_feature_records():
     records = [
         {
@@ -71,6 +113,23 @@ def test_build_warning_feature_records():
     assert features[0]["source_type"] == "warning"
     assert features[0]["weather_signal"] == "warning"
     assert features[0]["summary"] == "Continuous Heavy Rain Warning"
+
+
+def test_build_warning_feature_records_detects_no_advisory():
+    records = [
+        {
+            "warning_issue.title_en": "No Advisory",
+            "heading_en": "No Advisory",
+            "text_en": "No weather advisory is active.",
+            "warning_issue.issued": "2026-06-10T00:00:00",
+            "valid_from": "",
+            "valid_to": "",
+        }
+    ]
+
+    features = build_warning_feature_records(records)
+
+    assert features[0]["weather_signal"] == "none"
 
 
 def test_write_and_load_feature_records(tmp_path: Path):

@@ -5,6 +5,25 @@ from __future__ import annotations
 import csv
 from pathlib import Path
 
+NO_RISK_TERMS = (
+    "no advisory",
+    "no weather advisory",
+    "no active advisory",
+    "no warning",
+    "no weather warning",
+    "no active warning",
+    "no rain",
+    "no thunderstorm",
+    "no thunderstorms",
+    "fair weather",
+    "clear weather",
+    "tiada amaran",
+    "tiada sebarang amaran",
+    "tiada hujan",
+    "tiada ribut petir",
+    "cerah",
+)
+
 SEVERE_TERMS = (
     "severe",
     "danger",
@@ -36,18 +55,30 @@ ADVISORY_TERMS = (
 )
 
 
+def remove_no_risk_terms(text: str) -> str:
+    """Remove explicit no-risk phrases before positive signal matching."""
+
+    normalized = text
+
+    for term in NO_RISK_TERMS:
+        normalized = normalized.replace(term, " ")
+
+    return " ".join(normalized.split())
+
+
 def classify_weather_signal(*texts: str | None) -> str:
     """Classify weather text into MVP risk-engine warning categories."""
 
     combined_text = " ".join(text or "" for text in texts).lower()
+    risk_text = remove_no_risk_terms(combined_text)
 
-    if any(term in combined_text for term in SEVERE_TERMS):
+    if any(term in risk_text for term in SEVERE_TERMS):
         return "severe"
 
-    if any(term in combined_text for term in WARNING_TERMS):
+    if any(term in risk_text for term in WARNING_TERMS):
         return "warning"
 
-    if any(term in combined_text for term in ADVISORY_TERMS):
+    if any(term in risk_text for term in ADVISORY_TERMS):
         return "advisory"
 
     return "none"

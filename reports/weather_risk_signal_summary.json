@@ -4,8 +4,8 @@
   "record_count": 6,
   "risk_engine_weather_warning": "warning",
   "signal_counts": {
-    "advisory": 4,
-    "none": 0,
+    "advisory": 0,
+    "none": 4,
     "severe": 0,
     "warning": 2
   },
