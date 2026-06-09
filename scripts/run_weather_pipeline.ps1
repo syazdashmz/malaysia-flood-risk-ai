@@ -1,11 +1,16 @@
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
 
-Set-Location "C:\Users\Danish\Coding\Project\AI\malaysia-flood-risk-ai"
+$ScriptDirectory = Split-Path -Parent $MyInvocation.MyCommand.Path
+$ProjectRoot = Split-Path -Parent $ScriptDirectory
+
+Set-Location $ProjectRoot
 
 conda activate flood-ai
 
 $env:PYTHONPATH = "src;."
+
+Write-Host "Project root: $ProjectRoot"
 
 Write-Host "Step 1/6: Fetching weather samples..."
 python scripts\fetch_weather_sample.py
