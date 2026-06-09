@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import sys
 from pathlib import Path
+from typing import Any
 
 import pandas as pd
 import streamlit as st
@@ -12,12 +13,19 @@ from pydantic import ValidationError
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 SRC_PATH = PROJECT_ROOT / "src"
 SAMPLE_DATA_PATH = PROJECT_ROOT / "data" / "samples" / "sample_malaysia_locations.csv"
+WEATHER_SUMMARY_PATH = PROJECT_ROOT / "reports" / "weather_risk_signal_summary.json"
 
 if str(SRC_PATH) not in sys.path:
     sys.path.insert(0, str(SRC_PATH))
 
 from floodrisk.risk_engine import calculate_risk  # noqa: E402
 from floodrisk.schemas import FloodRiskInput  # noqa: E402
+
+
+def load_weather_summary_status() -> dict[str, Any]:
+    from floodrisk.data.weather_summary import build_weather_summary_status
+
+    return build_weather_summary_status(WEATHER_SUMMARY_PATH)
 
 
 def load_sample_locations() -> pd.DataFrame:
@@ -34,6 +42,8 @@ def get_sample_value(row: pd.Series | None, column: str, default):
         return default
     return value
 
+
+weather_summary_status = load_weather_summary_status()
 
 st.set_page_config(
     page_title="Malaysia Flood Risk AI",
@@ -59,6 +69,24 @@ with st.sidebar:
         "Research use only. Always follow official Malaysian flood warnings "
         "and emergency instructions."
     )
+
+    with st.expander("Latest weather pipeline summary"):
+        if weather_summary_status.get("available"):
+            st.metric(
+                "Weather warning signal",
+                str(weather_summary_status.get("risk_engine_weather_warning", "none")),
+            )
+            st.write(
+                {
+                    "records": weather_summary_status.get("record_count", 0),
+                    "forecast_rows": weather_summary_status.get("forecast_count", 0),
+                    "warning_rows": weather_summary_status.get("warning_count", 0),
+                }
+            )
+            st.caption("This summary comes from the local Phase 2 weather sample pipeline.")
+        else:
+            st.info("No weather summary found yet. Run scripts/run_weather_pipeline.ps1.")
+
 
 samples_df = load_sample_locations()
 
@@ -165,8 +193,19 @@ land_cover_options = [
 ]
 
 default_water_status = str(get_sample_value(selected_sample_row, "water_level_status", "warning"))
-default_weather_status = str(
+sample_default_weather_status = str(
     get_sample_value(selected_sample_row, "weather_warning_status", "warning")
+)
+pipeline_weather_status = str(
+    weather_summary_status.get(
+        "risk_engine_weather_warning",
+        sample_default_weather_status,
+    )
+)
+default_weather_status = (
+    pipeline_weather_status
+    if selected_sample_row is None and weather_summary_status.get("available")
+    else sample_default_weather_status
 )
 default_land_cover = str(get_sample_value(selected_sample_row, "land_cover_class", "urban"))
 
@@ -188,6 +227,13 @@ with col4:
         if default_weather_status in weather_warning_options
         else 0,
         key=f"weather_warning_{widget_suffix}",
+    )
+
+
+if weather_summary_status.get("available"):
+    st.caption(
+        "Latest local weather pipeline signal: "
+        f"{weather_summary_status.get('risk_engine_weather_warning', 'none')}"
     )
 
 with col5:
