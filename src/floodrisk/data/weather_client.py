@@ -8,8 +8,10 @@ from typing import Any
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
+from floodrisk.version import __version__
+
 BASE_WEATHER_URL = "https://api.data.gov.my/weather"
-USER_AGENT = "malaysia-flood-risk-ai/0.1.0"
+USER_AGENT = f"malaysia-flood-risk-ai/{__version__}"
 
 
 def build_weather_url(endpoint: str, params: dict[str, Any] | None = None) -> str:

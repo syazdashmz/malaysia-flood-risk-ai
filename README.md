@@ -8,7 +8,7 @@ This project estimates flood risk for locations in Malaysia using geospatial, ra
 
 ## Project Status
 
-- Current version: v0.1.0 MVP foundation
+- Current version: v0.2.0 MVP foundation
 - Status document: docs/PROJECT_STATUS.md
 - Changelog: CHANGELOG.md
 
@@ -164,7 +164,8 @@ A small real-data weather sample pipeline has been added.
 
 - Data source: MET Malaysia via Malaysia Open API
 - Pipeline guide: docs/WEATHER_PIPELINE.md
-- Command: .\scriptsun_weather_pipeline.ps1
+- Command: .\scripts
+un_weather_pipeline.ps1
 - Quality report: reports/weather_sample_profile.md
 
 This is a small sample workflow only. It is not yet a full historical ingestion pipeline.

@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.2.0 - Phase 2 Weather Pipeline
+
+### Added
+
+- MET Malaysia weather API client
+- Small live weather sample acquisition workflow
+- Weather JSON normalization utility
+- Weather feature extraction utility
+- Weather risk signal summary
+- Weather pipeline validation report
+- FastAPI weather summary endpoint
+- Streamlit weather pipeline summary display
+- Portable project runner scripts
+- Project runbook
+
+### Notes
+
+- Raw, interim, and processed weather data artifacts remain ignored.
+- Lightweight metadata and reports are tracked for review.
+- Weather integration currently uses small sample data only.
+
 ## Unreleased
 
 ### Added

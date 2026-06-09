@@ -2,7 +2,7 @@
 
 ## Current Version
 
-v0.1.0 MVP foundation
+v0.2.0 MVP foundation
 
 ## Completed
 

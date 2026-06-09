@@ -8,6 +8,7 @@ from fastapi import FastAPI
 from floodrisk.data.weather_summary import build_weather_summary_status
 from floodrisk.risk_engine import calculate_risk
 from floodrisk.schemas import FloodRiskInput, FloodRiskOutput
+from floodrisk.version import __version__
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 WEATHER_SUMMARY_PATH = PROJECT_ROOT / "reports" / "weather_risk_signal_summary.json"
@@ -19,7 +20,7 @@ app = FastAPI(
         "Research API for estimating Malaysia flood risk using transparent "
         "geospatial, rainfall, hydrology, and exposure features."
     ),
-    version="0.1.0",
+    version=__version__,
 )
 
 
