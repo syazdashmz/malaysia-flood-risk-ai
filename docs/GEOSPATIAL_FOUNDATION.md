@@ -79,3 +79,20 @@ The artifact planning utility is located at:
 Generate the report with:
 
     python scripts/generate_geospatial_artifact_plan.py
+
+## Vector Dataset Validation
+
+Basic vector dataset validation utilities are located at:
+
+    src/floodrisk/geospatial/vector.py
+
+The validator checks:
+
+- file existence
+- row count
+- CRS presence
+- geometry column presence
+- invalid geometry count
+- empty geometry count
+
+This prepares the project for safe validation of future GeoJSON or Shapefile boundary datasets.
