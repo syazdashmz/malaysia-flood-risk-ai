@@ -235,3 +235,13 @@ For daily commands, local development workflow, weather pipeline usage, and app/
 
     docs/RUNBOOK.md
 
+## Releases
+
+Release history and milestone notes are documented in:
+
+    docs/RELEASES.md
+
+Latest release:
+
+    v0.2.0 - Phase 2 Weather Pipeline
+
