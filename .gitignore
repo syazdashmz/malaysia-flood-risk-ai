@@ -45,3 +45,10 @@ mlartifacts/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Keep lightweight data documentation tracked
+!data/README.md
+!data/raw/MANIFEST.md
+!data/interim/MANIFEST.md
+!data/processed/MANIFEST.md
+!data/external/MANIFEST.md
