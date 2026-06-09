@@ -8,6 +8,9 @@ on:
     branches:
       - main
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   test:
     name: Test and lint
@@ -27,7 +30,8 @@ jobs:
           miniforge-version: latest
           environment-file: environment.yml
           activate-environment: flood-ai
-          auto-activate-base: false
+          auto-activate: false
+          conda-remove-defaults: true
 
       - name: Run Ruff format check
         run: |
