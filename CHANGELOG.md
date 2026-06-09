@@ -1,5 +1,16 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- MET Malaysia weather API client
+- Small real weather sample acquisition workflow
+- Weather JSON normalization utility
+- Weather feature extraction utility
+- Weather data quality profiling report
+- One-command weather pipeline runner
+- Idempotent raw data manifest recording
 All notable changes to this project will be documented in this file.
 
 ## v0.1.0 - MVP Foundation

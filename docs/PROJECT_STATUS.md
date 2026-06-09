@@ -39,6 +39,37 @@ No machine-learning model has been trained yet.
 
 The current prediction output comes from a transparent scoring engine, not a trained ML model.
 
+## Phase 2 Weather Pipeline Progress
+
+Completed:
+
+- MET Malaysia weather API client
+- Small weather forecast sample fetch
+- Small weather warning sample fetch
+- Raw data manifest recording
+- Idempotent manifest upsert logic
+- JSON-to-CSV normalization utility
+- Weather sample data quality profiling
+- Weather signal feature extraction
+- One-command weather pipeline runner
+
+Current local pipeline command:
+
+    .\scriptsun_weather_pipeline.ps1
+
+Current weather pipeline outputs:
+
+- Raw JSON samples in data/raw/weather/
+- Normalized CSV files in data/interim/weather/
+- Processed weather feature table in data/processed/weather/
+- Quality report in reports/weather_sample_profile.md
+- Structured manifest in data/raw/manifest.jsonl
+
+Git tracking rule:
+
+- Raw, interim, and processed data files remain ignored.
+- Lightweight metadata and quality reports may be tracked.
+
 ## Next Major Phase
 
 Phase 2: Real Data Acquisition

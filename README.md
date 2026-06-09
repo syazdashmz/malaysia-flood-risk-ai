@@ -158,6 +158,17 @@ Output:
 - Historical flood inventory
 - Malaysia administrative boundary
 
+## Phase 2 Weather Pipeline
+
+A small real-data weather sample pipeline has been added.
+
+- Data source: MET Malaysia via Malaysia Open API
+- Pipeline guide: docs/WEATHER_PIPELINE.md
+- Command: .\scriptsun_weather_pipeline.ps1
+- Quality report: reports/weather_sample_profile.md
+
+This is a small sample workflow only. It is not yet a full historical ingestion pipeline.
+
 ## Research Roadmap
 
 ### Phase 1: Transparent MVP
