@@ -2,7 +2,12 @@
 
 from typing import Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
+
+from floodrisk.data.validation import (
+    is_coordinate_in_malaysia_bbox,
+    malaysia_coordinate_error,
+)
 
 
 WaterLevelStatus = Literal["unknown", "normal", "alert", "warning", "danger"]
@@ -28,6 +33,12 @@ class FloodRiskInput(BaseModel):
 
     land_cover_class: str = "unknown"
     population_density_per_km2: float = Field(default=0, ge=0)
+
+    @model_validator(mode="after")
+    def validate_malaysia_coordinate(self) -> "FloodRiskInput":
+        if not is_coordinate_in_malaysia_bbox(self.latitude, self.longitude):
+            raise ValueError(malaysia_coordinate_error(self.latitude, self.longitude))
+        return self
 
 
 class RiskFactor(BaseModel):
