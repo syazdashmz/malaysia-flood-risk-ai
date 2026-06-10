@@ -4,10 +4,16 @@ from floodrisk.sources.data_gov_my import (
     DATA_GOV_MY_CATALOGUE_ENDPOINT,
     DataGovMyCatalogueCandidate,
     DataGovMyCataloguePlan,
+    DataGovMyCatalogueProbeResult,
+    DataGovMyCatalogueProbeSummary,
     build_data_gov_my_catalogue_plan,
+    fetch_data_gov_my_candidate_sample,
     load_data_gov_my_catalogue_candidates,
+    probe_data_gov_my_catalogue_candidates,
     render_data_gov_my_catalogue_plan_report,
+    render_data_gov_my_catalogue_probe_report,
     write_data_gov_my_catalogue_plan_report,
+    write_data_gov_my_catalogue_probe_outputs,
 )
 from floodrisk.sources.reliefweb import (
     DEFAULT_RELIEFWEB_APPNAME,
@@ -50,4 +56,10 @@ __all__ = [
     "write_data_gov_my_catalogue_plan_report",
     "write_reliefweb_discovery_plan_report",
     "write_reliefweb_metadata_discovery_outputs",
+    "DataGovMyCatalogueProbeResult",
+    "DataGovMyCatalogueProbeSummary",
+    "fetch_data_gov_my_candidate_sample",
+    "probe_data_gov_my_catalogue_candidates",
+    "render_data_gov_my_catalogue_probe_report",
+    "write_data_gov_my_catalogue_probe_outputs",
 ]

@@ -67,3 +67,16 @@ This writes:
 
 The current candidates are supporting-data candidates only. They are not direct
 `flood_occurred` labels.
+
+## Sample-Only Catalogue Probe
+
+Run:
+
+    .\scripts\run_data_gov_my_catalogue_probe.ps1
+
+This writes:
+
+    data/interim/source_discovery/data_gov_my_catalogue_probe.json
+    reports/data_gov_my_catalogue_probe_report.md
+
+These outputs are for source review only. They are not supervised ML labels.
