@@ -13,18 +13,22 @@ Main focus:
 - FastAPI experimental model status endpoint
 - FastAPI experimental prediction endpoint
 - Streamlit experimental model-readiness summary
+- Controlled EM-DAT export review workflow
+- EM-DAT interim review report and compact summary
 - Direct AI engineering workflow documentation
 - Focused model serving tests
 
 Validation:
 
 - Experimental model workflow is tested without requiring committed model binaries
+- EM-DAT workbook review is tested with synthetic workbook fixtures
 - Real official ML training readiness gate remains blocked
 
 Current model status:
 
 - Transparent scoring engine remains the public demo baseline
 - Kaggle baseline is experimental proxy AI only
+- EM-DAT export is review-ready but not training-ready
 - Official verified flood model remains blocked pending verified target labels
 
 ## v0.4.0 - Notebook and ML Readiness Foundation

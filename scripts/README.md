@@ -119,3 +119,10 @@ tunes thresholds, and runs focused API/model tests.
 ### Run target source manifest check
 
     .\scripts\run_target_source_manifest_check.ps1
+
+### Run EM-DAT export review
+
+    .\scripts\run_emdat_export_review.ps1
+
+This creates a review-only interim table and report from the local EM-DAT
+workbook. It does not approve EM-DAT for training.

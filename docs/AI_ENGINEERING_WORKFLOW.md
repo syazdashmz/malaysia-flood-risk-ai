@@ -123,7 +123,13 @@ Current local artifact:
 data/raw/emdat/emdat_public_export.xlsx
 ```
 
-Next clean step:
+Review command:
+
+```powershell
+.\scripts\run_emdat_export_review.ps1
+```
+
+Current review flow:
 
 1. Convert workbook rows into an interim review table.
 2. Keep only Malaysia flood records.
@@ -131,6 +137,12 @@ Next clean step:
 4. Extract state/district candidates from admin-unit fields.
 5. Review license and attribution.
 6. Map only verified rows into `historical_flood_events.csv`.
+
+Review outputs:
+
+- `data/interim/targets/emdat_historical_flood_events_review.csv`
+- `reports/emdat_export_review.md`
+- `reports/emdat_export_review_summary.json`
 
 Do not copy EM-DAT rows into the final target table until the review passes.
 

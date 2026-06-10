@@ -59,6 +59,8 @@ def test_notebook_catalog_includes_target_source_readiness_artifacts():
         "target_source_manifest_report",
         "target_event_source_schema",
         "target_event_source_template",
+        "emdat_export_review",
+        "emdat_export_review_summary",
     }
 
     assert expected_ids.issubset(asset_ids)
@@ -76,6 +78,8 @@ def test_notebook_catalog_marks_target_source_artifacts_as_optional():
             "target_source_manifest_report",
             "target_event_source_schema",
             "target_event_source_template",
+            "emdat_export_review",
+            "emdat_export_review_summary",
         }
     ]
 
@@ -90,3 +94,4 @@ def test_notebook_catalog_report_mentions_target_source_artifacts():
     assert "Target source candidate manifest" in report
     assert "Target event source schema report" in report
     assert "Historical flood event target template" in report
+    assert "EM-DAT export review report" in report

@@ -268,6 +268,22 @@ NOTEBOOK_DATA_ASSETS = (
         required_for_eda=False,
     ),
     NotebookDataAsset(
+        asset_id="emdat_export_review",
+        label="EM-DAT export review report",
+        category="target_source_review",
+        relative_path="reports/emdat_export_review.md",
+        description="Review-only EM-DAT export report for candidate flood-event labels.",
+        required_for_eda=False,
+    ),
+    NotebookDataAsset(
+        asset_id="emdat_export_review_summary",
+        label="EM-DAT export review summary",
+        category="target_source_review",
+        relative_path="reports/emdat_export_review_summary.json",
+        description="Compact summary of the local EM-DAT export review.",
+        required_for_eda=False,
+    ),
+    NotebookDataAsset(
         asset_id="model_training_table",
         label="Model-ready training table",
         relative_path="data/processed/model_training/training_features.csv",

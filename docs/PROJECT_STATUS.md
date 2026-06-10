@@ -50,6 +50,15 @@ Experimental model integration:
 - API prediction endpoint: `POST /experimental/flood/predict`
 - workflow runner: `.\scripts\run_experimental_ai_pipeline.ps1`
 
+Current EM-DAT review integration:
+
+- local raw export path: `data/raw/emdat/emdat_public_export.xlsx`
+- interim review table: `data/interim/targets/emdat_historical_flood_events_review.csv`
+- review report: `reports/emdat_export_review.md`
+- review summary: `reports/emdat_export_review_summary.json`
+- workflow runner: `.\scripts\run_emdat_export_review.ps1`
+- current decision: review-ready, not training-ready
+
 ## Phase 2 Weather Pipeline Progress
 
 Completed:
@@ -232,11 +241,14 @@ Key additions:
 - experimental FastAPI model status endpoint
 - experimental FastAPI prediction endpoint
 - Streamlit model-readiness sidebar summary
+- controlled EM-DAT export review workflow
+- EM-DAT interim review report and compact summary
 - focused tests for model status, feature mapping, and prediction output
 - clear AI engineering workflow documentation
 
 Current decision:
 
 - Use the Kaggle model for experimental research and API workflow testing.
+- Use EM-DAT rows only for controlled review until license and mapping checks pass.
 - Keep the transparent rule-based scoring engine as the stable public demo.
 - Keep real official supervised ML training blocked until verified target labels exist.

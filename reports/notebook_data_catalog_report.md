@@ -2,9 +2,9 @@
 
 ## Summary
 
-- Assets cataloged: 19
-- Available assets: 18
-- Explorable assets: 18
+- Assets cataloged: 21
+- Available assets: 20
+- Explorable assets: 20
 - Missing assets: 1
 - Blocking EDA assets: 0
 - Ready for initial EDA: True
@@ -31,6 +31,8 @@
 | Target source manifest report | ml_readiness | reports/target_source_manifest_report.md | False | explorable | - | 1179 |
 | Target event source schema report | ml_readiness | reports/target_event_source_schema_report.md | False | explorable | - | 853 |
 | Historical flood event target template | ml_readiness | templates/targets/historical_flood_events_template.csv | False | explorable | 0 | 153 |
+| EM-DAT export review report | target_source_review | reports/emdat_export_review.md | False | explorable | - | 1273 |
+| EM-DAT export review summary | target_source_review | reports/emdat_export_review_summary.json | False | explorable | - | 569 |
 | Model-ready training table | ml_training | data/processed/model_training/training_features.csv | False | missing | - | 0 |
 
 ## Interpretation

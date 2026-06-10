@@ -109,3 +109,17 @@ Use:
     POST /experimental/flood/predict
 
 This model is experimental only. It is not the final official verified Malaysia flood model.
+
+## EM-DAT Export Review
+
+Run the review-only EM-DAT intake:
+
+    .\scripts\run_emdat_export_review.ps1
+
+Outputs:
+
+    data/interim/targets/emdat_historical_flood_events_review.csv
+    reports/emdat_export_review.md
+    reports/emdat_export_review_summary.json
+
+This creates review evidence only. It does not approve EM-DAT rows for training.

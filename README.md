@@ -32,6 +32,7 @@ MVP foundation completed.
 - Research methodology documentation
 - Experimental Kaggle AI baseline training workflow
 - Experimental FastAPI model status and prediction endpoints
+- Controlled EM-DAT export review workflow
 - Automated tests
 
 ## Repository
@@ -317,3 +318,7 @@ The professional end-to-end workflow is documented in:
 Run the experimental AI pipeline with:
 
     .\scripts\run_experimental_ai_pipeline.ps1
+
+Review the local EM-DAT export with:
+
+    .\scripts\run_emdat_export_review.ps1

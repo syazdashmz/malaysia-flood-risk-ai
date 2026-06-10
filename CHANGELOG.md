@@ -22,8 +22,11 @@ All notable changes to this project will be documented in this file.
 - Added experimental FastAPI prediction endpoint.
 - Added Streamlit experimental model-readiness summary.
 - Added one-command experimental AI pipeline runner.
+- Added controlled EM-DAT export review workflow.
+- Added EM-DAT interim review report and compact summary output.
 - Added direct AI engineering workflow documentation.
 - Added tests for experimental model status, feature mapping, prediction output, and API validation.
+- Added tests for EM-DAT workbook review, filtering, and guardrails.
 
 ### Guardrail
 
