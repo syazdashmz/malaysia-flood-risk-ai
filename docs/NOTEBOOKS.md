@@ -70,3 +70,15 @@ The validator checks:
 - saved code outputs
 
 Notebook commits should stay clean with no execution counts and no saved outputs.
+
+## Dataset Readiness Report
+
+Run dataset readiness checks with:
+
+    .\scripts\run_dataset_readiness.ps1
+
+This generates:
+
+    reports/dataset_readiness_report.md
+
+The report shows whether the project has the minimum dataset foundation required for real ML training.

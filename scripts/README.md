@@ -56,3 +56,7 @@ Use this only when the API server is already running:
 ### Run notebook checks
 
     .\scripts\run_notebook_checks.ps1
+
+### Run dataset readiness checks
+
+    .\scripts\run_dataset_readiness.ps1
