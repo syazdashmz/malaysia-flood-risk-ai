@@ -48,3 +48,7 @@ Use this only when the API server is already running:
 ### Run geospatial checks
 
     .\scripts\run_geospatial_checks.ps1
+
+### Show geospatial summary
+
+    python scripts/show_geospatial_summary.py

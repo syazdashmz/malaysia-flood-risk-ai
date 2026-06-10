@@ -114,3 +114,15 @@ The validation report summarizes:
 - available artifacts
 - missing artifacts
 - valid vector datasets
+
+## Geospatial Summary Loader
+
+The geospatial summary loader is located at:
+
+    src/floodrisk/geospatial/summary.py
+
+It provides a compact dictionary summary for future API and Streamlit integration.
+
+Show the current summary with:
+
+    python scripts/show_geospatial_summary.py
