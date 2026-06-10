@@ -210,3 +210,28 @@ Real AI/ML training should wait until:
     data/processed/model_training/training_features.csv
 
 exists and contains a documented target label.
+
+## Training Table Schema Validation
+
+Validate the planned model-training table schema with:
+
+    .\scripts\run_training_schema_check.ps1
+
+This generates:
+
+    reports/training_table_schema_report.md
+
+The validator checks:
+
+- whether the training table exists
+- required feature columns
+- target label column
+- row count
+- schema validity
+- whether the table is structurally ready for baseline training
+
+Current expected result:
+
+    Training ready: False
+
+This remains false until a real model-ready training table is created.

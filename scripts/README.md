@@ -60,3 +60,7 @@ Use this only when the API server is already running:
 ### Run dataset readiness checks
 
     .\scripts\run_dataset_readiness.ps1
+
+### Run training table schema check
+
+    .\scripts\run_training_schema_check.ps1
