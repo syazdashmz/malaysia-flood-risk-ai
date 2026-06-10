@@ -55,3 +55,15 @@ local flash-flood events. It may work better as one of these:
 
 Review EM-DAT next. Do not approve it for training until a sample/export is
 examined and mapped against the target event schema.
+
+## EM-DAT Export Intake Plan
+
+Before importing any raw EM-DAT export, follow:
+
+    docs/EMDAT_EXPORT_INTAKE.md
+    configs/emdat_export_intake_plan.json
+    reports/emdat_export_intake_plan.md
+
+The planned raw export path is:
+
+    data/raw/emdat/emdat_public_export.csv

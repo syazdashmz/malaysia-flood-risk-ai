@@ -115,3 +115,14 @@ The next candidate target-label source review is documented at:
 EM-DAT is a candidate for `flood_occurred`, but it is not approved for training
 until access, license, date fields, location granularity, and schema mapping are
 validated.
+
+## EM-DAT Export Intake
+
+The controlled intake plan for a future EM-DAT export is documented at:
+
+    docs/EMDAT_EXPORT_INTAKE.md
+    configs/emdat_export_intake_plan.json
+    reports/emdat_export_intake_plan.md
+
+Do not import EM-DAT rows into the processed target file until license, date,
+location, and schema mapping checks pass.

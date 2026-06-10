@@ -1,0 +1,56 @@
+{
+  "source_id": "emdat",
+  "label": "EM-DAT Export Intake Plan",
+  "review_status": "planned",
+  "raw_export_path": "data/raw/emdat/emdat_public_export.csv",
+  "processed_target_path": "data/processed/targets/historical_flood_events.csv",
+  "direct_training_use_allowed": false,
+  "target_label_candidate": true,
+  "required_filter": {
+    "country": "Malaysia",
+    "disaster_type": "Flood"
+  },
+  "required_field_groups": [
+    {
+      "field_group": "country",
+      "required": true,
+      "aliases": ["Country", "country"]
+    },
+    {
+      "field_group": "disaster_type",
+      "required": true,
+      "aliases": ["Disaster Type", "disaster_type", "Disaster Subtype"]
+    },
+    {
+      "field_group": "start_date",
+      "required": true,
+      "aliases": ["Start Year", "Start Month", "Start Day"]
+    },
+    {
+      "field_group": "end_date",
+      "required": false,
+      "aliases": ["End Year", "End Month", "End Day"]
+    },
+    {
+      "field_group": "location",
+      "required": false,
+      "aliases": ["Location", "Admin Units", "Region", "Subregion"]
+    },
+    {
+      "field_group": "event_identifier",
+      "required": false,
+      "aliases": ["DisNo.", "DisNo", "Event Name"]
+    }
+  ],
+  "approval_requirements": [
+    "raw export file is obtained from an approved EM-DAT access path",
+    "license and attribution notes are recorded",
+    "Malaysia flood rows are present",
+    "date fields can map to event_start_date and event_end_date",
+    "location field quality is reviewed",
+    "records can map to the target event schema",
+    "target leakage risk is checked before training"
+  ],
+  "current_decision": "prepare_intake_before_import",
+  "notes": "This plan prepares the project to receive an EM-DAT export, but does not approve EM-DAT for training yet."
+}
