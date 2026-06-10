@@ -52,3 +52,7 @@ Use this only when the API server is already running:
 ### Show geospatial summary
 
     python scripts/show_geospatial_summary.py
+
+### Run notebook checks
+
+    .\scripts\run_notebook_checks.ps1

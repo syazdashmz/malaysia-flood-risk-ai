@@ -50,3 +50,23 @@ The project still needs:
 - model-ready feature table
 - train/validation split strategy
 - baseline evaluation plan
+
+## Notebook Validation
+
+Run notebook checks with:
+
+    .\scripts\run_notebook_checks.ps1
+
+This generates:
+
+    reports/notebook_validation_report.md
+
+The validator checks:
+
+- valid notebook JSON
+- notebook format version
+- cell counts
+- executed code cells
+- saved code outputs
+
+Notebook commits should stay clean with no execution counts and no saved outputs.
