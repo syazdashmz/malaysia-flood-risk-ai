@@ -1,0 +1,158 @@
+{
+  "country": "Malaysia",
+  "coverage_level": "state_and_federal_territory",
+  "total_regions": 16,
+  "regions": [
+    {
+      "name": "Johor",
+      "type": "state",
+      "region_group": "Peninsular Malaysia",
+      "capital_or_admin_centre": "Johor Bahru",
+      "latitude": 1.4927,
+      "longitude": 103.7414,
+      "priority_hazards": ["monsoon flood", "river flood", "urban flood"]
+    },
+    {
+      "name": "Kedah",
+      "type": "state",
+      "region_group": "Peninsular Malaysia",
+      "capital_or_admin_centre": "Alor Setar",
+      "latitude": 6.1248,
+      "longitude": 100.3678,
+      "priority_hazards": ["monsoon flood", "river flood", "coastal flood"]
+    },
+    {
+      "name": "Kelantan",
+      "type": "state",
+      "region_group": "Peninsular Malaysia",
+      "capital_or_admin_centre": "Kota Bharu",
+      "latitude": 6.1254,
+      "longitude": 102.2381,
+      "priority_hazards": ["monsoon flood", "river flood"]
+    },
+    {
+      "name": "Melaka",
+      "type": "state",
+      "region_group": "Peninsular Malaysia",
+      "capital_or_admin_centre": "Melaka City",
+      "latitude": 2.1896,
+      "longitude": 102.2501,
+      "priority_hazards": ["urban flood", "river flood", "coastal flood"]
+    },
+    {
+      "name": "Negeri Sembilan",
+      "type": "state",
+      "region_group": "Peninsular Malaysia",
+      "capital_or_admin_centre": "Seremban",
+      "latitude": 2.7297,
+      "longitude": 101.9381,
+      "priority_hazards": ["river flood", "urban flood"]
+    },
+    {
+      "name": "Pahang",
+      "type": "state",
+      "region_group": "Peninsular Malaysia",
+      "capital_or_admin_centre": "Kuantan",
+      "latitude": 3.8126,
+      "longitude": 103.3256,
+      "priority_hazards": ["monsoon flood", "river flood", "coastal flood"]
+    },
+    {
+      "name": "Perak",
+      "type": "state",
+      "region_group": "Peninsular Malaysia",
+      "capital_or_admin_centre": "Ipoh",
+      "latitude": 4.5975,
+      "longitude": 101.0901,
+      "priority_hazards": ["river flood", "urban flood"]
+    },
+    {
+      "name": "Perlis",
+      "type": "state",
+      "region_group": "Peninsular Malaysia",
+      "capital_or_admin_centre": "Kangar",
+      "latitude": 6.4414,
+      "longitude": 100.1986,
+      "priority_hazards": ["river flood", "monsoon flood"]
+    },
+    {
+      "name": "Pulau Pinang",
+      "type": "state",
+      "region_group": "Peninsular Malaysia",
+      "capital_or_admin_centre": "George Town",
+      "latitude": 5.4141,
+      "longitude": 100.3288,
+      "priority_hazards": ["urban flood", "coastal flood", "flash flood"]
+    },
+    {
+      "name": "Sabah",
+      "type": "state",
+      "region_group": "East Malaysia",
+      "capital_or_admin_centre": "Kota Kinabalu",
+      "latitude": 5.9804,
+      "longitude": 116.0735,
+      "priority_hazards": ["river flood", "coastal flood", "landslide-linked flood"]
+    },
+    {
+      "name": "Sarawak",
+      "type": "state",
+      "region_group": "East Malaysia",
+      "capital_or_admin_centre": "Kuching",
+      "latitude": 1.5533,
+      "longitude": 110.3592,
+      "priority_hazards": ["river flood", "monsoon flood", "coastal flood"]
+    },
+    {
+      "name": "Selangor",
+      "type": "state",
+      "region_group": "Peninsular Malaysia",
+      "capital_or_admin_centre": "Shah Alam",
+      "latitude": 3.0738,
+      "longitude": 101.5183,
+      "priority_hazards": ["urban flood", "river flood", "flash flood"]
+    },
+    {
+      "name": "Terengganu",
+      "type": "state",
+      "region_group": "Peninsular Malaysia",
+      "capital_or_admin_centre": "Kuala Terengganu",
+      "latitude": 5.3296,
+      "longitude": 103.1370,
+      "priority_hazards": ["monsoon flood", "river flood", "coastal flood"]
+    },
+    {
+      "name": "Kuala Lumpur",
+      "type": "federal_territory",
+      "region_group": "Peninsular Malaysia",
+      "capital_or_admin_centre": "Kuala Lumpur",
+      "latitude": 3.1390,
+      "longitude": 101.6869,
+      "priority_hazards": ["urban flood", "flash flood", "river flood"]
+    },
+    {
+      "name": "Labuan",
+      "type": "federal_territory",
+      "region_group": "East Malaysia",
+      "capital_or_admin_centre": "Victoria",
+      "latitude": 5.2831,
+      "longitude": 115.2308,
+      "priority_hazards": ["coastal flood", "urban flood"]
+    },
+    {
+      "name": "Putrajaya",
+      "type": "federal_territory",
+      "region_group": "Peninsular Malaysia",
+      "capital_or_admin_centre": "Putrajaya",
+      "latitude": 2.9264,
+      "longitude": 101.6964,
+      "priority_hazards": ["urban flood", "lake/drainage overflow"]
+    }
+  ],
+  "future_expansion": {
+    "district_level_registry": "planned",
+    "river_station_registry": "planned",
+    "mywater_did_station_linkage": "planned",
+    "live_weather_api_linkage": "planned",
+    "historical_flood_event_linkage": "planned"
+  }
+}
