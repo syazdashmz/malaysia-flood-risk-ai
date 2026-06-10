@@ -1,0 +1,242 @@
+{
+  "source_id": "kaggle_malaysia_flood_master",
+  "training_mode": "experimental_threshold_tuning",
+  "target_column": "Flood",
+  "test_rows": 6567,
+  "test_positive_rows": 187,
+  "best_f1": {
+    "threshold": 0.95,
+    "precision": 0.4716,
+    "recall": 0.8877,
+    "f1": 0.616,
+    "true_negative": 6194,
+    "false_positive": 186,
+    "false_negative": 21,
+    "true_positive": 166,
+    "predicted_positive": 352
+  },
+  "best_high_recall": {
+    "threshold": 0.75,
+    "precision": 0.3475,
+    "recall": 0.9626,
+    "f1": 0.5106,
+    "true_negative": 6042,
+    "false_positive": 338,
+    "false_negative": 7,
+    "true_positive": 180,
+    "predicted_positive": 518
+  },
+  "best_high_precision": null,
+  "thresholds": [
+    {
+      "threshold": 0.05,
+      "precision": 0.0971,
+      "recall": 1.0,
+      "f1": 0.177,
+      "true_negative": 4641,
+      "false_positive": 1739,
+      "false_negative": 0,
+      "true_positive": 187,
+      "predicted_positive": 1926
+    },
+    {
+      "threshold": 0.1,
+      "precision": 0.1273,
+      "recall": 1.0,
+      "f1": 0.2258,
+      "true_negative": 5098,
+      "false_positive": 1282,
+      "false_negative": 0,
+      "true_positive": 187,
+      "predicted_positive": 1469
+    },
+    {
+      "threshold": 0.15,
+      "precision": 0.1501,
+      "recall": 1.0,
+      "f1": 0.261,
+      "true_negative": 5321,
+      "false_positive": 1059,
+      "false_negative": 0,
+      "true_positive": 187,
+      "predicted_positive": 1246
+    },
+    {
+      "threshold": 0.2,
+      "precision": 0.1711,
+      "recall": 1.0,
+      "f1": 0.2922,
+      "true_negative": 5474,
+      "false_positive": 906,
+      "false_negative": 0,
+      "true_positive": 187,
+      "predicted_positive": 1093
+    },
+    {
+      "threshold": 0.25,
+      "precision": 0.1889,
+      "recall": 1.0,
+      "f1": 0.3178,
+      "true_negative": 5577,
+      "false_positive": 803,
+      "false_negative": 0,
+      "true_positive": 187,
+      "predicted_positive": 990
+    },
+    {
+      "threshold": 0.3,
+      "precision": 0.2022,
+      "recall": 1.0,
+      "f1": 0.3363,
+      "true_negative": 5642,
+      "false_positive": 738,
+      "false_negative": 0,
+      "true_positive": 187,
+      "predicted_positive": 925
+    },
+    {
+      "threshold": 0.35,
+      "precision": 0.2167,
+      "recall": 1.0,
+      "f1": 0.3562,
+      "true_negative": 5704,
+      "false_positive": 676,
+      "false_negative": 0,
+      "true_positive": 187,
+      "predicted_positive": 863
+    },
+    {
+      "threshold": 0.4,
+      "precision": 0.232,
+      "recall": 1.0,
+      "f1": 0.3766,
+      "true_negative": 5761,
+      "false_positive": 619,
+      "false_negative": 0,
+      "true_positive": 187,
+      "predicted_positive": 806
+    },
+    {
+      "threshold": 0.45,
+      "precision": 0.2487,
+      "recall": 0.9947,
+      "f1": 0.3979,
+      "true_negative": 5818,
+      "false_positive": 562,
+      "false_negative": 1,
+      "true_positive": 186,
+      "predicted_positive": 748
+    },
+    {
+      "threshold": 0.5,
+      "precision": 0.2623,
+      "recall": 0.9947,
+      "f1": 0.4152,
+      "true_negative": 5857,
+      "false_positive": 523,
+      "false_negative": 1,
+      "true_positive": 186,
+      "predicted_positive": 709
+    },
+    {
+      "threshold": 0.55,
+      "precision": 0.2776,
+      "recall": 0.9947,
+      "f1": 0.4341,
+      "true_negative": 5896,
+      "false_positive": 484,
+      "false_negative": 1,
+      "true_positive": 186,
+      "predicted_positive": 670
+    },
+    {
+      "threshold": 0.6,
+      "precision": 0.2946,
+      "recall": 0.9893,
+      "f1": 0.454,
+      "true_negative": 5937,
+      "false_positive": 443,
+      "false_negative": 2,
+      "true_positive": 185,
+      "predicted_positive": 628
+    },
+    {
+      "threshold": 0.65,
+      "precision": 0.3091,
+      "recall": 0.9786,
+      "f1": 0.4698,
+      "true_negative": 5971,
+      "false_positive": 409,
+      "false_negative": 4,
+      "true_positive": 183,
+      "predicted_positive": 592
+    },
+    {
+      "threshold": 0.7,
+      "precision": 0.3249,
+      "recall": 0.9626,
+      "f1": 0.4858,
+      "true_negative": 6006,
+      "false_positive": 374,
+      "false_negative": 7,
+      "true_positive": 180,
+      "predicted_positive": 554
+    },
+    {
+      "threshold": 0.75,
+      "precision": 0.3475,
+      "recall": 0.9626,
+      "f1": 0.5106,
+      "true_negative": 6042,
+      "false_positive": 338,
+      "false_negative": 7,
+      "true_positive": 180,
+      "predicted_positive": 518
+    },
+    {
+      "threshold": 0.8,
+      "precision": 0.3649,
+      "recall": 0.9465,
+      "f1": 0.5268,
+      "true_negative": 6072,
+      "false_positive": 308,
+      "false_negative": 10,
+      "true_positive": 177,
+      "predicted_positive": 485
+    },
+    {
+      "threshold": 0.85,
+      "precision": 0.3929,
+      "recall": 0.9412,
+      "f1": 0.5543,
+      "true_negative": 6108,
+      "false_positive": 272,
+      "false_negative": 11,
+      "true_positive": 176,
+      "predicted_positive": 448
+    },
+    {
+      "threshold": 0.9,
+      "precision": 0.4237,
+      "recall": 0.9358,
+      "f1": 0.5833,
+      "true_negative": 6142,
+      "false_positive": 238,
+      "false_negative": 12,
+      "true_positive": 175,
+      "predicted_positive": 413
+    },
+    {
+      "threshold": 0.95,
+      "precision": 0.4716,
+      "recall": 0.8877,
+      "f1": 0.616,
+      "true_negative": 6194,
+      "false_positive": 186,
+      "false_negative": 21,
+      "true_positive": 166,
+      "predicted_positive": 352
+    }
+  ],
+  "guardrail": "Experimental proxy baseline only. Do not present as final official verified flood model."
+}
