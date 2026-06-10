@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import sys
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 import pandas as pd
 import streamlit as st
@@ -19,7 +19,11 @@ if str(SRC_PATH) not in sys.path:
     sys.path.insert(0, str(SRC_PATH))
 
 from floodrisk.risk_engine import calculate_risk  # noqa: E402
-from floodrisk.schemas import FloodRiskInput  # noqa: E402
+from floodrisk.schemas import (  # noqa: E402
+    FloodRiskInput,
+    WaterLevelStatus,
+    WeatherWarningStatus,
+)
 
 
 def load_weather_summary_status() -> dict[str, Any]:
@@ -325,8 +329,11 @@ try:
         historical_flood_distance_m=historical_flood_distance_m,
         rainfall_24h_mm=rainfall_24h_mm,
         rainfall_72h_mm=rainfall_72h_mm,
-        water_level_status=water_level_status,
-        weather_warning_status=weather_warning_status,
+        water_level_status=cast(WaterLevelStatus, water_level_status),
+        weather_warning_status=cast(
+            WeatherWarningStatus,
+            weather_warning_status,
+        ),
         land_cover_class=land_cover_class,
         population_density_per_km2=population_density_per_km2,
     )
