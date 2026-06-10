@@ -64,3 +64,7 @@ Use this only when the API server is already running:
 ### Run training table schema check
 
     .\scripts\run_training_schema_check.ps1
+
+### Run notebook environment check
+
+    .\scripts\run_notebook_environment_check.ps1

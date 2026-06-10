@@ -112,3 +112,21 @@ This means the model-ready training table blocker is cleared only when:
 - the table has at least one row
 
 A placeholder CSV with the wrong schema does not make the project training-ready.
+
+## Notebook Environment Check
+
+Run notebook environment checks with:
+
+    .\scripts\run_notebook_environment_check.ps1
+
+This generates:
+
+    reports/notebook_environment_report.md
+
+The report checks:
+
+- project package import
+- pandas availability
+- matplotlib availability
+- ipykernel availability
+- optional geospatial and ML notebook dependencies
