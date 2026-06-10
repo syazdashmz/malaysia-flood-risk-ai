@@ -19,9 +19,9 @@
       "partner content may have separate copyright restrictions",
       "not directly a clean supervised training label table"
     ],
-    "initial_decision": "review_first",
+    "initial_decision": "blocked_pending_approved_appname",
     "allowed_direct_training_use": false,
-    "notes": "Use as a discovery index first, not as final training labels."
+    "notes": "Use as a discovery index only after approved appname access is configured."
   },
   {
     "source_id": "emdat",
@@ -66,9 +66,9 @@
       "flood event target availability still needs confirmation",
       "may provide supporting features rather than target labels"
     ],
-    "initial_decision": "review_third",
+    "initial_decision": "review_next",
     "allowed_direct_training_use": false,
-    "notes": "Use for official Malaysia data discovery and supporting feature sources."
+    "notes": "Use next for official Malaysia data discovery and supporting feature sources."
   },
   {
     "source_id": "public_info_banjir_jps",

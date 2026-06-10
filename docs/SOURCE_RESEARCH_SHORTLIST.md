@@ -83,3 +83,14 @@ The ReliefWeb discovery workflow is documented at:
 The generated query plan report is:
 
     reports/reliefweb_discovery_plan.md
+
+## ReliefWeb Access Status
+
+ReliefWeb live metadata discovery is currently blocked because the API requires
+an approved appname.
+
+Current decision:
+
+- keep ReliefWeb as a future discovery source
+- do not use it as a direct training-label source
+- pivot next to `data.gov.my` for Malaysia-first official data discovery

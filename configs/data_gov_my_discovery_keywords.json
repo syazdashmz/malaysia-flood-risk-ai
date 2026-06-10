@@ -1,0 +1,32 @@
+[
+  {
+    "query_id": "flood",
+    "keyword": "flood",
+    "purpose": "Search for English flood-related datasets."
+  },
+  {
+    "query_id": "banjir",
+    "keyword": "banjir",
+    "purpose": "Search for Malay flood-related datasets."
+  },
+  {
+    "query_id": "rainfall",
+    "keyword": "rainfall",
+    "purpose": "Search for rainfall feature datasets."
+  },
+  {
+    "query_id": "river",
+    "keyword": "river",
+    "purpose": "Search for river or hydrology feature datasets."
+  },
+  {
+    "query_id": "weather",
+    "keyword": "weather",
+    "purpose": "Search for weather context datasets."
+  },
+  {
+    "query_id": "district",
+    "keyword": "district",
+    "purpose": "Search for administrative district reference datasets."
+  }
+]

@@ -48,3 +48,22 @@ This writes:
     reports/reliefweb_metadata_discovery_report.md
 
 These outputs are for source review only. They are not supervised ML labels.
+
+## Blocked Pending Approved Appname
+
+The live ReliefWeb metadata request reached the API but was blocked with:
+
+    HTTP 403 Forbidden
+
+The API response stated that the request is not using an approved appname.
+ReliefWeb should remain a planned discovery source until an approved appname is
+requested and configured.
+
+## Current Decision
+
+Do not block the project on ReliefWeb approval. Pivot to the next official
+source-discovery path:
+
+    data.gov.my
+
+ReliefWeb remains useful later, but it is currently marked as pending access.
