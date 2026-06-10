@@ -32,3 +32,11 @@ Notebooks should be:
 Real AI/ML training has not started yet.
 
 The project is preparing the data and notebook foundation first.
+
+## Exploration Notebooks
+
+Current exploration notebook:
+
+    notebooks/exploration/01_initial_data_catalog_eda.ipynb
+
+This notebook starts initial EDA using currently available assets.

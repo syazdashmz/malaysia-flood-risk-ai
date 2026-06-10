@@ -149,3 +149,19 @@ The catalog lists available assets for initial EDA, including:
 - notebook readiness reports
 - training schema reports
 - future model-training table status
+
+## Initial EDA Notebook
+
+The first exploration notebook is:
+
+    notebooks/exploration/01_initial_data_catalog_eda.ipynb
+
+Purpose:
+
+- inspect the notebook data catalog
+- inspect sample Malaysia locations
+- inspect weather summary data
+- inspect dataset and training readiness reports
+- document what still blocks real ML training
+
+This notebook does not train a model.
