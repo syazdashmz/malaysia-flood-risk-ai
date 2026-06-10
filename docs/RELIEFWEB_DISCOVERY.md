@@ -35,3 +35,16 @@ This generates:
 
 Create a live metadata-only discovery script after the offline query plan is
 validated.
+
+## Metadata-Only Discovery
+
+After validating the offline query plan, run:
+
+    .\scripts\run_reliefweb_metadata_discovery.ps1
+
+This writes:
+
+    data/interim/source_discovery/reliefweb_metadata.json
+    reports/reliefweb_metadata_discovery_report.md
+
+These outputs are for source review only. They are not supervised ML labels.
