@@ -4,7 +4,7 @@
 
 Release page:
 
-    Planned
+    https://github.com/syazdashmz/malaysia-flood-risk-ai/releases/tag/v0.5.0
 
 Main focus:
 
@@ -20,6 +20,10 @@ Main focus:
 
 Validation:
 
+- 261 tests passed locally
+- Ruff lint and format checks passed
+- Experimental AI flood pipeline completed
+- FastAPI endpoint smoke test passed
 - Experimental model workflow is tested without requiring committed model binaries
 - EM-DAT workbook review is tested with synthetic workbook fixtures
 - Real official ML training readiness gate remains blocked
