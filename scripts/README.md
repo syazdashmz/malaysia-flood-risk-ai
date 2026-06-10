@@ -72,3 +72,7 @@ Use this only when the API server is already running:
 ### Run notebook data catalog
 
     .\scripts\run_notebook_data_catalog.ps1
+
+### Run notebook smoke tests
+
+    .\scripts\run_notebook_smoke_tests.ps1

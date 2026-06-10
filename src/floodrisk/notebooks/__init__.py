@@ -1,4 +1,4 @@
-"""Notebook validation, environment, and data catalog utilities."""
+"""Notebook utilities."""
 
 from floodrisk.notebooks.catalog import (
     NotebookDataAsset,
@@ -18,6 +18,14 @@ from floodrisk.notebooks.environment import (
     render_notebook_environment_report,
     write_notebook_environment_report,
 )
+from floodrisk.notebooks.execution import (
+    NotebookExecutionResult,
+    NotebookExecutionSummary,
+    execute_notebook_smoke_test,
+    render_notebook_execution_report,
+    smoke_test_notebook_directory,
+    write_notebook_execution_report,
+)
 from floodrisk.notebooks.validation import (
     NotebookValidation,
     render_notebook_validation_report,
@@ -33,17 +41,23 @@ __all__ = [
     "NotebookDependency",
     "NotebookDependencyCheck",
     "NotebookEnvironmentSummary",
+    "NotebookExecutionResult",
+    "NotebookExecutionSummary",
     "NotebookValidation",
     "build_notebook_data_catalog",
     "check_notebook_dependency",
     "check_notebook_environment",
+    "execute_notebook_smoke_test",
     "list_notebook_data_assets",
     "render_notebook_data_catalog_report",
     "render_notebook_environment_report",
+    "render_notebook_execution_report",
     "render_notebook_validation_report",
+    "smoke_test_notebook_directory",
     "validate_notebook",
     "validate_notebook_directory",
     "write_notebook_data_catalog_report",
     "write_notebook_environment_report",
+    "write_notebook_execution_report",
     "write_notebook_validation_report",
 ]

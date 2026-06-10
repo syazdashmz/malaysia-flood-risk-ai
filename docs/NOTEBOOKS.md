@@ -165,3 +165,15 @@ Purpose:
 - document what still blocks real ML training
 
 This notebook does not train a model.
+
+## Notebook Smoke Execution
+
+Run notebook smoke execution checks with:
+
+    .\scripts\run_notebook_smoke_tests.ps1
+
+This generates:
+
+    reports/notebook_execution_report.md
+
+The smoke test executes notebook code cells in memory without saving outputs back into notebook files.
