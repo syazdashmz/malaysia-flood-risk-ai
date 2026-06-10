@@ -2,9 +2,9 @@
 
 ## Summary
 
-- Assets cataloged: 14
-- Available assets: 13
-- Explorable assets: 13
+- Assets cataloged: 19
+- Available assets: 18
+- Explorable assets: 18
 - Missing assets: 1
 - Blocking EDA assets: 0
 - Ready for initial EDA: True
@@ -25,7 +25,12 @@
 | Feature table generation plan | ml_readiness | reports/feature_table_plan.md | False | explorable | - | 3696 |
 | Feature table builder dry run | ml_readiness | reports/feature_table_builder_dry_run.md | False | explorable | - | 1130 |
 | Target label source plan | ml_readiness | reports/target_label_source_plan.md | False | explorable | - | 1864 |
-| ML training readiness gate | ml_readiness | reports/ml_training_readiness_report.md | False | explorable | - | 949 |
+| ML training readiness gate | ml_readiness | reports/ml_training_readiness_report.md | False | explorable | - | 1463 |
+| Target label source evaluation | ml_readiness | reports/target_label_source_evaluation.md | False | explorable | - | 2403 |
+| Target source candidate manifest | ml_readiness | configs/target_source_candidates.json | False | explorable | - | 2873 |
+| Target source manifest report | ml_readiness | reports/target_source_manifest_report.md | False | explorable | - | 1179 |
+| Target event source schema report | ml_readiness | reports/target_event_source_schema_report.md | False | explorable | - | 853 |
+| Historical flood event target template | ml_readiness | templates/targets/historical_flood_events_template.csv | False | explorable | 0 | 153 |
 | Model-ready training table | ml_training | data/processed/model_training/training_features.csv | False | missing | - | 0 |
 
 ## Interpretation
