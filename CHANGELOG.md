@@ -37,6 +37,8 @@
 
 ## Unreleased
 
+## 0.3.0 - Geospatial Foundation Pipeline
+
 ### Added
 
 - Added geospatial foundation module for Malaysia bounding-box utilities.

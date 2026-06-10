@@ -154,3 +154,14 @@ Current limitation:
 
 - Real administrative boundary files are not bundled yet.
 - Bounding-box validation is still broad and does not replace point-in-polygon boundary validation.
+
+## Release Readiness - v0.3.0
+
+The v0.3.0 Geospatial Foundation Pipeline milestone is ready for release.
+
+Validation:
+
+- 82 tests passed locally.
+- Geospatial checks completed successfully.
+- Boundary artifacts are correctly reported as planned but missing.
+- No unverified administrative boundary files are bundled.
