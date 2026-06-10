@@ -41,6 +41,7 @@ This regenerates:
 
 - `reports/target_label_source_plan.md`
 - `reports/target_label_source_evaluation.md`
+- `reports/target_source_manifest_report.md`
 - `reports/target_event_source_schema_report.md`
 - `reports/feature_table_plan.md`
 - `reports/feature_table_builder_dry_run.md`

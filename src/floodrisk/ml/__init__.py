@@ -36,6 +36,14 @@ from floodrisk.ml.target_source_evaluation import (
     render_target_source_evaluation_report,
     write_target_source_evaluation_report,
 )
+from floodrisk.ml.target_source_manifest import (
+    TARGET_SOURCE_MANIFEST_PATH,
+    TargetSourceManifestCandidate,
+    TargetSourceManifestValidation,
+    render_target_source_manifest_report,
+    validate_target_source_manifest,
+    write_target_source_manifest_report,
+)
 from floodrisk.ml.training_readiness import (
     MLTrainingReadinessSummary,
     build_ml_training_readiness_summary,
@@ -92,4 +100,10 @@ __all__ = [
     "write_target_label_source_plan_report",
     "write_target_source_evaluation_report",
     "write_training_table_schema_report",
+    "TARGET_SOURCE_MANIFEST_PATH",
+    "TargetSourceManifestCandidate",
+    "TargetSourceManifestValidation",
+    "render_target_source_manifest_report",
+    "validate_target_source_manifest",
+    "write_target_source_manifest_report",
 ]

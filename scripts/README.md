@@ -108,3 +108,7 @@ Use this only when the API server is already running:
 ### Run target event source schema check
 
     .\scripts\run_target_event_source_schema_check.ps1
+
+### Run target source manifest check
+
+    .\scripts\run_target_source_manifest_check.ps1
