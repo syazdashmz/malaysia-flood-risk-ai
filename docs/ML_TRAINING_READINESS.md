@@ -73,3 +73,13 @@ source:
 The tracked CSV template is:
 
     templates/targets/historical_flood_events_template.csv
+
+## Data Acquisition Plan
+
+Before real supervised ML training can begin, use:
+
+    docs/DATA_ACQUISITION_PLAN.md
+    docs/DATA_SOURCE_REVIEW_CHECKLIST.md
+
+These documents define how candidate historical flood sources should be reviewed
+before they are added to the target source manifest or processed target table.
