@@ -44,3 +44,9 @@ Run:
 This generates:
 
     reports/target_event_source_schema_report.md
+
+## CSV Template
+
+A tracked header-only template is available at:
+
+    templates/targets/historical_flood_events_template.csv

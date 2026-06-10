@@ -61,3 +61,14 @@ It may be used only for:
 Real supervised ML training can start only after a verified historical flood
 label source is integrated, aligned by location and time, and validated against
 the required training-table schema.
+
+## Target Event Source Template
+
+Use this documentation before preparing any real historical flood-event target
+source:
+
+    docs/TARGET_EVENT_SOURCE_TEMPLATE.md
+
+The tracked CSV template is:
+
+    templates/targets/historical_flood_events_template.csv
