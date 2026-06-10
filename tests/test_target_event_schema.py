@@ -64,3 +64,12 @@ def test_target_event_source_report_contains_decision(tmp_path: Path):
     assert "Target Event Source Schema Report" in report
     assert "Ready for target generation: False" in report
     assert "not ready for label generation yet" in report
+
+
+def test_target_event_source_report_uses_portable_relative_path(tmp_path: Path):
+    validation = validate_target_event_source_schema(tmp_path)
+    report = render_target_event_source_schema_report(validation)
+
+    assert validation.path == "data/processed/targets/historical_flood_events.csv"
+    assert str(tmp_path) not in report
+    assert "\\" not in validation.path

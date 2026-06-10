@@ -2,7 +2,7 @@
 
 ## Summary
 
-- Path: `C:\Users\Danish\Coding\Project\AI\malaysia-flood-risk-ai\data\processed\targets\historical_flood_events.csv`
+- Path: `data/processed/targets/historical_flood_events.csv`
 - Exists: False
 - Rows: 0
 - Columns: 0

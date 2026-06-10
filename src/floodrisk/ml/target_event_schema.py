@@ -146,11 +146,12 @@ def validate_target_event_source_schema(
 ) -> TargetEventSourceValidation:
     """Validate future historical flood event target source."""
 
-    path = project_root / relative_path
+    path = relative_path if relative_path.is_absolute() else project_root / relative_path
+    display_path = str(relative_path) if relative_path.is_absolute() else relative_path.as_posix()
 
     if not path.exists():
         return TargetEventSourceValidation(
-            path=str(path),
+            path=display_path,
             exists=False,
             row_count=0,
             columns=[],
@@ -174,7 +175,7 @@ def validate_target_event_source_schema(
             invalid_rows.extend(_validate_row(row, index))
 
     return TargetEventSourceValidation(
-        path=str(path),
+        path=display_path,
         exists=True,
         row_count=len(rows),
         columns=columns,
