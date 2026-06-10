@@ -11,7 +11,7 @@ def test_normalize_reliefweb_report_extracts_metadata_only():
     item = {
         "id": "123",
         "fields": {
-            "name": "Malaysia Floods Update",
+            "title": "Malaysia Floods Update",
             "url": "https://reliefweb.int/report/example",
             "date": {"created": "2024-01-01T00:00:00+00:00", "original": "2024-01-01"},
             "source": [{"name": "Example Source"}],

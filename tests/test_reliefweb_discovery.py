@@ -42,3 +42,11 @@ def test_reliefweb_discovery_report_contains_guardrail():
     assert "ReliefWeb Discovery Plan" in report
     assert "Direct training use allowed: False" in report
     assert "Do not treat discovered report content as final supervised ML labels" in report
+
+
+def test_reliefweb_discovery_payload_uses_report_title_field():
+    plan = build_reliefweb_discovery_plan(Path("."))
+    fields = plan.queries[0].payload()["fields"]["include"]
+
+    assert "title" in fields
+    assert "name" not in fields

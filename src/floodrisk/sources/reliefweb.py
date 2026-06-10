@@ -21,7 +21,7 @@ RELIEFWEB_QUERY_CONFIG_PATH = Path("configs/reliefweb_discovery_queries.json")
 
 RELIEFWEB_REPORT_FIELDS = [
     "id",
-    "name",
+    "title",
     "url",
     "date.created",
     "date.original",
@@ -315,7 +315,7 @@ def normalize_reliefweb_report(
 
     return ReliefWebDiscoveredReport(
         report_id=str(item.get("id", "")),
-        title=str(fields.get("name", "")),
+        title=str(fields.get("title", "")),
         url=str(fields.get("url", "")),
         created_at=str(date_info.get("created", "")),
         original_date=str(date_info.get("original", "")),

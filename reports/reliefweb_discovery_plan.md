@@ -45,7 +45,7 @@ Endpoint: `https://api.reliefweb.int/v2/reports?appname=malaysia-flood-risk-ai`
   "fields": {
     "include": [
       "id",
-      "name",
+      "title",
       "url",
       "date.created",
       "date.original",
@@ -88,7 +88,7 @@ Endpoint: `https://api.reliefweb.int/v2/reports?appname=malaysia-flood-risk-ai`
   "fields": {
     "include": [
       "id",
-      "name",
+      "title",
       "url",
       "date.created",
       "date.original",
@@ -131,7 +131,7 @@ Endpoint: `https://api.reliefweb.int/v2/reports?appname=malaysia-flood-risk-ai`
   "fields": {
     "include": [
       "id",
-      "name",
+      "title",
       "url",
       "date.created",
       "date.original",
