@@ -104,3 +104,7 @@ Use this only when the API server is already running:
 ### Run target label source evaluation
 
     .\scripts\run_target_label_source_evaluation.ps1
+
+### Run target event source schema check
+
+    .\scripts\run_target_event_source_schema_check.ps1
