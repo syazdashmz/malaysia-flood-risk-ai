@@ -1,0 +1,16 @@
+{
+  "source_id": "kaggle_malaysia_flood_master",
+  "training_mode": "experimental_model_benchmark",
+  "baseline_config_path": "configs/kaggle_flood_baseline_training.json",
+  "metrics_path": "reports/kaggle_flood_model_benchmark_metrics.json",
+  "report_path": "reports/kaggle_flood_model_benchmark_report.md",
+  "selection_metric": "flood_priority_score",
+  "priority_weights": {
+    "recall": 0.50,
+    "f1": 0.25,
+    "pr_auc": 0.15,
+    "roc_auc": 0.10,
+    "false_positive_rate_penalty": 0.10
+  },
+  "guardrail": "Experimental proxy model benchmark only. Do not present as an official verified flood warning model."
+}
