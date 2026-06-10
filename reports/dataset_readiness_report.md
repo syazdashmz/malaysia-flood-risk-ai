@@ -3,9 +3,9 @@
 ## Summary
 
 - Checks: 6
-- Available: 4
-- Missing: 2
-- Blocking training: 2
+- Available: 5
+- Missing: 1
+- Blocking training: 1
 - Ready for ML training: False
 
 ## Checks
@@ -16,7 +16,7 @@
 | Weather risk signal summary | reports/weather_risk_signal_summary.json | False | available | False |
 | Geospatial validation report | reports/geospatial_validation_report.md | False | available | False |
 | Project readiness notebook | notebooks/00_project_readiness.ipynb | False | available | False |
-| Training dataset design document | docs/TRAINING_DATASET.md | True | missing | True |
+| Training dataset design document | docs/TRAINING_DATASET.md | True | available | False |
 | Model-ready training table | data/processed/model_training/training_features.csv | True | missing | True |
 
 ## Interpretation

@@ -288,3 +288,11 @@ Start here:
 Notebook guidance is documented in:
 
     docs/NOTEBOOKS.md
+
+## Training Dataset Design
+
+The future model-training dataset plan is documented in:
+
+    docs/TRAINING_DATASET.md
+
+The project is still not training a real ML model yet. The next required blocker is a model-ready training table.

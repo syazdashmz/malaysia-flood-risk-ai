@@ -82,3 +82,20 @@ This generates:
     reports/dataset_readiness_report.md
 
 The report shows whether the project has the minimum dataset foundation required for real ML training.
+
+## Training Dataset Design
+
+The planned model-training dataset is documented in:
+
+    docs/TRAINING_DATASET.md
+
+This document defines:
+
+- preferred target label
+- planned training table path
+- expected feature groups
+- leakage risks
+- recommended split strategy
+- baseline model plan
+
+Real ML training should not start until the dataset readiness report no longer has blocking training items.
