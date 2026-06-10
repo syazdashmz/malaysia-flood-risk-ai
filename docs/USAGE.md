@@ -56,8 +56,27 @@ When the summary is available, the app:
 
 To refresh the local weather signal before opening the app:
 
-    .\scriptsun_weather_pipeline.ps1
+    .\scripts
+un_weather_pipeline.ps1
 
 Then run the app:
 
-    .\scriptsun_app.ps1
+    .\scripts
+un_app.ps1
+
+## API Geospatial Summary
+
+The API exposes the current geospatial readiness summary at:
+
+    GET /geospatial/summary
+
+The endpoint reports:
+
+- planned geospatial artifact count
+- available artifact count
+- missing artifact count
+- valid vector dataset count
+- whether boundary data is currently available
+- artifact-level statuses
+
+At this stage, the expected result is that planned boundary artifacts are still missing until verified boundary datasets are added.

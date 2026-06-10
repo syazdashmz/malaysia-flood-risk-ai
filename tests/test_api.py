@@ -29,6 +29,23 @@ def test_weather_summary_endpoint():
     assert "signal_counts" in data
 
 
+def test_geospatial_summary_endpoint():
+    response = client.get("/geospatial/summary")
+
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert data["available"] is True
+    assert data["planned_artifact_count"] == 3
+    assert data["available_artifact_count"] == 0
+    assert data["missing_artifact_count"] == 3
+    assert data["valid_vector_count"] == 0
+    assert data["has_available_boundary_data"] is False
+    assert len(data["artifact_statuses"]) == 3
+    assert data["artifact_statuses"][0]["dataset_id"] == "malaysia_admin_boundary"
+
+
 def test_predict_endpoint():
     payload = {
         "latitude": 3.139,

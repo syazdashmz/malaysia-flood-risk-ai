@@ -126,3 +126,11 @@ It provides a compact dictionary summary for future API and Streamlit integratio
 Show the current summary with:
 
     python scripts/show_geospatial_summary.py
+
+## API Integration
+
+The geospatial readiness summary is available through the API endpoint:
+
+    GET /geospatial/summary
+
+This endpoint is intended for dashboards, health checks, and future UI integration.
