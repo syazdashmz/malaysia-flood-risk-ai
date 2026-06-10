@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import sys
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 import pandas as pd
 import streamlit as st
@@ -19,7 +19,11 @@ if str(SRC_PATH) not in sys.path:
     sys.path.insert(0, str(SRC_PATH))
 
 from floodrisk.risk_engine import calculate_risk  # noqa: E402
-from floodrisk.schemas import FloodRiskInput  # noqa: E402
+from floodrisk.schemas import (  # noqa: E402
+    FloodRiskInput,
+    WaterLevelStatus,
+    WeatherWarningStatus,
+)
 
 
 def load_weather_summary_status() -> dict[str, Any]:
@@ -32,6 +36,12 @@ def load_geospatial_summary_status() -> dict[str, Any]:
     from floodrisk.geospatial.summary import load_geospatial_summary
 
     return load_geospatial_summary(PROJECT_ROOT)
+
+
+def load_experimental_model_status() -> dict[str, Any]:
+    from floodrisk.ml.experimental_flood_model import load_experimental_model_status
+
+    return load_experimental_model_status(PROJECT_ROOT).as_dict()
 
 
 def load_sample_locations() -> pd.DataFrame:
@@ -51,6 +61,7 @@ def get_sample_value(row: pd.Series | None, column: str, default):
 
 weather_summary_status = load_weather_summary_status()
 geospatial_summary_status = load_geospatial_summary_status()
+experimental_model_status = load_experimental_model_status()
 
 st.set_page_config(
     page_title="Malaysia Flood Risk AI",
@@ -126,6 +137,28 @@ with st.sidebar:
             )
         else:
             st.info("No geospatial summary is available yet.")
+
+    with st.expander("Experimental ML baseline"):
+        if experimental_model_status.get("available"):
+            st.metric(
+                "Model status",
+                "available",
+            )
+            st.write(
+                {
+                    "source": experimental_model_status.get("source_id"),
+                    "threshold": experimental_model_status.get("threshold"),
+                    "threshold_source": experimental_model_status.get("threshold_source"),
+                    "verified_target": experimental_model_status.get(
+                        "official_verified_target_source",
+                    ),
+                }
+            )
+            st.caption(str(experimental_model_status.get("guardrail", "")))
+        else:
+            st.info(
+                "Experimental model artifact not found. Run the Kaggle baseline training script."
+            )
 
 
 samples_df = load_sample_locations()
@@ -296,8 +329,11 @@ try:
         historical_flood_distance_m=historical_flood_distance_m,
         rainfall_24h_mm=rainfall_24h_mm,
         rainfall_72h_mm=rainfall_72h_mm,
-        water_level_status=water_level_status,
-        weather_warning_status=weather_warning_status,
+        water_level_status=cast(WaterLevelStatus, water_level_status),
+        weather_warning_status=cast(
+            WeatherWarningStatus,
+            weather_warning_status,
+        ),
         land_cover_class=land_cover_class,
         population_density_per_km2=population_density_per_km2,
     )

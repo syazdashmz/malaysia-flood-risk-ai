@@ -43,6 +43,12 @@
 - F1: 0.4152
 - ROC AUC: 0.9871
 
+## Model Artifact
+
+- Model path: `models/kaggle_flood_baseline.joblib`
+- Metadata path: `models/kaggle_flood_baseline_metadata.json`
+- Artifact format: `joblib_sklearn_pipeline`
+
 ## Confusion Matrix
 
 - True negative: 5857

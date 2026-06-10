@@ -1,3 +1,7 @@
 streamlit
 pandas
 pydantic
+fastapi
+uvicorn
+scikit-learn
+joblib

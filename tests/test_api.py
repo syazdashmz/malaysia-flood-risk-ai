@@ -46,6 +46,38 @@ def test_geospatial_summary_endpoint():
     assert data["artifact_statuses"][0]["dataset_id"] == "malaysia_admin_boundary"
 
 
+def test_experimental_flood_model_status_endpoint():
+    response = client.get("/experimental/flood/model/status")
+
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert "available" in data
+    assert data["training_mode"] in ["experimental_baseline", "experimental_threshold_tuning"]
+    assert data["official_verified_target_source"] is False
+    assert "guardrail" in data
+
+
+def test_experimental_flood_predict_rejects_invalid_payload():
+    payload = {
+        "city": "Kuala Lumpur",
+        "temperature_c": 29,
+        "humidity_pct": 85,
+        "wind_speed_ms": 4,
+        "rainfall_3day_mm": 120,
+        "rainfall_7day_mm": 180,
+        "rainfall_14day_mm": 260,
+        "rainfall_cumsum7_mm": 180,
+        "month": 13,
+        "is_monsoon": 1,
+    }
+
+    response = client.post("/experimental/flood/predict", json=payload)
+
+    assert response.status_code == 422
+
+
 def test_predict_endpoint():
     payload = {
         "latitude": 3.139,

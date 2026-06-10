@@ -10,7 +10,16 @@ source for historical Malaysia flood occurrence labels.
 
 ## Planned Raw Export Path
 
-    data/raw/emdat/emdat_public_export.csv
+    data/raw/emdat/emdat_public_export.xlsx
+
+## Interim Review Path
+
+    data/interim/targets/emdat_historical_flood_events_review.csv
+
+## Review Reports
+
+    reports/emdat_export_review.md
+    reports/emdat_export_review_summary.json
 
 ## Planned Processed Target Path
 
@@ -48,5 +57,14 @@ Do not copy EM-DAT rows into the processed target file until the project confirm
 
 ## Current Decision
 
-Prepare the EM-DAT intake workflow before importing any raw CSV export.
+Use the EM-DAT export review workflow to create an interim review table only.
 EM-DAT remains a candidate target-label source, not an approved training source.
+
+## Review Command
+
+Run:
+
+    .\scripts\run_emdat_export_review.ps1
+
+This reads the local workbook, filters Malaysia flood records, writes an interim
+review CSV, and generates a lightweight review report.

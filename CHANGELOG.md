@@ -12,6 +12,28 @@ All notable changes to this project will be documented in this file.
 - Train/validation split strategy.
 - Baseline ML experiment planning after readiness gate clears.
 
+## [0.5.0] - 2026-06-10
+
+### Added
+
+- Added experimental Kaggle flood model serving utilities.
+- Added local model artifact and metadata output to the Kaggle trainer.
+- Added experimental FastAPI model status endpoint.
+- Added experimental FastAPI prediction endpoint.
+- Added Streamlit experimental model-readiness summary.
+- Added one-command experimental AI pipeline runner.
+- Added controlled EM-DAT export review workflow.
+- Added EM-DAT interim review report and compact summary output.
+- Added direct AI engineering workflow documentation.
+- Added tests for experimental model status, feature mapping, prediction output, and API validation.
+- Added tests for EM-DAT workbook review, filtering, and guardrails.
+
+### Guardrail
+
+- The Kaggle model is experimental proxy AI only.
+- The transparent scoring engine remains the public demo baseline.
+- Real official supervised ML training remains blocked until verified `flood_occurred` labels exist.
+
 ## [0.4.0] - 2026-06-10
 
 ### Added

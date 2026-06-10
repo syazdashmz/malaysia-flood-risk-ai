@@ -101,6 +101,13 @@ Use this only when the API server is already running:
 
     .\scripts\run_ml_readiness_suite.ps1
 
+### Run experimental AI pipeline
+
+    .\scripts\run_experimental_ai_pipeline.ps1
+
+This profiles the local Kaggle dataset, trains the experimental model artifact,
+tunes thresholds, and runs focused API/model tests.
+
 ### Run target label source evaluation
 
     .\scripts\run_target_label_source_evaluation.ps1
@@ -112,3 +119,10 @@ Use this only when the API server is already running:
 ### Run target source manifest check
 
     .\scripts\run_target_source_manifest_check.ps1
+
+### Run EM-DAT export review
+
+    .\scripts\run_emdat_export_review.ps1
+
+This creates a review-only interim table and report from the local EM-DAT
+workbook. It does not approve EM-DAT for training.

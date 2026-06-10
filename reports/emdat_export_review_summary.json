@@ -1,0 +1,16 @@
+{
+  "raw_path": "data/raw/emdat/emdat_public_export.xlsx",
+  "raw_exists": true,
+  "source_rows": 69,
+  "malaysia_flood_rows": 69,
+  "rows_with_location": 69,
+  "rows_with_lat_lon": 19,
+  "rows_with_admin_units": 59,
+  "rows_with_usable_start_date": 68,
+  "interim_review_path": "data/interim/targets/emdat_historical_flood_events_review.csv",
+  "processed_target_path": "data/processed/targets/historical_flood_events.csv",
+  "direct_training_use_allowed": false,
+  "target_label_candidate": true,
+  "review_ready": true,
+  "ready_for_training": false
+}

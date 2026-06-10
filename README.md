@@ -8,12 +8,15 @@ This project estimates flood risk for locations in Malaysia using geospatial, ra
 
 ## Project Status
 
-- Current version: v0.2.0 MVP foundation
+- Current version: v0.5.0 Experimental AI Baseline Pipeline
 - Status document: docs/PROJECT_STATUS.md
 - Changelog: CHANGELOG.md
 
-No real external datasets have been downloaded yet.
-No machine-learning model has been trained yet.
+The transparent scoring engine remains the public demo baseline.
+
+An experimental Kaggle-based Logistic Regression flood baseline is available for
+research workflow testing only. It is not the final official verified Malaysia
+flood model.
 
 ## Current Status
 
@@ -27,6 +30,9 @@ MVP foundation completed.
 - Sample generated demo dataset
 - Data source registry
 - Research methodology documentation
+- Experimental Kaggle AI baseline training workflow
+- Experimental FastAPI model status and prediction endpoints
+- Controlled EM-DAT export review workflow
 - Automated tests
 
 ## Repository
@@ -107,6 +113,11 @@ Open:
 
     http://127.0.0.1:8000/docs
 
+Experimental AI endpoints:
+
+    GET /experimental/flood/model/status
+    POST /experimental/flood/predict
+
 ## Run Web App
 
     .\scripts\run_app.ps1
@@ -164,8 +175,7 @@ A small real-data weather sample pipeline has been added.
 
 - Data source: MET Malaysia via Malaysia Open API
 - Pipeline guide: docs/WEATHER_PIPELINE.md
-- Command: .\scripts
-un_weather_pipeline.ps1
+- Command: .\scripts\run_weather_pipeline.ps1
 - Quality report: reports/weather_sample_profile.md
 
 This is a small sample workflow only. It is not yet a full historical ingestion pipeline.
@@ -295,4 +305,20 @@ The future model-training dataset plan is documented in:
 
     docs/TRAINING_DATASET.md
 
-The project is still not training a real ML model yet. The next required blocker is a model-ready training table.
+The project can train an experimental proxy baseline, but real official
+supervised ML training is still blocked until a verified `flood_occurred`
+target source and model-ready training table exist.
+
+## AI Engineering Workflow
+
+The professional end-to-end workflow is documented in:
+
+    docs/AI_ENGINEERING_WORKFLOW.md
+
+Run the experimental AI pipeline with:
+
+    .\scripts\run_experimental_ai_pipeline.ps1
+
+Review the local EM-DAT export with:
+
+    .\scripts\run_emdat_export_review.ps1

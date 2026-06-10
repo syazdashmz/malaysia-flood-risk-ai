@@ -29,6 +29,7 @@ data/external/*
 # Models
 models/*
 !models/.gitkeep
+!models/README.md
 
 # Reports
 reports/figures/*

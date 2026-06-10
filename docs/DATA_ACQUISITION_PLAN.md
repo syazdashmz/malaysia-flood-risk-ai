@@ -126,3 +126,15 @@ The controlled intake plan for a future EM-DAT export is documented at:
 
 Do not import EM-DAT rows into the processed target file until license, date,
 location, and schema mapping checks pass.
+
+Run the review-only intake with:
+
+    .\scripts\run_emdat_export_review.ps1
+
+This generates:
+
+    data/interim/targets/emdat_historical_flood_events_review.csv
+    reports/emdat_export_review.md
+    reports/emdat_export_review_summary.json
+
+The interim review table is not a training table.

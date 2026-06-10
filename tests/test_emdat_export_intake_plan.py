@@ -13,7 +13,13 @@ def test_emdat_export_intake_plan_config_exists():
 def test_emdat_export_intake_paths_are_defined():
     plan = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
 
-    assert plan["raw_export_path"] == "data/raw/emdat/emdat_public_export.csv"
+    assert plan["raw_export_path"] == "data/raw/emdat/emdat_public_export.xlsx"
+    assert (
+        plan["interim_review_path"]
+        == "data/interim/targets/emdat_historical_flood_events_review.csv"
+    )
+    assert plan["review_report_path"] == "reports/emdat_export_review.md"
+    assert plan["review_summary_path"] == "reports/emdat_export_review_summary.json"
     assert plan["processed_target_path"] == "data/processed/targets/historical_flood_events.csv"
 
 
@@ -36,6 +42,6 @@ def test_emdat_export_intake_documentation_exists():
     content = DOC_PATH.read_text(encoding="utf-8")
     report = REPORT_PATH.read_text(encoding="utf-8")
 
-    assert "data/raw/emdat/emdat_public_export.csv" in content
+    assert "data/raw/emdat/emdat_public_export.xlsx" in content
     assert "not an approved training source" in content
     assert "Direct training use allowed now: False" in report

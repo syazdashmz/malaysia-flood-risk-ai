@@ -42,3 +42,35 @@ source. EM-DAT and MyWater remain the official-source validation track.
 ## Decision
 
 Allowed for experimental baseline ML training only.
+
+## Training Command
+
+Run the full experimental AI pipeline:
+
+    .\scripts\run_experimental_ai_pipeline.ps1
+
+Or train only the model artifact:
+
+    python scripts\train_kaggle_flood_baseline.py
+
+## Local Model Outputs
+
+- `models/kaggle_flood_baseline.joblib`
+- `models/kaggle_flood_baseline_metadata.json`
+
+Model binaries are local artifacts and are not committed to Git.
+
+## API Integration
+
+Run the API:
+
+    .\scripts\run_api.ps1
+
+Open:
+
+    http://127.0.0.1:8000/docs
+
+Experimental endpoints:
+
+- `GET /experimental/flood/model/status`
+- `POST /experimental/flood/predict`

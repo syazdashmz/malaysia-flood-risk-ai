@@ -66,4 +66,8 @@ Before importing any raw EM-DAT export, follow:
 
 The planned raw export path is:
 
-    data/raw/emdat/emdat_public_export.csv
+    data/raw/emdat/emdat_public_export.xlsx
+
+The review-only interim output is:
+
+    data/interim/targets/emdat_historical_flood_events_review.csv
