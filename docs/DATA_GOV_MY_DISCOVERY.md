@@ -80,3 +80,14 @@ This writes:
     reports/data_gov_my_catalogue_probe_report.md
 
 These outputs are for source review only. They are not supervised ML labels.
+
+## Catalogue Review
+
+After the first sample-only probe, review decisions are stored at:
+
+    configs/data_gov_my_catalogue_review.json
+    reports/data_gov_my_catalogue_review.md
+    docs/DATA_GOV_MY_CATALOGUE_REVIEW.md
+
+Current decision: the reviewed datasets are supporting/context candidates only.
+None are approved as `flood_occurred` target labels.

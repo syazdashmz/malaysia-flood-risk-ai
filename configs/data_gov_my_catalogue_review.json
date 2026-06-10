@@ -1,0 +1,29 @@
+[
+  {
+    "dataset_id": "population_district",
+    "decision": "keep_as_supporting_geography_reference",
+    "supporting_feature_candidate": true,
+    "target_label_candidate": false,
+    "priority": 1,
+    "review_summary": "Contains state, district, date, demographic, and population fields. Useful for validating or enriching district-level location context.",
+    "target_label_reason": "Does not represent flood occurrence and cannot map directly to flood_occurred."
+  },
+  {
+    "dataset_id": "water_consumption",
+    "decision": "defer_as_weak_context_feature",
+    "supporting_feature_candidate": true,
+    "target_label_candidate": false,
+    "priority": 2,
+    "review_summary": "Contains date, state, sector, and value fields. May provide broad water-use context but is not flood-event data.",
+    "target_label_reason": "Does not represent flood occurrence, warning, impact, exposure, or event records."
+  },
+  {
+    "dataset_id": "water_pollution_basin",
+    "decision": "defer_as_environment_context_feature",
+    "supporting_feature_candidate": true,
+    "target_label_candidate": false,
+    "priority": 3,
+    "review_summary": "Contains river-basin monitoring aggregates by date, status, measure, and basin counts. Potential environmental context only.",
+    "target_label_reason": "Does not include flood occurrence labels, event locations, or affected-area records."
+  }
+]

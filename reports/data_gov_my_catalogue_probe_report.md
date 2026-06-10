@@ -3,7 +3,7 @@
 ## Summary
 
 - Source ID: `data_gov_my`
-- Fetched at UTC: 2026-06-10T03:15:15.369477+00:00
+- Fetched at UTC: 2026-06-10T03:17:19.443298+00:00
 - Candidate datasets: 3
 - Successful probes: 3
 - Failed probes: 0
