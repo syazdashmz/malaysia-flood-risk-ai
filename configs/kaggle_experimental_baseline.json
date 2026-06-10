@@ -1,0 +1,24 @@
+{
+  "source_id": "kaggle_malaysia_flood_master",
+  "label": "Malaysia Flood and Flash Flood Dataset 2010-2026",
+  "source_type": "third_party_kaggle_dataset",
+  "source_url": "https://www.kaggle.com/datasets/abdullahbinwaleed/malaysia-flood-and-flash-flood-dataset-20102026",
+  "raw_path": "data/raw/kaggle/malaysia_flood_master.csv",
+  "profile_report_path": "reports/kaggle_baseline_profile.md",
+  "experimental_training_allowed": true,
+  "official_verified_target_source": false,
+  "target_columns": ["Flood", "Flash_Flood"],
+  "feature_columns": [
+    "Temperature_C",
+    "Humidity_pct",
+    "Wind_Speed_ms",
+    "Rainfall_3day",
+    "Rainfall_7day",
+    "Rainfall_14day",
+    "Rainfall_cumsum7",
+    "Month",
+    "Is_Monsoon"
+  ],
+  "decision": "use_for_experimental_baseline_only",
+  "guardrail": "Do not present this dataset as the final official verified Malaysia flood target source."
+}
