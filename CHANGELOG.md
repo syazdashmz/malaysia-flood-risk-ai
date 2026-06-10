@@ -39,6 +39,22 @@
 
 ### Added
 
+- Added geospatial foundation module for Malaysia bounding-box utilities.
+- Added planned geospatial data source registry.
+- Added geospatial artifact planning report.
+- Added vector dataset validation utilities for future GeoJSON/Shapefile boundary files.
+- Added geospatial validation report runner.
+- Added geospatial summary loader.
+- Added `/geospatial/summary` API endpoint.
+- Added Streamlit sidebar geospatial readiness summary.
+
+### Validation
+
+- 82 tests passed locally.
+- Geospatial validation currently reports 3 planned artifacts, 0 available artifacts, 3 missing artifacts, and 0 valid vector datasets.
+
+### Added
+
 - Weather summary loader utility for app/API integration
 
 - Streamlit weather pipeline summary display

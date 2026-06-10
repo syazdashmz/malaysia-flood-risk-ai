@@ -128,3 +128,23 @@ It is not yet:
 - historical
 - model-training-ready
 - a complete hydrology dataset pipeline
+
+## Geospatial Checks
+
+Run the geospatial foundation checks with:
+
+    .\scripts\run_geospatial_checks.ps1
+
+This regenerates:
+
+    reports/geospatial_artifact_plan.md
+    reports/geospatial_validation_report.md
+
+Expected current result:
+
+- planned artifacts: 3
+- available artifacts: 0
+- missing artifacts: 3
+- valid vector datasets: 0
+
+This is expected until verified administrative boundary files are added locally.

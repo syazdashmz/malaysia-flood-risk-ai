@@ -245,4 +245,26 @@ Latest release:
 
     v0.2.1 - Weather Signal Classification Patch
 
+## Geospatial Foundation
 
+The project includes a v0.3.0 geospatial foundation layer for future boundary-aware flood-risk modeling.
+
+Current geospatial capabilities:
+
+- Malaysia bounding-box utilities
+- planned administrative boundary data source registry
+- local geospatial artifact planning
+- vector dataset validation utilities
+- geospatial validation report runner
+- geospatial readiness summary
+- `/geospatial/summary` API endpoint
+- Streamlit geospatial readiness sidebar
+
+Current limitation:
+
+- Administrative boundary files are planned but not bundled yet.
+- Real point-in-boundary validation will be added only after authoritative boundary data is selected and licensing is verified.
+
+Run geospatial checks with:
+
+    .\scripts\run_geospatial_checks.ps1

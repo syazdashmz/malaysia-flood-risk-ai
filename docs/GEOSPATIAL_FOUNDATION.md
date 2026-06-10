@@ -140,3 +140,28 @@ This endpoint is intended for dashboards, health checks, and future UI integrati
 The Streamlit app displays geospatial readiness in the sidebar.
 
 This gives users a clear view of whether verified local boundary datasets are already available or still planned.
+
+## v0.3.0 Readiness Checklist
+
+Completed:
+
+- Malaysia geospatial bounding-box module
+- geospatial source registry
+- artifact planning report
+- vector dataset validator
+- validation report runner
+- summary loader
+- API summary endpoint
+- Streamlit readiness display
+
+Ready for release:
+
+- The project can now report geospatial readiness clearly.
+- The project can validate future vector boundary files once they are added.
+- The project avoids bundling unverified boundary data.
+
+Not included yet:
+
+- real administrative boundary files
+- point-in-polygon boundary validation against real polygons
+- location-specific weather-to-boundary joins

@@ -127,3 +127,30 @@ Current weather sample signal counts:
 - advisory: 0
 - warning: 2
 - severe: 0
+
+## Phase 3 Status - Geospatial Foundation
+
+Completed:
+
+- Created reusable Malaysia geospatial bounding-box module.
+- Moved coordinate bounding-box logic into the geospatial layer while preserving existing validation behavior.
+- Added planned administrative boundary data source registry.
+- Added expected local boundary artifact plan.
+- Added vector dataset validation utilities for future GeoJSON/Shapefile files.
+- Added geospatial validation report runner.
+- Added geospatial summary loader for app/API integration.
+- Added `/geospatial/summary` API endpoint.
+- Added Streamlit geospatial readiness summary.
+
+Current geospatial readiness:
+
+- planned artifacts: 3
+- available artifacts: 0
+- missing artifacts: 3
+- valid vector datasets: 0
+- boundary data available: False
+
+Current limitation:
+
+- Real administrative boundary files are not bundled yet.
+- Bounding-box validation is still broad and does not replace point-in-polygon boundary validation.
