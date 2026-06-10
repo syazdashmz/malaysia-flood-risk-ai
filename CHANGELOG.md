@@ -96,7 +96,7 @@ This release is a software foundation MVP.
 
 It does not yet include real downloaded datasets or trained machine-learning models.
 
-## [0.4.0] - Unreleased
+## [0.4.0] - 2026-06-10
 
 ### Added
 

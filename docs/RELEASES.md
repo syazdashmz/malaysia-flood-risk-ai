@@ -1,5 +1,46 @@
 # Release Index
 
+## v0.4.0 - Notebook and ML Readiness Foundation
+
+Release page:
+
+    https://github.com/syazdashmz/malaysia-flood-risk-ai/releases/tag/v0.4.0
+
+Main focus:
+
+- Notebook foundation and initial EDA notebook
+- Notebook validation and smoke execution reports
+- Notebook data catalog with ML-readiness reports
+- Initial EDA report generator
+- Training dataset design and schema validator
+- Feature table generation plan
+- Feature table builder dry run
+- Target label source plan
+- Combined ML training readiness gate
+- Complete ML readiness workflow runner
+- v0.4.0 milestone documentation
+
+Validation:
+
+- 162 tests passed locally
+- Notebook smoke execution: 2 notebooks checked, 2 successful
+- Notebook validation: 2 notebooks checked, 2 clean
+- Notebook data catalog: 14 assets cataloged, 13 available, 1 missing
+- ML readiness gate: real supervised ML training remains blocked
+
+Current ML training status:
+
+- target ready: False
+- training table ready: False
+- real ML training ready: False
+- blockers: 4
+
+Limitations:
+
+- No verified historical `flood_occurred` target source is integrated yet
+- No model-ready training table exists yet
+- No real supervised ML model has been trained yet
+
 ## v0.3.0 - Geospatial Foundation Pipeline
 
 Release page:
@@ -138,22 +179,3 @@ This project uses semantic-style milestone versions:
 - Minor releases: new pipeline or app/API capability
 - Major releases: production-level architecture changes or trained model milestone
 
-## Upcoming v0.4.0
-
-Planned release theme:
-
-Notebook and ML Readiness Foundation.
-
-Highlights:
-
-- notebook foundation
-- notebook validation and smoke execution
-- notebook data catalog
-- initial EDA report
-- ML training readiness reports
-- complete ML readiness workflow
-
-Training status:
-
-Real supervised ML training remains blocked until a verified `flood_occurred`
-target label and schema-valid training table are available.

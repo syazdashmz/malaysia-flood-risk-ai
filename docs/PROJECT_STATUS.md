@@ -192,3 +192,19 @@ See:
 
     docs/V0_4_0_MILESTONE.md
     docs/ML_TRAINING_READINESS.md
+
+## Release Readiness - v0.4.0
+
+The v0.4.0 Notebook and ML Readiness Foundation milestone is ready for release.
+
+Validation:
+
+- 162 tests passed locally.
+- Notebook checks completed successfully.
+- Notebook data catalog includes EDA and ML-readiness reports.
+- ML training readiness gate correctly keeps real supervised ML training blocked.
+
+Current ML training decision:
+
+- Initial notebook-based EDA is ready.
+- Real supervised ML training remains blocked until a verified target label and schema-valid training table exist.
