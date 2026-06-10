@@ -83,3 +83,10 @@ Before real supervised ML training can begin, use:
 
 These documents define how candidate historical flood sources should be reviewed
 before they are added to the target source manifest or processed target table.
+
+## Source Research Shortlist
+
+Use this shortlist before implementing real source ingestion:
+
+    docs/SOURCE_RESEARCH_SHORTLIST.md
+    configs/source_research_shortlist.json

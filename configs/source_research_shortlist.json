@@ -1,0 +1,96 @@
+[
+  {
+    "source_id": "reliefweb_api",
+    "label": "ReliefWeb API",
+    "priority": 1,
+    "role": "discovery",
+    "homepage_url": "https://reliefweb.int/",
+    "documentation_url": "https://apidoc.reliefweb.int/",
+    "candidate_dataset_type": "humanitarian_reports",
+    "target_use": "Discover Malaysia flood reports, disaster updates, maps, and source references.",
+    "expected_strengths": [
+      "public JSON API",
+      "queryable humanitarian reports",
+      "useful report metadata",
+      "useful for finding official and NGO flood documents"
+    ],
+    "known_limitations": [
+      "reports may need extraction",
+      "partner content may have separate copyright restrictions",
+      "not directly a clean supervised training label table"
+    ],
+    "initial_decision": "review_first",
+    "allowed_direct_training_use": false,
+    "notes": "Use as a discovery index first, not as final training labels."
+  },
+  {
+    "source_id": "emdat",
+    "label": "EM-DAT International Disaster Database",
+    "priority": 2,
+    "role": "candidate_target_source",
+    "homepage_url": "https://www.emdat.be/",
+    "documentation_url": "https://doc.emdat.be/",
+    "candidate_dataset_type": "disaster_occurrence_impact_records",
+    "target_use": "Review Malaysia flood disaster records for event-level target label support.",
+    "expected_strengths": [
+      "global disaster records",
+      "historical coverage from 1900 onward",
+      "credible research-oriented disaster database",
+      "non-commercial open access"
+    ],
+    "known_limitations": [
+      "major-disaster inclusion criteria",
+      "may be country-level rather than district-level",
+      "may need supplementary geocoding or local sources"
+    ],
+    "initial_decision": "review_second",
+    "allowed_direct_training_use": false,
+    "notes": "Strong verification candidate, but likely needs location granularity review."
+  },
+  {
+    "source_id": "data_gov_my",
+    "label": "data.gov.my",
+    "priority": 3,
+    "role": "malaysia_open_data_discovery",
+    "homepage_url": "https://data.gov.my/",
+    "documentation_url": "https://developer.data.gov.my/",
+    "candidate_dataset_type": "official_open_data_catalog",
+    "target_use": "Search for Malaysia-specific flood, rainfall, river, district, and disaster datasets.",
+    "expected_strengths": [
+      "official Malaysia open data portal",
+      "data catalogue",
+      "API documentation entry point",
+      "useful for local supporting datasets"
+    ],
+    "known_limitations": [
+      "flood event target availability still needs confirmation",
+      "may provide supporting features rather than target labels"
+    ],
+    "initial_decision": "review_third",
+    "allowed_direct_training_use": false,
+    "notes": "Use for official Malaysia data discovery and supporting feature sources."
+  },
+  {
+    "source_id": "public_info_banjir_jps",
+    "label": "Public InfoBanjir / JPS flood information",
+    "priority": 4,
+    "role": "malaysia_flood_context_source",
+    "homepage_url": "https://publicinfobanjir.water.gov.my/",
+    "documentation_url": "",
+    "candidate_dataset_type": "flood_monitoring_context",
+    "target_use": "Review whether historical station, river, rainfall, or flood warning records are accessible.",
+    "expected_strengths": [
+      "Malaysia flood-specific context",
+      "potential river or rainfall monitoring relevance",
+      "local authority context"
+    ],
+    "known_limitations": [
+      "historical API availability unknown",
+      "may focus on current monitoring rather than historical event labels",
+      "manual review required"
+    ],
+    "initial_decision": "review_fourth",
+    "allowed_direct_training_use": false,
+    "notes": "Review after ReliefWeb, EM-DAT, and data.gov.my."
+  }
+]

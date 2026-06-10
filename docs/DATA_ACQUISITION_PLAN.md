@@ -79,3 +79,17 @@ A source is ready for training preparation only when:
 
 Start external/public source research and choose the first candidate target-label
 source to review.
+
+## Source Research Shortlist
+
+The first source-review shortlist is documented at:
+
+    docs/SOURCE_RESEARCH_SHORTLIST.md
+
+The machine-readable shortlist is:
+
+    configs/source_research_shortlist.json
+
+The recommended first implementation target is ReliefWeb discovery because it is
+useful for finding Malaysia flood reports and source references before selecting
+a final target-label dataset.
