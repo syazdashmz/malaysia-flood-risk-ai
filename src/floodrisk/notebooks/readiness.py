@@ -5,6 +5,8 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
+from floodrisk.ml.training_schema import validate_training_table_schema
+
 
 @dataclass(frozen=True)
 class DatasetReadinessCheck:
@@ -142,7 +144,10 @@ DATASET_READINESS_CHECKS = [
         label="Model-ready training table",
         relative_path="data/processed/model_training/training_features.csv",
         required_for_training=True,
-        description="Clean tabular dataset for baseline ML training.",
+        description=(
+            "Clean tabular dataset for baseline ML training. "
+            "This is available only when schema-valid and non-empty."
+        ),
     ),
 ]
 
@@ -153,13 +158,24 @@ def list_dataset_readiness_checks() -> list[DatasetReadinessCheck]:
     return DATASET_READINESS_CHECKS.copy()
 
 
+def _check_exists(project_root: Path, check: DatasetReadinessCheck) -> bool:
+    """Return readiness availability for one check."""
+
+    path = project_root / check.relative_path
+
+    if check.check_id == "model_training_table":
+        return validate_training_table_schema(path).is_training_ready
+
+    return path.exists()
+
+
 def build_dataset_readiness_summary(project_root: Path) -> DatasetReadinessSummary:
     """Build dataset readiness summary."""
 
     results = [
         DatasetReadinessResult(
             check=check,
-            exists=(project_root / check.relative_path).exists(),
+            exists=_check_exists(project_root, check),
         )
         for check in DATASET_READINESS_CHECKS
     ]
@@ -215,6 +231,14 @@ def render_dataset_readiness_report(summary: DatasetReadinessSummary) -> str:
 
     lines.extend(
         [
+            "",
+            "## Training Table Rule",
+            "",
+            (
+                "The model-ready training table is considered available only when "
+                "it exists, contains all required schema columns, includes the target "
+                "label, and has at least one row."
+            ),
             "",
             "## Next Required Training Items",
             "",

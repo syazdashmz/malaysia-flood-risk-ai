@@ -23,6 +23,10 @@
 
 The dataset foundation is not ready for real ML training yet. Training should wait until blocking items are resolved.
 
+## Training Table Rule
+
+The model-ready training table is considered available only when it exists, contains all required schema columns, includes the target label, and has at least one row.
+
 ## Next Required Training Items
 
 1. Define the training target label.

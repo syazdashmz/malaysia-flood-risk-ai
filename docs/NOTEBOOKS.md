@@ -99,3 +99,16 @@ This document defines:
 - baseline model plan
 
 Real ML training should not start until the dataset readiness report no longer has blocking training items.
+
+## Dataset Readiness and Training Schema
+
+The dataset readiness report is connected to the training table schema validator.
+
+This means the model-ready training table blocker is cleared only when:
+
+- the training table exists
+- all required columns are present
+- the target column exists
+- the table has at least one row
+
+A placeholder CSV with the wrong schema does not make the project training-ready.
