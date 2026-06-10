@@ -1,5 +1,14 @@
 """Source discovery utilities."""
 
+from floodrisk.sources.data_gov_my import (
+    DATA_GOV_MY_CATALOGUE_ENDPOINT,
+    DataGovMyCatalogueCandidate,
+    DataGovMyCataloguePlan,
+    build_data_gov_my_catalogue_plan,
+    load_data_gov_my_catalogue_candidates,
+    render_data_gov_my_catalogue_plan_report,
+    write_data_gov_my_catalogue_plan_report,
+)
 from floodrisk.sources.reliefweb import (
     DEFAULT_RELIEFWEB_APPNAME,
     RELIEFWEB_REPORTS_ENDPOINT,
@@ -19,19 +28,26 @@ from floodrisk.sources.reliefweb import (
 )
 
 __all__ = [
+    "DATA_GOV_MY_CATALOGUE_ENDPOINT",
     "DEFAULT_RELIEFWEB_APPNAME",
     "RELIEFWEB_REPORTS_ENDPOINT",
+    "DataGovMyCatalogueCandidate",
+    "DataGovMyCataloguePlan",
+    "ReliefWebDiscoveredReport",
     "ReliefWebDiscoveryPlan",
     "ReliefWebDiscoveryQuery",
-    "build_reliefweb_discovery_plan",
-    "load_reliefweb_discovery_queries",
-    "render_reliefweb_discovery_plan_report",
-    "write_reliefweb_discovery_plan_report",
-    "ReliefWebDiscoveredReport",
     "ReliefWebMetadataDiscoveryResult",
+    "build_data_gov_my_catalogue_plan",
+    "build_reliefweb_discovery_plan",
     "discover_reliefweb_metadata",
     "fetch_reliefweb_query_metadata",
+    "load_data_gov_my_catalogue_candidates",
+    "load_reliefweb_discovery_queries",
     "normalize_reliefweb_report",
+    "render_data_gov_my_catalogue_plan_report",
+    "render_reliefweb_discovery_plan_report",
     "render_reliefweb_metadata_discovery_report",
+    "write_data_gov_my_catalogue_plan_report",
+    "write_reliefweb_discovery_plan_report",
     "write_reliefweb_metadata_discovery_outputs",
 ]

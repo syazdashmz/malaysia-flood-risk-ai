@@ -50,3 +50,20 @@ reviewed for:
 ## Current Decision
 
 Use data.gov.my as the next official Malaysia-first source discovery path.
+
+## Catalogue Candidate Plan
+
+The first reviewed catalogue candidate list is stored at:
+
+    configs/data_gov_my_catalogue_candidates.json
+
+Generate the candidate plan report with:
+
+    .\scripts\run_data_gov_my_catalogue_plan.ps1
+
+This writes:
+
+    reports/data_gov_my_catalogue_plan.md
+
+The current candidates are supporting-data candidates only. They are not direct
+`flood_occurred` labels.

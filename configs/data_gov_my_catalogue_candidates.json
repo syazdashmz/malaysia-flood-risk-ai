@@ -1,0 +1,44 @@
+[
+  {
+    "dataset_id": "population_district",
+    "label": "Population Table: Administrative Districts",
+    "priority": 1,
+    "role": "supporting_geography_reference",
+    "source_url": "https://data.gov.my/data-catalogue/population_district",
+    "api_url": "https://api.data.gov.my/data-catalogue?id=population_district&limit=3",
+    "expected_use": "Review district-level administrative reference data for joining or validating location fields.",
+    "location_granularity": "district",
+    "temporal_granularity": "annual",
+    "direct_training_use_allowed": false,
+    "target_label_candidate": false,
+    "notes": "Useful as supporting geography/context data, not as flood occurrence labels."
+  },
+  {
+    "dataset_id": "water_consumption",
+    "label": "Water Consumption by State and Sector",
+    "priority": 2,
+    "role": "supporting_environment_feature",
+    "source_url": "https://data.gov.my/data-catalogue/water_consumption",
+    "api_url": "https://api.data.gov.my/data-catalogue?id=water_consumption&limit=3",
+    "expected_use": "Review state-level water consumption data as possible contextual feature data.",
+    "location_granularity": "state",
+    "temporal_granularity": "monthly",
+    "direct_training_use_allowed": false,
+    "target_label_candidate": false,
+    "notes": "Potential supporting feature only; not a direct flood occurrence source."
+  },
+  {
+    "dataset_id": "water_pollution_basin",
+    "label": "River Basin Pollution Monitoring",
+    "priority": 3,
+    "role": "supporting_hydrology_context",
+    "source_url": "https://data.gov.my/data-catalogue/water_pollution_basin",
+    "api_url": "https://api.data.gov.my/data-catalogue?id=water_pollution_basin&limit=3",
+    "expected_use": "Review river basin monitoring data as environmental or hydrology context.",
+    "location_granularity": "river_basin",
+    "temporal_granularity": "annual",
+    "direct_training_use_allowed": false,
+    "target_label_candidate": false,
+    "notes": "Useful for environmental context review; not a direct flood label source."
+  }
+]
