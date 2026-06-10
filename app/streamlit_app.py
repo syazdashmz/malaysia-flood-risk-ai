@@ -16,6 +16,12 @@ from pydantic import ValidationError
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 SRC_PATH = PROJECT_ROOT / "src"
+LIVE_FORECAST_FEATURES_PATH = (
+    PROJECT_ROOT / "data" / "processed" / "data_gov_my" / "weather_forecast_ml_features.json"
+)
+LIVE_WARNING_FEATURES_PATH = (
+    PROJECT_ROOT / "data" / "processed" / "data_gov_my" / "weather_warning_ml_features.json"
+)
 SAMPLE_DATA_PATH = PROJECT_ROOT / "data" / "samples" / "sample_malaysia_locations.csv"
 WEATHER_SUMMARY_PATH = PROJECT_ROOT / "reports" / "weather_risk_signal_summary.json"
 TRAINING_METRICS_PATH = PROJECT_ROOT / "reports" / "kaggle_flood_baseline_training_metrics.json"
@@ -25,6 +31,10 @@ BENCHMARK_METRICS_PATH = PROJECT_ROOT / "reports" / "kaggle_flood_model_benchmar
 if str(SRC_PATH) not in sys.path:
     sys.path.insert(0, str(SRC_PATH))
 
+from floodrisk.data.live_weather_features import (  # noqa: E402
+    load_live_weather_feature_rows,
+    summarize_live_weather_signal,
+)
 from floodrisk.risk_engine import calculate_risk  # noqa: E402
 from floodrisk.schemas import (  # noqa: E402
     FloodRiskInput,
@@ -144,6 +154,30 @@ def metric_percent(value: Any) -> str:
     if value is None:
         return "n/a"
     return f"{float(value) * 100:.2f}%"
+
+
+def render_live_weather_signal(weather_signal: dict[str, Any]) -> None:
+    st.subheader("Live weather API signal")
+
+    if not weather_signal.get("available"):
+        st.info(weather_signal.get("note", "No live weather signal available."))
+        return
+
+    weather_col1, weather_col2, weather_col3, weather_col4 = st.columns(4)
+
+    with weather_col1:
+        st.metric("Matched forecast area", weather_signal.get("matched_location_name", "n/a"))
+
+    with weather_col2:
+        st.metric("Forecast date", str(weather_signal.get("forecast_date", "n/a")))
+
+    with weather_col3:
+        st.metric("Rain/thunderstorm score", weather_signal.get("max_period_rain_score", 0))
+
+    with weather_col4:
+        st.metric("Mapped warning status", weather_signal.get("weather_warning_status", "none"))
+
+    st.caption(weather_signal.get("note", ""))
 
 
 def api_get_json(url: str) -> dict[str, Any]:
@@ -294,6 +328,8 @@ def render_public_checker(
     samples_df: pd.DataFrame,
     admin_regions_df: pd.DataFrame,
     weather_summary_status: dict[str, Any],
+    live_forecast_features: list[dict[str, Any]],
+    live_warning_features: list[dict[str, Any]],
 ) -> None:
     st.header("Flood Risk Checker")
     st.caption(
@@ -339,6 +375,20 @@ def render_public_checker(
 
     use_latest_weather_signal = risk_view == "Today / latest available estimate"
 
+    weather_signal = summarize_live_weather_signal(
+        region_name=str(selected_sample_row["state"]),
+        forecast_rows=live_forecast_features,
+        warning_rows=live_warning_features,
+        selected_date=selected_date,
+    )
+
+    weather_signal = summarize_live_weather_signal(
+        region_name=str(selected_sample_row["state"]),
+        forecast_rows=live_forecast_features,
+        warning_rows=live_warning_features,
+        selected_date=selected_date,
+    )
+
     st.info(
         f"Checking **{selected_location}, {selected_sample_row['state']}** for **{selected_date}**."
     )
@@ -374,6 +424,18 @@ def render_public_checker(
         weather_summary_status,
         use_latest_weather_signal,
     )
+
+    if use_latest_weather_signal and weather_signal.get("available"):
+        payload = payload.model_copy(
+            update={
+                "weather_warning_status": cast(
+                    WeatherWarningStatus,
+                    weather_signal["weather_warning_status"],
+                )
+            }
+        )
+
+    render_live_weather_signal(weather_signal)
     render_risk_summary(payload, selected_date)
 
     with st.expander("What this version uses"):
@@ -827,6 +889,8 @@ threshold_metrics_status = load_json_report(THRESHOLD_METRICS_PATH)
 benchmark_metrics_status = load_json_report(BENCHMARK_METRICS_PATH)
 samples_df = load_sample_locations()
 admin_regions_df = load_admin_regions_df()
+live_forecast_features = load_live_weather_feature_rows(LIVE_FORECAST_FEATURES_PATH)
+live_warning_features = load_live_weather_feature_rows(LIVE_WARNING_FEATURES_PATH)
 
 st.set_page_config(
     page_title="Malaysia Flood Risk AI",
@@ -886,7 +950,13 @@ public_tab, research_tab, advanced_tab, data_tab = st.tabs(
 )
 
 with public_tab:
-    render_public_checker(samples_df, admin_regions_df, weather_summary_status)
+    render_public_checker(
+        samples_df,
+        admin_regions_df,
+        weather_summary_status,
+        live_forecast_features,
+        live_warning_features,
+    )
 
 with research_tab:
     render_research_dashboard(
