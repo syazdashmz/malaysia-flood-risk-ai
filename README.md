@@ -322,3 +322,21 @@ Run the experimental AI pipeline with:
 Review the local EM-DAT export with:
 
     .\scripts\run_emdat_export_review.ps1
+
+## Current Capabilities
+
+The project now includes both an interpretable flood risk scoring engine and an
+experimental AI flood prediction pipeline.
+
+Highlights:
+
+- rule-based flood risk scoring
+- experimental Kaggle-trained flood prediction model
+- saved local `joblib` model artifact
+- FastAPI model status and prediction endpoints
+- Streamlit model readiness display
+- EM-DAT official-source review workflow
+- automated API, ML, data, and documentation tests
+
+See [Current Project Capabilities](docs/CURRENT_CAPABILITIES.md) for the full
+summary.
