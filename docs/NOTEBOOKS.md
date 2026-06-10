@@ -196,3 +196,15 @@ The report summarizes:
 - weather signal counts
 - initial EDA readiness
 - real ML training readiness
+
+## Cataloged ML Readiness Reports
+
+The notebook data catalog now includes the v0.4.0 ML-readiness reports:
+
+- initial EDA report
+- feature table generation plan
+- feature table builder dry run
+- target label source plan
+- ML training readiness gate
+
+These reports are explorable from notebooks but do not make real ML training ready by themselves.

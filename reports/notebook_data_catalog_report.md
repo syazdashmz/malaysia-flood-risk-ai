@@ -2,9 +2,9 @@
 
 ## Summary
 
-- Assets cataloged: 9
-- Available assets: 8
-- Explorable assets: 8
+- Assets cataloged: 14
+- Available assets: 13
+- Explorable assets: 13
 - Missing assets: 1
 - Blocking EDA assets: 0
 - Ready for initial EDA: True
@@ -21,6 +21,11 @@
 | Dataset readiness report | readiness | reports/dataset_readiness_report.md | True | explorable | - | 1456 |
 | Training table schema report | ml_readiness | reports/training_table_schema_report.md | True | explorable | - | 2210 |
 | Notebook environment report | notebook | reports/notebook_environment_report.md | True | explorable | - | 1116 |
+| Initial EDA report | eda | reports/initial_eda_report.md | False | explorable | - | 1892 |
+| Feature table generation plan | ml_readiness | reports/feature_table_plan.md | False | explorable | - | 3696 |
+| Feature table builder dry run | ml_readiness | reports/feature_table_builder_dry_run.md | False | explorable | - | 1130 |
+| Target label source plan | ml_readiness | reports/target_label_source_plan.md | False | explorable | - | 1864 |
+| ML training readiness gate | ml_readiness | reports/ml_training_readiness_report.md | False | explorable | - | 949 |
 | Model-ready training table | ml_training | data/processed/model_training/training_features.csv | False | missing | - | 0 |
 
 ## Interpretation
