@@ -1,5 +1,11 @@
 """Machine learning preparation utilities."""
 
+from floodrisk.ml.feature_table_builder import (
+    FeatureTableBuildPreview,
+    build_feature_table_preview,
+    render_feature_table_builder_report,
+    write_feature_table_builder_report,
+)
 from floodrisk.ml.feature_table_plan import (
     FeatureTablePlanItem,
     build_feature_table_plan,
@@ -18,6 +24,7 @@ from floodrisk.ml.training_schema import (
 )
 
 __all__ = [
+    "FeatureTableBuildPreview",
     "FeatureTablePlanItem",
     "REQUIRED_TRAINING_COLUMNS",
     "TARGET_COLUMN",
@@ -25,9 +32,12 @@ __all__ = [
     "TrainingTableColumn",
     "TrainingTableSchemaValidation",
     "build_feature_table_plan",
+    "build_feature_table_preview",
+    "render_feature_table_builder_report",
     "render_feature_table_plan_report",
     "render_training_table_schema_report",
     "validate_training_table_schema",
+    "write_feature_table_builder_report",
     "write_feature_table_plan_report",
     "write_training_table_schema_report",
 ]

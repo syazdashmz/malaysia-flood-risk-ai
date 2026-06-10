@@ -84,3 +84,7 @@ Use this only when the API server is already running:
 ### Run feature table plan
 
     .\scripts\run_feature_table_plan.ps1
+
+### Run feature table builder dry run
+
+    .\scripts\run_feature_table_builder_dry_run.ps1

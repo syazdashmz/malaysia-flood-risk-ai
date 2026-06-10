@@ -254,3 +254,21 @@ The plan maps each required training-table column to:
 - current readiness
 
 Real ML training remains blocked until the target label comes from a verified historical flood source.
+
+## Feature Table Builder Dry Run
+
+Generate the feature table builder dry-run report with:
+
+    .\scripts\run_feature_table_builder_dry_run.ps1
+
+This generates:
+
+    reports/feature_table_builder_dry_run.md
+
+The dry run inspects available sample data and maps currently available columns to the future training-table schema.
+
+It does not create:
+
+    data/processed/model_training/training_features.csv
+
+The real training table remains blocked until a verified `flood_occurred` target label is available.
