@@ -88,3 +88,7 @@ Use this only when the API server is already running:
 ### Run feature table builder dry run
 
     .\scripts\run_feature_table_builder_dry_run.ps1
+
+### Run target label source plan
+
+    .\scripts\run_target_label_source_plan.ps1

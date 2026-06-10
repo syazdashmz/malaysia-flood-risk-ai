@@ -272,3 +272,23 @@ It does not create:
     data/processed/model_training/training_features.csv
 
 The real training table remains blocked until a verified `flood_occurred` target label is available.
+
+## Target Label Source Plan
+
+Generate the target label source plan with:
+
+    .\scripts\run_target_label_source_plan.ps1
+
+This generates:
+
+    reports/target_label_source_plan.md
+
+The plan defines requirements for the future `flood_occurred` target label, including:
+
+- verified historical source
+- location alignment
+- time alignment
+- binary target mapping
+- no rule-based risk-score leakage
+
+Real supervised ML training remains blocked until an allowed target label source is integrated.

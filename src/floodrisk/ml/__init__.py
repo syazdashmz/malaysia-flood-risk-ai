@@ -12,6 +12,14 @@ from floodrisk.ml.feature_table_plan import (
     render_feature_table_plan_report,
     write_feature_table_plan_report,
 )
+from floodrisk.ml.target_label_plan import (
+    TargetLabelRequirement,
+    TargetLabelSourceCandidate,
+    TargetLabelSourcePlan,
+    build_target_label_source_plan,
+    render_target_label_source_plan_report,
+    write_target_label_source_plan_report,
+)
 from floodrisk.ml.training_schema import (
     REQUIRED_TRAINING_COLUMNS,
     TARGET_COLUMN,
@@ -29,15 +37,21 @@ __all__ = [
     "REQUIRED_TRAINING_COLUMNS",
     "TARGET_COLUMN",
     "TRAINING_TABLE_COLUMNS",
+    "TargetLabelRequirement",
+    "TargetLabelSourceCandidate",
+    "TargetLabelSourcePlan",
     "TrainingTableColumn",
     "TrainingTableSchemaValidation",
     "build_feature_table_plan",
     "build_feature_table_preview",
+    "build_target_label_source_plan",
     "render_feature_table_builder_report",
     "render_feature_table_plan_report",
+    "render_target_label_source_plan_report",
     "render_training_table_schema_report",
     "validate_training_table_schema",
     "write_feature_table_builder_report",
     "write_feature_table_plan_report",
+    "write_target_label_source_plan_report",
     "write_training_table_schema_report",
 ]
