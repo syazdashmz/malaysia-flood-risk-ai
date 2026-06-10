@@ -292,3 +292,22 @@ The plan defines requirements for the future `flood_occurred` target label, incl
 - no rule-based risk-score leakage
 
 Real supervised ML training remains blocked until an allowed target label source is integrated.
+
+## ML Training Readiness Gate
+
+Generate the combined ML training readiness gate with:
+
+    .\scripts\run_ml_training_readiness.ps1
+
+This generates:
+
+    reports/ml_training_readiness_report.md
+
+The gate combines:
+
+- target label source readiness
+- feature table builder readiness
+- training table schema readiness
+- training table row availability
+
+Real supervised ML training can start only when all gates are clear.
