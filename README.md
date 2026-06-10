@@ -277,3 +277,14 @@ Planned next milestone:
 
 The next phase will prepare reproducible notebook-based exploration before real AI/ML training.
 
+## Notebook Foundation
+
+The project includes a notebook foundation for reproducible exploration.
+
+Start here:
+
+    notebooks/00_project_readiness.ipynb
+
+Notebook guidance is documented in:
+
+    docs/NOTEBOOKS.md
