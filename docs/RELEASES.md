@@ -1,5 +1,42 @@
 # Release Index
 
+## v0.3.0 - Geospatial Foundation Pipeline
+
+Release page:
+
+    https://github.com/syazdashmz/malaysia-flood-risk-ai/releases/tag/v0.3.0
+
+Main focus:
+
+- Malaysia geospatial bounding-box module
+- Planned administrative boundary data source registry
+- Geospatial artifact planning report
+- Vector dataset validation utilities for future GeoJSON/Shapefile files
+- Geospatial validation report runner
+- Geospatial readiness summary loader
+- /geospatial/summary API endpoint
+- Streamlit sidebar geospatial readiness summary
+- Documentation for geospatial checks and release readiness
+
+Validation:
+
+- 82 tests passed locally
+- Geospatial checks completed successfully
+
+Current geospatial readiness:
+
+- planned boundary artifacts: 3
+- available boundary artifacts: 0
+- missing boundary artifacts: 3
+- valid vector datasets: 0
+- boundary data available: False
+
+Limitations:
+
+- No real administrative boundary files are bundled yet
+- No point-in-polygon boundary validation against real polygons yet
+- No location-specific weather-to-boundary joins yet
+
 ## v0.2.1 - Weather Signal Classification Patch
 
 Release page:
@@ -83,15 +120,16 @@ Validation:
 
 Next recommended milestone:
 
-    v0.3.0 - Geospatial Foundation Pipeline
+    v0.4.0 - Notebook and Data Exploration Foundation
 
 Planned focus:
 
-- Malaysia administrative boundary source planning
-- Location normalization
-- Boundary/geospatial dataset acquisition workflow
-- Basic geospatial validation
-- Link weather signals to locations more cleanly
+- notebook folder structure
+- reproducible Jupyter environment checks
+- exploratory data analysis notebook scaffold
+- dataset readiness review
+- training dataset design notes
+- baseline ML experiment planning
 
 ## Versioning Notes
 

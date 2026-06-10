@@ -243,7 +243,7 @@ Release history and milestone notes are documented in:
 
 Latest release:
 
-    v0.2.1 - Weather Signal Classification Patch
+    v0.3.0 - Geospatial Foundation Pipeline
 
 ## Geospatial Foundation
 
@@ -268,3 +268,12 @@ Current limitation:
 Run geospatial checks with:
 
     .\scripts\run_geospatial_checks.ps1
+
+## Next Milestone
+
+Planned next milestone:
+
+    v0.4.0 - Notebook and Data Exploration Foundation
+
+The next phase will prepare reproducible notebook-based exploration before real AI/ML training.
+
