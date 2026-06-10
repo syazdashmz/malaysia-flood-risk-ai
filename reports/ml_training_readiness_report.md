@@ -6,6 +6,11 @@
 - Target ready: False
 - Allowed target sources: 3
 - Ready target sources: 0
+- Target source manifest exists: True
+- Target source manifest valid: True
+- Target source manifest candidates: 4
+- Target source manifest ready candidates: 0
+- Target source manifest has ready candidate: False
 - Target event source exists: False
 - Target event source rows: 0
 - Target event source schema valid: False
@@ -24,6 +29,7 @@
 ## Blockers
 
 - No verified target label source is ready for real training.
+- Target source manifest has no candidate ready for real training yet.
 - Historical flood event target source is not ready for label generation yet.
 - Feature table builder is not allowed to create a real training table yet.
 - Model-ready training table schema is not valid yet.

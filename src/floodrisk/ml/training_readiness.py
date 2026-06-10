@@ -9,6 +9,7 @@ from typing import Any
 from floodrisk.ml.feature_table_builder import build_feature_table_preview
 from floodrisk.ml.target_event_schema import validate_target_event_source_schema
 from floodrisk.ml.target_label_plan import build_target_label_source_plan
+from floodrisk.ml.target_source_manifest import validate_target_source_manifest
 from floodrisk.ml.training_schema import validate_training_table_schema
 
 
@@ -20,6 +21,11 @@ class MLTrainingReadinessSummary:
     target_ready: bool
     allowed_target_sources: int
     ready_target_sources: int
+    target_source_manifest_exists: bool
+    target_source_manifest_valid: bool
+    target_source_manifest_candidates: int
+    target_source_manifest_ready_candidates: int
+    target_source_manifest_has_ready_candidate: bool
     target_event_source_exists: bool
     target_event_source_rows: int
     target_event_source_schema_valid: bool
@@ -41,6 +47,7 @@ class MLTrainingReadinessSummary:
 
         return (
             self.target_ready
+            and self.target_source_manifest_has_ready_candidate
             and self.target_event_source_ready
             and self.feature_builder_can_create_training_table
             and self.training_table_ready
@@ -58,6 +65,7 @@ class MLTrainingReadinessSummary:
 def _build_blockers(
     *,
     target_ready: bool,
+    target_source_manifest_has_ready_candidate: bool,
     target_event_source_ready: bool,
     feature_builder_can_create_training_table: bool,
     training_table_schema_valid: bool,
@@ -69,6 +77,9 @@ def _build_blockers(
 
     if not target_ready:
         blockers.append("No verified target label source is ready for real training.")
+
+    if not target_source_manifest_has_ready_candidate:
+        blockers.append("Target source manifest has no candidate ready for real training yet.")
 
     if not target_event_source_ready:
         blockers.append(
@@ -91,6 +102,7 @@ def build_ml_training_readiness_summary(project_root: Path) -> MLTrainingReadine
     """Build combined ML training readiness summary."""
 
     target_plan = build_target_label_source_plan()
+    target_manifest_validation = validate_target_source_manifest(project_root)
     target_event_validation = validate_target_event_source_schema(project_root)
     feature_preview = build_feature_table_preview(project_root, output_allowed=False)
 
@@ -99,14 +111,20 @@ def build_ml_training_readiness_summary(project_root: Path) -> MLTrainingReadine
     )
     schema_validation = validate_training_table_schema(training_table_path)
 
-    target_ready = target_event_validation.is_ready_for_target_generation
+    target_ready = (
+        target_manifest_validation.has_ready_candidate
+        and target_event_validation.is_ready_for_target_generation
+    )
+
     ready_target_sources = max(
         target_plan.ready_candidate_count,
+        target_manifest_validation.ready_candidate_count,
         int(target_ready),
     )
 
     blockers = _build_blockers(
         target_ready=target_ready,
+        target_source_manifest_has_ready_candidate=(target_manifest_validation.has_ready_candidate),
         target_event_source_ready=target_event_validation.is_ready_for_target_generation,
         feature_builder_can_create_training_table=(feature_preview.can_create_real_training_table),
         training_table_schema_valid=schema_validation.is_schema_valid,
@@ -118,6 +136,11 @@ def build_ml_training_readiness_summary(project_root: Path) -> MLTrainingReadine
         target_ready=target_ready,
         allowed_target_sources=target_plan.allowed_candidate_count,
         ready_target_sources=ready_target_sources,
+        target_source_manifest_exists=target_manifest_validation.exists,
+        target_source_manifest_valid=target_manifest_validation.is_valid,
+        target_source_manifest_candidates=target_manifest_validation.candidate_count,
+        target_source_manifest_ready_candidates=(target_manifest_validation.ready_candidate_count),
+        target_source_manifest_has_ready_candidate=(target_manifest_validation.has_ready_candidate),
         target_event_source_exists=target_event_validation.exists,
         target_event_source_rows=target_event_validation.row_count,
         target_event_source_schema_valid=target_event_validation.is_schema_valid,
@@ -149,6 +172,17 @@ def render_ml_training_readiness_report(
         f"- Target ready: {summary.target_ready}",
         f"- Allowed target sources: {summary.allowed_target_sources}",
         f"- Ready target sources: {summary.ready_target_sources}",
+        f"- Target source manifest exists: {summary.target_source_manifest_exists}",
+        f"- Target source manifest valid: {summary.target_source_manifest_valid}",
+        f"- Target source manifest candidates: {summary.target_source_manifest_candidates}",
+        (
+            "- Target source manifest ready candidates: "
+            f"{summary.target_source_manifest_ready_candidates}"
+        ),
+        (
+            "- Target source manifest has ready candidate: "
+            f"{summary.target_source_manifest_has_ready_candidate}"
+        ),
         f"- Target event source exists: {summary.target_event_source_exists}",
         f"- Target event source rows: {summary.target_event_source_rows}",
         (f"- Target event source schema valid: {summary.target_event_source_schema_valid}"),
