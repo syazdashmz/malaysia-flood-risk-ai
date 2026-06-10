@@ -31,6 +31,7 @@ from floodrisk.schemas import (  # noqa: E402
     WaterLevelStatus,
     WeatherWarningStatus,
 )
+from floodrisk.sources.malaysia_admin import load_malaysia_admin_coverage  # noqa: E402
 
 
 def load_weather_summary_status() -> dict[str, Any]:
@@ -55,6 +56,60 @@ def load_sample_locations() -> pd.DataFrame:
     if SAMPLE_DATA_PATH.exists():
         return pd.read_csv(SAMPLE_DATA_PATH)
     return pd.DataFrame()
+
+
+def load_admin_regions_df() -> pd.DataFrame:
+    coverage = load_malaysia_admin_coverage()
+
+    rows = []
+    for region in coverage["regions"]:
+        rows.append(
+            {
+                "location_name": (
+                    f"{region['name']} overview ({region['capital_or_admin_centre']})"
+                ),
+                "state": region["name"],
+                "latitude": region["latitude"],
+                "longitude": region["longitude"],
+                "elevation_m": 30.0,
+                "slope_deg": 2.0,
+                "river_distance_m": 750.0,
+                "historical_flood_distance_m": 1500.0,
+                "rainfall_24h_mm": 60.0,
+                "rainfall_72h_mm": 120.0,
+                "water_level_status": "unknown",
+                "weather_warning_status": "advisory",
+                "land_cover_class": "urban",
+                "population_density_per_km2": 3000.0,
+                "source_type": "admin_region_fallback",
+                "region_group": region["region_group"],
+                "priority_hazards": ", ".join(region["priority_hazards"]),
+            }
+        )
+
+    return pd.DataFrame(rows)
+
+
+def build_public_location_catalog(
+    samples_df: pd.DataFrame,
+    admin_regions_df: pd.DataFrame,
+) -> pd.DataFrame:
+    catalog_parts = []
+
+    if not admin_regions_df.empty:
+        catalog_parts.append(admin_regions_df)
+
+    if not samples_df.empty:
+        enriched_samples = samples_df.copy()
+        enriched_samples["source_type"] = "sample_location"
+        enriched_samples["region_group"] = "Sample location"
+        enriched_samples["priority_hazards"] = "sample-specific flood risk profile"
+        catalog_parts.append(enriched_samples)
+
+    if not catalog_parts:
+        return pd.DataFrame()
+
+    return pd.concat(catalog_parts, ignore_index=True)
 
 
 def load_json_report(path: Path) -> dict[str, Any]:
@@ -237,6 +292,7 @@ def render_risk_summary(payload: FloodRiskInput, selected_date: date | Any) -> N
 
 def render_public_checker(
     samples_df: pd.DataFrame,
+    admin_regions_df: pd.DataFrame,
     weather_summary_status: dict[str, Any],
 ) -> None:
     st.header("Flood Risk Checker")
@@ -245,16 +301,21 @@ def render_public_checker(
         "risk result, map marker, and simple explanation."
     )
 
-    if samples_df.empty:
-        st.info("No sample location dataset found yet. Use Advanced Manual Mode for now.")
+    public_locations_df = build_public_location_catalog(samples_df, admin_regions_df)
+
+    if public_locations_df.empty:
+        st.info(
+            "No Malaysia coverage or sample location dataset found yet. "
+            "Use Advanced Manual Mode for now."
+        )
         return
 
-    state_options = ["All states"] + sorted(samples_df["state"].dropna().unique())
-    selected_state = st.selectbox("State", state_options)
+    state_options = ["All states"] + sorted(public_locations_df["state"].dropna().unique())
+    selected_state = st.selectbox("State / federal territory", state_options)
 
-    filtered_df = samples_df
+    filtered_df = public_locations_df
     if selected_state != "All states":
-        filtered_df = samples_df[samples_df["state"] == selected_state]
+        filtered_df = public_locations_df[public_locations_df["state"] == selected_state]
 
     location_options = filtered_df["location_name"].dropna().tolist()
     selected_location = st.selectbox("Area / sample location", location_options)
@@ -282,6 +343,25 @@ def render_public_checker(
         f"Checking **{selected_location}, {selected_sample_row['state']}** for **{selected_date}**."
     )
 
+    source_type = str(get_sample_value(selected_sample_row, "source_type", "unknown"))
+
+    if source_type == "admin_region_fallback":
+        st.warning(
+            "This is a Malaysia-wide regional fallback profile. It provides coverage "
+            "for every state and federal territory, but detailed district, river, "
+            "station, and date-specific data still need to be connected."
+        )
+
+    with st.expander("Selected area coverage details"):
+        st.write(f"- **Source type:** {source_type}")
+        st.write(
+            f"- **Region group:** {get_sample_value(selected_sample_row, 'region_group', 'n/a')}"
+        )
+        st.write(
+            f"- **Priority hazards:** "
+            f"{get_sample_value(selected_sample_row, 'priority_hazards', 'n/a')}"
+        )
+
     if risk_view == "Past / historical-style estimate":
         st.warning(
             "Historical date mode currently uses the selected area's stored sample "
@@ -298,7 +378,9 @@ def render_public_checker(
 
     with st.expander("What this version uses"):
         st.write(
-            "- Sample location values from the local project dataset.\n"
+            "- Malaysia-wide state and federal territory coverage registry.\n"
+            "- Sample location values where available.\n"
+            "- Regional fallback profiles where detailed local data is not ready yet.\n"
             "- Local weather pipeline summary when available.\n"
             "- Transparent rule-based risk scoring.\n"
             "- Experimental AI model reports in the Research Dashboard."
@@ -306,6 +388,7 @@ def render_public_checker(
 
     with st.expander("What future versions should add"):
         st.write(
+            "- District-level location coverage.\n"
             "- Live rainfall and water-level station data.\n"
             "- Official river/station overlays on the map.\n"
             "- Date-specific historical flood lookup.\n"
@@ -743,6 +826,7 @@ training_metrics_status = load_json_report(TRAINING_METRICS_PATH)
 threshold_metrics_status = load_json_report(THRESHOLD_METRICS_PATH)
 benchmark_metrics_status = load_json_report(BENCHMARK_METRICS_PATH)
 samples_df = load_sample_locations()
+admin_regions_df = load_admin_regions_df()
 
 st.set_page_config(
     page_title="Malaysia Flood Risk AI",
@@ -802,7 +886,7 @@ public_tab, research_tab, advanced_tab, data_tab = st.tabs(
 )
 
 with public_tab:
-    render_public_checker(samples_df, weather_summary_status)
+    render_public_checker(samples_df, admin_regions_df, weather_summary_status)
 
 with research_tab:
     render_research_dashboard(
