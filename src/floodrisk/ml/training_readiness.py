@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from floodrisk.ml.feature_table_builder import build_feature_table_preview
+from floodrisk.ml.target_event_schema import validate_target_event_source_schema
 from floodrisk.ml.target_label_plan import build_target_label_source_plan
 from floodrisk.ml.training_schema import validate_training_table_schema
 
@@ -19,6 +20,10 @@ class MLTrainingReadinessSummary:
     target_ready: bool
     allowed_target_sources: int
     ready_target_sources: int
+    target_event_source_exists: bool
+    target_event_source_rows: int
+    target_event_source_schema_valid: bool
+    target_event_source_ready: bool
     feature_source_exists: bool
     feature_source_rows: int
     mapped_feature_columns: int
@@ -36,6 +41,7 @@ class MLTrainingReadinessSummary:
 
         return (
             self.target_ready
+            and self.target_event_source_ready
             and self.feature_builder_can_create_training_table
             and self.training_table_ready
             and not self.blockers
@@ -52,6 +58,7 @@ class MLTrainingReadinessSummary:
 def _build_blockers(
     *,
     target_ready: bool,
+    target_event_source_ready: bool,
     feature_builder_can_create_training_table: bool,
     training_table_schema_valid: bool,
     training_table_has_rows: bool,
@@ -62,6 +69,11 @@ def _build_blockers(
 
     if not target_ready:
         blockers.append("No verified target label source is ready for real training.")
+
+    if not target_event_source_ready:
+        blockers.append(
+            "Historical flood event target source is not ready for label generation yet."
+        )
 
     if not feature_builder_can_create_training_table:
         blockers.append("Feature table builder is not allowed to create a real training table yet.")
@@ -79,6 +91,7 @@ def build_ml_training_readiness_summary(project_root: Path) -> MLTrainingReadine
     """Build combined ML training readiness summary."""
 
     target_plan = build_target_label_source_plan()
+    target_event_validation = validate_target_event_source_schema(project_root)
     feature_preview = build_feature_table_preview(project_root, output_allowed=False)
 
     training_table_path = (
@@ -86,8 +99,15 @@ def build_ml_training_readiness_summary(project_root: Path) -> MLTrainingReadine
     )
     schema_validation = validate_training_table_schema(training_table_path)
 
+    target_ready = target_event_validation.is_ready_for_target_generation
+    ready_target_sources = max(
+        target_plan.ready_candidate_count,
+        int(target_ready),
+    )
+
     blockers = _build_blockers(
-        target_ready=target_plan.real_training_target_ready,
+        target_ready=target_ready,
+        target_event_source_ready=target_event_validation.is_ready_for_target_generation,
         feature_builder_can_create_training_table=(feature_preview.can_create_real_training_table),
         training_table_schema_valid=schema_validation.is_schema_valid,
         training_table_has_rows=schema_validation.has_rows,
@@ -95,9 +115,13 @@ def build_ml_training_readiness_summary(project_root: Path) -> MLTrainingReadine
 
     return MLTrainingReadinessSummary(
         target_column=target_plan.target_column,
-        target_ready=target_plan.real_training_target_ready,
+        target_ready=target_ready,
         allowed_target_sources=target_plan.allowed_candidate_count,
-        ready_target_sources=target_plan.ready_candidate_count,
+        ready_target_sources=ready_target_sources,
+        target_event_source_exists=target_event_validation.exists,
+        target_event_source_rows=target_event_validation.row_count,
+        target_event_source_schema_valid=target_event_validation.is_schema_valid,
+        target_event_source_ready=target_event_validation.is_ready_for_target_generation,
         feature_source_exists=feature_preview.source_exists,
         feature_source_rows=feature_preview.source_row_count,
         mapped_feature_columns=len(feature_preview.mapped_training_columns),
@@ -125,6 +149,10 @@ def render_ml_training_readiness_report(
         f"- Target ready: {summary.target_ready}",
         f"- Allowed target sources: {summary.allowed_target_sources}",
         f"- Ready target sources: {summary.ready_target_sources}",
+        f"- Target event source exists: {summary.target_event_source_exists}",
+        f"- Target event source rows: {summary.target_event_source_rows}",
+        (f"- Target event source schema valid: {summary.target_event_source_schema_valid}"),
+        f"- Target event source ready: {summary.target_event_source_ready}",
         f"- Feature source exists: {summary.feature_source_exists}",
         f"- Feature source rows: {summary.feature_source_rows}",
         f"- Mapped feature columns: {summary.mapped_feature_columns}",
