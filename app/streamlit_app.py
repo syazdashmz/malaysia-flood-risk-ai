@@ -34,6 +34,12 @@ def load_geospatial_summary_status() -> dict[str, Any]:
     return load_geospatial_summary(PROJECT_ROOT)
 
 
+def load_experimental_model_status() -> dict[str, Any]:
+    from floodrisk.ml.experimental_flood_model import load_experimental_model_status
+
+    return load_experimental_model_status(PROJECT_ROOT).as_dict()
+
+
 def load_sample_locations() -> pd.DataFrame:
     if SAMPLE_DATA_PATH.exists():
         return pd.read_csv(SAMPLE_DATA_PATH)
@@ -51,6 +57,7 @@ def get_sample_value(row: pd.Series | None, column: str, default):
 
 weather_summary_status = load_weather_summary_status()
 geospatial_summary_status = load_geospatial_summary_status()
+experimental_model_status = load_experimental_model_status()
 
 st.set_page_config(
     page_title="Malaysia Flood Risk AI",
@@ -126,6 +133,28 @@ with st.sidebar:
             )
         else:
             st.info("No geospatial summary is available yet.")
+
+    with st.expander("Experimental ML baseline"):
+        if experimental_model_status.get("available"):
+            st.metric(
+                "Model status",
+                "available",
+            )
+            st.write(
+                {
+                    "source": experimental_model_status.get("source_id"),
+                    "threshold": experimental_model_status.get("threshold"),
+                    "threshold_source": experimental_model_status.get("threshold_source"),
+                    "verified_target": experimental_model_status.get(
+                        "official_verified_target_source",
+                    ),
+                }
+            )
+            st.caption(str(experimental_model_status.get("guardrail", "")))
+        else:
+            st.info(
+                "Experimental model artifact not found. Run the Kaggle baseline training script."
+            )
 
 
 samples_df = load_sample_locations()

@@ -11,6 +11,7 @@ from floodrisk.data.validation import (
 
 WaterLevelStatus = Literal["unknown", "normal", "alert", "warning", "danger"]
 WeatherWarningStatus = Literal["none", "advisory", "warning", "severe"]
+ExperimentalWarningLevel = Literal["low", "watch", "warning"]
 
 
 class FloodRiskInput(BaseModel):
@@ -52,4 +53,34 @@ class FloodRiskOutput(BaseModel):
     confidence: str
     factors: list[RiskFactor]
     recommendation: str
+    disclaimer: str
+
+
+class ExperimentalFloodPredictionInput(BaseModel):
+    """Input features for the experimental Kaggle flood baseline."""
+
+    city: str = Field(..., min_length=1)
+    temperature_c: float = Field(..., ge=-20, le=60)
+    humidity_pct: float = Field(..., ge=0, le=100)
+    wind_speed_ms: float = Field(..., ge=0, le=100)
+    rainfall_3day_mm: float = Field(..., ge=0)
+    rainfall_7day_mm: float = Field(..., ge=0)
+    rainfall_14day_mm: float = Field(..., ge=0)
+    rainfall_cumsum7_mm: float = Field(..., ge=0)
+    month: int = Field(..., ge=1, le=12)
+    is_monsoon: int = Field(..., ge=0, le=1)
+
+
+class ExperimentalFloodPredictionOutput(BaseModel):
+    """Output from the experimental Kaggle flood baseline."""
+
+    model_available: bool
+    flood_probability: float = Field(..., ge=0, le=1)
+    predicted_flood: bool
+    threshold: float = Field(..., ge=0, le=1)
+    warning_level: ExperimentalWarningLevel
+    source_id: str
+    training_mode: str
+    official_verified_target_source: bool
+    guardrail: str
     disclaimer: str

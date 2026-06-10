@@ -101,6 +101,13 @@ Use this only when the API server is already running:
 
     .\scripts\run_ml_readiness_suite.ps1
 
+### Run experimental AI pipeline
+
+    .\scripts\run_experimental_ai_pipeline.ps1
+
+This profiles the local Kaggle dataset, trains the experimental model artifact,
+tunes thresholds, and runs focused API/model tests.
+
 ### Run target label source evaluation
 
     .\scripts\run_target_label_source_evaluation.ps1

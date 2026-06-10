@@ -1,5 +1,32 @@
 # Release Index
 
+## v0.5.0 - Experimental AI Baseline Pipeline
+
+Release page:
+
+    Planned
+
+Main focus:
+
+- Experimental Kaggle flood model artifact workflow
+- Local model metadata output
+- FastAPI experimental model status endpoint
+- FastAPI experimental prediction endpoint
+- Streamlit experimental model-readiness summary
+- Direct AI engineering workflow documentation
+- Focused model serving tests
+
+Validation:
+
+- Experimental model workflow is tested without requiring committed model binaries
+- Real official ML training readiness gate remains blocked
+
+Current model status:
+
+- Transparent scoring engine remains the public demo baseline
+- Kaggle baseline is experimental proxy AI only
+- Official verified flood model remains blocked pending verified target labels
+
 ## v0.4.0 - Notebook and ML Readiness Foundation
 
 Release page:

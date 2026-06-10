@@ -32,6 +32,8 @@
   "recall": 0.9947,
   "f1": 0.4152,
   "roc_auc": 0.9871,
+  "model_path": "models/kaggle_flood_baseline.joblib",
+  "model_metadata_path": "models/kaggle_flood_baseline_metadata.json",
   "confusion_matrix": {
     "true_negative": 5857,
     "false_positive": 523,

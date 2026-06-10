@@ -10,7 +10,7 @@
 
 Expected result:
 
-    9 passed
+    all tests passed
 
 ## 3. Run API
 
@@ -56,13 +56,11 @@ When the summary is available, the app:
 
 To refresh the local weather signal before opening the app:
 
-    .\scripts
-un_weather_pipeline.ps1
+    .\scripts\run_weather_pipeline.ps1
 
 Then run the app:
 
-    .\scripts
-un_app.ps1
+    .\scripts\run_app.ps1
 
 ## API Geospatial Summary
 
@@ -93,4 +91,21 @@ It reports:
 - valid vector datasets
 - whether local boundary data is available
 
-At the current v0.3.0 foundation stage, the expected state is that boundary artifacts are planned but still missing.
+At the current foundation stage, the expected state is that boundary artifacts are planned but still missing.
+
+## Experimental AI Baseline
+
+Run the experimental model pipeline:
+
+    .\scripts\run_experimental_ai_pipeline.ps1
+
+Then run the API:
+
+    .\scripts\run_api.ps1
+
+Use:
+
+    GET /experimental/flood/model/status
+    POST /experimental/flood/predict
+
+This model is experimental only. It is not the final official verified Malaysia flood model.

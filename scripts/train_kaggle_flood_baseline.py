@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import joblib
 import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
@@ -22,6 +23,8 @@ RAW_PATH = Path("data/raw/kaggle/malaysia_flood_master.csv")
 CONFIG_PATH = Path("configs/kaggle_flood_baseline_training.json")
 REPORT_PATH = Path("reports/kaggle_flood_baseline_training_report.md")
 METRICS_PATH = Path("reports/kaggle_flood_baseline_training_metrics.json")
+MODEL_PATH = Path("models/kaggle_flood_baseline.joblib")
+MODEL_METADATA_PATH = Path("models/kaggle_flood_baseline_metadata.json")
 
 
 def safe_float(value: object) -> float | None:
@@ -103,6 +106,9 @@ def main() -> None:
 
     pipeline.fit(x_train, y_train)
 
+    MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
+    joblib.dump(pipeline, MODEL_PATH)
+
     y_pred = pipeline.predict(x_test)
     y_score = pipeline.predict_proba(x_test)[:, 1]
 
@@ -135,6 +141,8 @@ def main() -> None:
         "recall": safe_float(recall_score(y_test, y_pred, zero_division=0)),
         "f1": safe_float(f1_score(y_test, y_pred, zero_division=0)),
         "roc_auc": safe_float(roc_auc) if roc_auc is not None else None,
+        "model_path": MODEL_PATH.as_posix(),
+        "model_metadata_path": MODEL_METADATA_PATH.as_posix(),
         "confusion_matrix": {
             "true_negative": int(tn),
             "false_positive": int(fp),
@@ -147,6 +155,27 @@ def main() -> None:
     METRICS_PATH.parent.mkdir(parents=True, exist_ok=True)
     METRICS_PATH.write_text(
         json.dumps(metrics, indent=2),
+        encoding="utf-8",
+    )
+
+    metadata = {
+        "source_id": config["source_id"],
+        "training_mode": config["training_mode"],
+        "model": config["model"],
+        "model_format": "joblib_sklearn_pipeline",
+        "target_column": target_column,
+        "feature_columns": feature_columns,
+        "excluded_columns": config["excluded_columns"],
+        "date_column": config["date_column"],
+        "train_before": config["time_split"]["train_before"],
+        "test_from": config["time_split"]["test_from"],
+        "official_verified_target_source": False,
+        "training_metrics_path": METRICS_PATH.as_posix(),
+        "guardrail": config["guardrail"],
+    }
+
+    MODEL_METADATA_PATH.write_text(
+        json.dumps(metadata, indent=2),
         encoding="utf-8",
     )
 
@@ -196,6 +225,12 @@ def main() -> None:
             f"- F1: {metrics['f1']}",
             f"- ROC AUC: {metrics['roc_auc']}",
             "",
+            "## Model Artifact",
+            "",
+            f"- Model path: `{metrics['model_path']}`",
+            f"- Metadata path: `{metrics['model_metadata_path']}`",
+            "- Artifact format: `joblib_sklearn_pipeline`",
+            "",
             "## Confusion Matrix",
             "",
             f"- True negative: {tn}",
@@ -214,6 +249,8 @@ def main() -> None:
 
     print(f"Generated training metrics: {METRICS_PATH}")
     print(f"Generated training report: {REPORT_PATH}")
+    print(f"Saved model artifact: {MODEL_PATH}")
+    print(f"Saved model metadata: {MODEL_METADATA_PATH}")
     print(f"Accuracy: {metrics['accuracy']}")
     print(f"Precision: {metrics['precision']}")
     print(f"Recall: {metrics['recall']}")

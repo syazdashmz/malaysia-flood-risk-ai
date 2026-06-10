@@ -2,4 +2,4 @@ from floodrisk.version import __version__
 
 
 def test_project_version():
-    assert __version__ == "0.4.0"
+    assert __version__ == "0.5.0"
