@@ -311,3 +311,16 @@ The gate combines:
 - training table row availability
 
 Real supervised ML training can start only when all gates are clear.
+
+## ML Training Readiness Workflow
+
+See:
+
+    docs/ML_TRAINING_READINESS.md
+
+Run the complete ML readiness suite with:
+
+    .\scripts\run_ml_readiness_suite.ps1
+
+This workflow regenerates all target-label, feature-table, schema, dataset,
+and combined ML training readiness reports.
