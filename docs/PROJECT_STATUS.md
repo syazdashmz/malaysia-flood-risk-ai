@@ -165,3 +165,30 @@ Validation:
 - Geospatial checks completed successfully.
 - Boundary artifacts are correctly reported as planned but missing.
 - No unverified administrative boundary files are bundled.
+
+## v0.4.0 Notebook and ML Readiness Foundation
+
+The v0.4.0 milestone adds the notebook, EDA, and ML-readiness foundation.
+
+Current decision:
+
+- Initial notebook-based EDA is ready.
+- Real supervised ML training remains blocked.
+
+Key additions:
+
+- notebook validation
+- notebook smoke execution
+- notebook data catalog
+- initial EDA report
+- training dataset design
+- feature table generation plan
+- feature table builder dry run
+- target label source plan
+- combined ML training readiness gate
+- complete ML readiness suite runner
+
+See:
+
+    docs/V0_4_0_MILESTONE.md
+    docs/ML_TRAINING_READINESS.md

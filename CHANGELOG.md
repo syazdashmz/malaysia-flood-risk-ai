@@ -95,3 +95,25 @@ All notable changes to this project will be documented in this file.
 This release is a software foundation MVP.
 
 It does not yet include real downloaded datasets or trained machine-learning models.
+
+## [0.4.0] - Unreleased
+
+### Added
+
+- Added notebook foundation and initial EDA notebook.
+- Added notebook validation and smoke execution reports.
+- Added notebook data catalog with ML-readiness reports.
+- Added initial EDA report generator.
+- Added training dataset design and schema validator.
+- Added feature table generation plan.
+- Added feature table builder dry-run.
+- Added target label source plan.
+- Added combined ML training readiness gate.
+- Added complete ML readiness suite runner.
+- Added v0.4.0 milestone documentation.
+
+### Training Status
+
+- Real supervised ML training remains blocked.
+- The rule-based `risk_score` is not accepted as the real target label.
+- A verified historical `flood_occurred` target source is still required.

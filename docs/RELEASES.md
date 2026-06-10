@@ -138,3 +138,23 @@ This project uses semantic-style milestone versions:
 - Patch releases: fixes and documentation updates
 - Minor releases: new pipeline or app/API capability
 - Major releases: production-level architecture changes or trained model milestone
+
+## Upcoming v0.4.0
+
+Planned release theme:
+
+Notebook and ML Readiness Foundation.
+
+Highlights:
+
+- notebook foundation
+- notebook validation and smoke execution
+- notebook data catalog
+- initial EDA report
+- ML training readiness reports
+- complete ML readiness workflow
+
+Training status:
+
+Real supervised ML training remains blocked until a verified `flood_occurred`
+target label and schema-valid training table are available.
