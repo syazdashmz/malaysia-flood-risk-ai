@@ -103,3 +103,15 @@ Before live ReliefWeb metadata discovery, validate the query plan:
 Generated report:
 
     reports/reliefweb_discovery_plan.md
+
+## EM-DAT Target Source Review
+
+The next candidate target-label source review is documented at:
+
+    docs/EMDAT_TARGET_SOURCE_REVIEW.md
+    configs/emdat_target_source_review.json
+    reports/emdat_target_source_review.md
+
+EM-DAT is a candidate for `flood_occurred`, but it is not approved for training
+until access, license, date fields, location granularity, and schema mapping are
+validated.

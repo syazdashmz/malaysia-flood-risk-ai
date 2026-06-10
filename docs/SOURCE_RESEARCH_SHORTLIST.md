@@ -94,3 +94,14 @@ Current decision:
 - keep ReliefWeb as a future discovery source
 - do not use it as a direct training-label source
 - pivot next to `data.gov.my` for Malaysia-first official data discovery
+
+## EM-DAT Target Source Review
+
+Because the first data.gov.my datasets were supporting/context candidates only,
+the next target-source review should focus on EM-DAT.
+
+Review files:
+
+    docs/EMDAT_TARGET_SOURCE_REVIEW.md
+    configs/emdat_target_source_review.json
+    reports/emdat_target_source_review.md

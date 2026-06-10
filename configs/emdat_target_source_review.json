@@ -1,0 +1,36 @@
+{
+  "source_id": "emdat",
+  "label": "EM-DAT International Disaster Database",
+  "review_status": "review_required",
+  "role": "candidate_target_source",
+  "homepage_url": "https://www.emdat.be/",
+  "documentation_url": "https://doc.emdat.be/",
+  "public_data_url": "https://public.emdat.be/",
+  "direct_training_use_allowed": false,
+  "target_label_candidate": true,
+  "candidate_target_column": "flood_occurred",
+  "expected_strengths": [
+    "historical disaster occurrence and impact records",
+    "credible disaster research database",
+    "non-commercial open access",
+    "includes flood disaster category"
+  ],
+  "known_limitations": [
+    "focuses on major disasters",
+    "may be country-level rather than district-level",
+    "may not include smaller local flood events",
+    "download/API workflow still needs review",
+    "license and attribution requirements must be documented"
+  ],
+  "required_review_steps": [
+    "confirm Malaysia flood records are available",
+    "confirm event date fields",
+    "confirm location granularity",
+    "confirm flood classification fields",
+    "confirm license and attribution rules",
+    "check whether records can map to historical_flood_events.csv",
+    "decide whether EM-DAT is target-label source, validation source, or seed source only"
+  ],
+  "current_decision": "review_next_before_training",
+  "notes": "Potentially strong target-source candidate, but not approved for training until data access, license, location, date, and target mapping are validated."
+}
