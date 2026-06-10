@@ -40,6 +40,7 @@ Run:
 This regenerates:
 
 - `reports/target_label_source_plan.md`
+- `reports/target_label_source_evaluation.md`
 - `reports/feature_table_plan.md`
 - `reports/feature_table_builder_dry_run.md`
 - `reports/training_table_schema_report.md`

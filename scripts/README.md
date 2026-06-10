@@ -100,3 +100,7 @@ Use this only when the API server is already running:
 ### Run complete ML readiness suite
 
     .\scripts\run_ml_readiness_suite.ps1
+
+### Run target label source evaluation
+
+    .\scripts\run_target_label_source_evaluation.ps1
