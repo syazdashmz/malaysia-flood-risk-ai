@@ -76,3 +76,7 @@ Use this only when the API server is already running:
 ### Run notebook smoke tests
 
     .\scripts\run_notebook_smoke_tests.ps1
+
+### Run initial EDA report
+
+    .\scripts\run_initial_eda_report.ps1

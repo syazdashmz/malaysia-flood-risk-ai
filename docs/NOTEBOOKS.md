@@ -177,3 +177,22 @@ This generates:
     reports/notebook_execution_report.md
 
 The smoke test executes notebook code cells in memory without saving outputs back into notebook files.
+
+## Initial EDA Report
+
+Generate the initial EDA report with:
+
+    .\scripts\run_initial_eda_report.ps1
+
+This generates:
+
+    reports/initial_eda_report.md
+
+The report summarizes:
+
+- sample location rows and columns
+- numeric profiles
+- weather summary keys
+- weather signal counts
+- initial EDA readiness
+- real ML training readiness
