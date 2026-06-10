@@ -80,3 +80,17 @@ The endpoint reports:
 - artifact-level statuses
 
 At this stage, the expected result is that planned boundary artifacts are still missing until verified boundary datasets are added.
+
+## Streamlit Geospatial Readiness Summary
+
+The Streamlit app sidebar shows a geospatial readiness summary.
+
+It reports:
+
+- planned boundary artifacts
+- available boundary artifacts
+- missing boundary artifacts
+- valid vector datasets
+- whether local boundary data is available
+
+At the current v0.3.0 foundation stage, the expected state is that boundary artifacts are planned but still missing.

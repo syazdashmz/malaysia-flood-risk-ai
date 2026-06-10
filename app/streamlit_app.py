@@ -28,6 +28,12 @@ def load_weather_summary_status() -> dict[str, Any]:
     return build_weather_summary_status(WEATHER_SUMMARY_PATH)
 
 
+def load_geospatial_summary_status() -> dict[str, Any]:
+    from floodrisk.geospatial.summary import load_geospatial_summary
+
+    return load_geospatial_summary(PROJECT_ROOT)
+
+
 def load_sample_locations() -> pd.DataFrame:
     if SAMPLE_DATA_PATH.exists():
         return pd.read_csv(SAMPLE_DATA_PATH)
@@ -44,6 +50,7 @@ def get_sample_value(row: pd.Series | None, column: str, default):
 
 
 weather_summary_status = load_weather_summary_status()
+geospatial_summary_status = load_geospatial_summary_status()
 
 st.set_page_config(
     page_title="Malaysia Flood Risk AI",
@@ -86,6 +93,39 @@ with st.sidebar:
             st.caption("This summary comes from the local Phase 2 weather sample pipeline.")
         else:
             st.info("No weather summary found yet. Run scripts/run_weather_pipeline.ps1.")
+
+    with st.expander("Geospatial readiness summary"):
+        if geospatial_summary_status.get("available"):
+            planned_count = geospatial_summary_status.get("planned_artifact_count", 0)
+            available_count = geospatial_summary_status.get("available_artifact_count", 0)
+            missing_count = geospatial_summary_status.get("missing_artifact_count", 0)
+            valid_vector_count = geospatial_summary_status.get("valid_vector_count", 0)
+
+            st.metric(
+                "Boundary artifacts available",
+                f"{available_count} / {planned_count}",
+            )
+            st.metric("Valid vector datasets", str(valid_vector_count))
+
+            if geospatial_summary_status.get("has_available_boundary_data"):
+                st.success("At least one boundary dataset is available locally.")
+            else:
+                st.info(
+                    "Boundary datasets are planned but not yet available. "
+                    "This is expected before verified boundary data is added."
+                )
+
+            st.write(
+                {
+                    "missing_artifacts": missing_count,
+                    "boundary_data_available": geospatial_summary_status.get(
+                        "has_available_boundary_data",
+                        False,
+                    ),
+                }
+            )
+        else:
+            st.info("No geospatial summary is available yet.")
 
 
 samples_df = load_sample_locations()

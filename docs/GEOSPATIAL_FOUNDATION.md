@@ -134,3 +134,9 @@ The geospatial readiness summary is available through the API endpoint:
     GET /geospatial/summary
 
 This endpoint is intended for dashboards, health checks, and future UI integration.
+
+## Streamlit Integration
+
+The Streamlit app displays geospatial readiness in the sidebar.
+
+This gives users a clear view of whether verified local boundary datasets are already available or still planned.
