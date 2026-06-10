@@ -80,3 +80,7 @@ Use this only when the API server is already running:
 ### Run initial EDA report
 
     .\scripts\run_initial_eda_report.ps1
+
+### Run feature table plan
+
+    .\scripts\run_feature_table_plan.ps1

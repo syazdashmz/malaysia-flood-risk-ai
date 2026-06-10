@@ -235,3 +235,22 @@ Current expected result:
     Training ready: False
 
 This remains false until a real model-ready training table is created.
+
+## Feature Table Generation Plan
+
+Generate the feature table plan with:
+
+    .\scripts\run_feature_table_plan.ps1
+
+This generates:
+
+    reports/feature_table_plan.md
+
+The plan maps each required training-table column to:
+
+- source category
+- planned source
+- derivation note
+- current readiness
+
+Real ML training remains blocked until the target label comes from a verified historical flood source.
