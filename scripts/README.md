@@ -68,3 +68,7 @@ Use this only when the API server is already running:
 ### Run notebook environment check
 
     .\scripts\run_notebook_environment_check.ps1
+
+### Run notebook data catalog
+
+    .\scripts\run_notebook_data_catalog.ps1

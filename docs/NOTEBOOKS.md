@@ -130,3 +130,22 @@ The report checks:
 - matplotlib availability
 - ipykernel availability
 - optional geospatial and ML notebook dependencies
+
+## Notebook Data Catalog
+
+Generate the notebook data catalog with:
+
+    .\scripts\run_notebook_data_catalog.ps1
+
+This generates:
+
+    reports/notebook_data_catalog_report.md
+
+The catalog lists available assets for initial EDA, including:
+
+- sample location data
+- weather summary reports
+- geospatial readiness reports
+- notebook readiness reports
+- training schema reports
+- future model-training table status
