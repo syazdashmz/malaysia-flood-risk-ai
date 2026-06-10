@@ -2,7 +2,7 @@
 
 ## Current Version
 
-v0.2.0 MVP foundation
+v0.4.0 Notebook and ML Readiness Foundation
 
 ## Completed
 

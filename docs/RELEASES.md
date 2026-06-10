@@ -120,16 +120,15 @@ Validation:
 
 Next recommended milestone:
 
-    v0.4.0 - Notebook and Data Exploration Foundation
+    v0.5.0 - Verified Target Label and Training Table Foundation
 
 Planned focus:
 
-- notebook folder structure
-- reproducible Jupyter environment checks
-- exploratory data analysis notebook scaffold
-- dataset readiness review
-- training dataset design notes
-- baseline ML experiment planning
+- verified historical flood target label source integration
+- observation date and district derivation
+- schema-valid model-ready training table
+- train/validation split strategy
+- baseline ML experiment planning after readiness gate clears
 
 ## Versioning Notes
 
