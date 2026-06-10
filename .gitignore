@@ -57,3 +57,6 @@ desktop.ini
 !data/interim/manifest.jsonl
 !data/processed/manifest.jsonl
 !data/external/manifest.jsonl
+data/raw/data_gov_my/
+data/processed/data_gov_my/
+reports/live_weather_feature_summary.json
