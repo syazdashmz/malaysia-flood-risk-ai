@@ -1,0 +1,29 @@
+[
+  {
+    "query_id": "malaysia_flood_reports",
+    "label": "Malaysia flood reports",
+    "query": "Malaysia flood",
+    "country": "Malaysia",
+    "disaster_type": "Flood",
+    "limit": 10,
+    "description": "Discover recent and historical Malaysia flood reports."
+  },
+  {
+    "query_id": "malaysia_flood_maps",
+    "label": "Malaysia flood maps",
+    "query": "Malaysia flood map",
+    "country": "Malaysia",
+    "disaster_type": "Flood",
+    "limit": 10,
+    "description": "Discover maps or map-related Malaysia flood reports."
+  },
+  {
+    "query_id": "malaysia_flood_response",
+    "label": "Malaysia flood response reports",
+    "query": "Malaysia flood response",
+    "country": "Malaysia",
+    "disaster_type": "Flood",
+    "limit": 10,
+    "description": "Discover response, situation, or humanitarian update reports."
+  }
+]

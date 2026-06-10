@@ -73,3 +73,13 @@ reports without committing to a target-label dataset too early.
 
 Create a source discovery module that can query ReliefWeb for Malaysia flood
 reports and save reviewed metadata into a local, non-training discovery report.
+
+## ReliefWeb Discovery Plan
+
+The ReliefWeb discovery workflow is documented at:
+
+    docs/RELIEFWEB_DISCOVERY.md
+
+The generated query plan report is:
+
+    reports/reliefweb_discovery_plan.md

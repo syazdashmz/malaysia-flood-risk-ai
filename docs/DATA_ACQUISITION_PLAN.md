@@ -93,3 +93,13 @@ The machine-readable shortlist is:
 The recommended first implementation target is ReliefWeb discovery because it is
 useful for finding Malaysia flood reports and source references before selecting
 a final target-label dataset.
+
+## ReliefWeb Discovery Plan
+
+Before live ReliefWeb metadata discovery, validate the query plan:
+
+    .\scripts\run_reliefweb_discovery_plan.ps1
+
+Generated report:
+
+    reports/reliefweb_discovery_plan.md
