@@ -3,7 +3,7 @@
 ## Summary
 
 - Source ID: `reliefweb_api`
-- Fetched at UTC: 2026-06-10T02:55:59.587151+00:00
+- Fetched at UTC: 2026-06-10T03:01:45.509048+00:00
 - Direct training use allowed: False
 - Report metadata records: 0
 - Successful: False
@@ -14,9 +14,9 @@ This report contains metadata only. It must not be used as supervised ML trainin
 
 ## Errors
 
-- malaysia_flood_reports: HTTP Error 400: Bad Request
-- malaysia_flood_maps: HTTP Error 400: Bad Request
-- malaysia_flood_response: HTTP Error 400: Bad Request
+- malaysia_flood_reports: HTTP 400 Bad Request - {"status":400,"time":2,"error":{"type":"UnexpectedValueException","message":"Unrecognized field 'name' in parameter 'fields'."}}
+- malaysia_flood_maps: HTTP 400 Bad Request - {"status":400,"time":2,"error":{"type":"UnexpectedValueException","message":"Unrecognized field 'name' in parameter 'fields'."}}
+- malaysia_flood_response: HTTP 400 Bad Request - {"status":400,"time":3,"error":{"type":"UnexpectedValueException","message":"Unrecognized field 'name' in parameter 'fields'."}}
 
 ## Discovered Reports
 

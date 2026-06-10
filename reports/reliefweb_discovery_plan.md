@@ -33,11 +33,11 @@ Endpoint: `https://api.reliefweb.int/v2/reports?appname=malaysia-flood-risk-ai`
     "operator": "AND",
     "conditions": [
       {
-        "field": "country.name",
+        "field": "country",
         "value": "Malaysia"
       },
       {
-        "field": "disaster_type.name",
+        "field": "disaster_type",
         "value": "Flood"
       }
     ]
@@ -76,11 +76,11 @@ Endpoint: `https://api.reliefweb.int/v2/reports?appname=malaysia-flood-risk-ai`
     "operator": "AND",
     "conditions": [
       {
-        "field": "country.name",
+        "field": "country",
         "value": "Malaysia"
       },
       {
-        "field": "disaster_type.name",
+        "field": "disaster_type",
         "value": "Flood"
       }
     ]
@@ -119,11 +119,11 @@ Endpoint: `https://api.reliefweb.int/v2/reports?appname=malaysia-flood-risk-ai`
     "operator": "AND",
     "conditions": [
       {
-        "field": "country.name",
+        "field": "country",
         "value": "Malaysia"
       },
       {
-        "field": "disaster_type.name",
+        "field": "disaster_type",
         "value": "Flood"
       }
     ]

@@ -59,8 +59,8 @@ class ReliefWebDiscoveryQuery:
             "filter": {
                 "operator": "AND",
                 "conditions": [
-                    {"field": "country.name", "value": self.country},
-                    {"field": "disaster_type.name", "value": self.disaster_type},
+                    {"field": "country", "value": self.country},
+                    {"field": "disaster_type", "value": self.disaster_type},
                 ],
             },
             "fields": {"include": RELIEFWEB_REPORT_FIELDS},
@@ -377,6 +377,14 @@ def discover_reliefweb_metadata(
                     timeout_seconds=timeout_seconds,
                 )
             )
+        except urllib.error.HTTPError as exc:
+            error_body = exc.read().decode("utf-8", errors="replace").strip()
+            message = f"{query.query_id}: HTTP {exc.code} {exc.reason}"
+
+            if error_body:
+                message += f" - {error_body[:500]}"
+
+            errors.append(message)
         except (OSError, TimeoutError, urllib.error.URLError, json.JSONDecodeError) as exc:
             errors.append(f"{query.query_id}: {exc}")
 

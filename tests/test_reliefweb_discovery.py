@@ -22,8 +22,8 @@ def test_reliefweb_discovery_payload_targets_malaysia_floods():
 
     assert payload["query"]["value"]
     assert payload["filter"]["operator"] == "AND"
-    assert {"field": "country.name", "value": "Malaysia"} in payload["filter"]["conditions"]
-    assert {"field": "disaster_type.name", "value": "Flood"} in payload["filter"]["conditions"]
+    assert {"field": "country", "value": "Malaysia"} in payload["filter"]["conditions"]
+    assert {"field": "disaster_type", "value": "Flood"} in payload["filter"]["conditions"]
 
 
 def test_reliefweb_discovery_endpoint_uses_v2_and_appname():
