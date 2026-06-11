@@ -63,3 +63,4 @@ reports/live_weather_feature_summary.json
 data/processed/infobanjir/
 reports/infobanjir_water_level_summary.json
 reports/diagnostics/
+reports/infobanjir_rainfall_summary.json
