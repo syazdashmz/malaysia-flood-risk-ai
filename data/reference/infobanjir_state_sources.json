@@ -1,0 +1,123 @@
+{
+  "source_id": "public_infobanjir_state_sources",
+  "source_name": "Public InfoBanjir",
+  "source_owner": "Department of Irrigation and Drainage Malaysia",
+  "base_url": "https://publicinfobanjir.water.gov.my",
+  "language": "en",
+  "coverage_note": "Public InfoBanjir exposes current river water level and rainfall data as public HTML tables by state code. W.P. Putrajaya is kept in the project coverage registry but no detailed public station-data URL is currently listed here.",
+  "regions": [
+    {
+      "name": "Perlis",
+      "code": "PLS",
+      "water_level_url": "https://publicinfobanjir.water.gov.my/aras-air/data-paras-air/?state=PLS&lang=en",
+      "rainfall_url": "https://publicinfobanjir.water.gov.my/hujan/data-hujan/?state=PLS&lang=en",
+      "station_data_available": true
+    },
+    {
+      "name": "Kedah",
+      "code": "KDH",
+      "water_level_url": "https://publicinfobanjir.water.gov.my/aras-air/data-paras-air/?state=KDH&lang=en",
+      "rainfall_url": "https://publicinfobanjir.water.gov.my/hujan/data-hujan/?state=KDH&lang=en",
+      "station_data_available": true
+    },
+    {
+      "name": "Pulau Pinang",
+      "code": "PNG",
+      "water_level_url": "https://publicinfobanjir.water.gov.my/aras-air/data-paras-air/?state=PNG&lang=en",
+      "rainfall_url": "https://publicinfobanjir.water.gov.my/hujan/data-hujan/?state=PNG&lang=en",
+      "station_data_available": true
+    },
+    {
+      "name": "Perak",
+      "code": "PRK",
+      "water_level_url": "https://publicinfobanjir.water.gov.my/aras-air/data-paras-air/?state=PRK&lang=en",
+      "rainfall_url": "https://publicinfobanjir.water.gov.my/hujan/data-hujan/?state=PRK&lang=en",
+      "station_data_available": true
+    },
+    {
+      "name": "Selangor",
+      "code": "SEL",
+      "water_level_url": "https://publicinfobanjir.water.gov.my/aras-air/data-paras-air/?state=SEL&lang=en",
+      "rainfall_url": "https://publicinfobanjir.water.gov.my/hujan/data-hujan/?state=SEL&lang=en",
+      "station_data_available": true
+    },
+    {
+      "name": "Kuala Lumpur",
+      "code": "WLH",
+      "water_level_url": "https://publicinfobanjir.water.gov.my/aras-air/data-paras-air/?state=WLH&lang=en",
+      "rainfall_url": "https://publicinfobanjir.water.gov.my/hujan/data-hujan/?state=WLH&lang=en",
+      "station_data_available": true
+    },
+    {
+      "name": "Negeri Sembilan",
+      "code": "NSN",
+      "water_level_url": "https://publicinfobanjir.water.gov.my/aras-air/data-paras-air/?state=NSN&lang=en",
+      "rainfall_url": "https://publicinfobanjir.water.gov.my/hujan/data-hujan/?state=NSN&lang=en",
+      "station_data_available": true
+    },
+    {
+      "name": "Melaka",
+      "code": "MLK",
+      "water_level_url": "https://publicinfobanjir.water.gov.my/aras-air/data-paras-air/?state=MLK&lang=en",
+      "rainfall_url": "https://publicinfobanjir.water.gov.my/hujan/data-hujan/?state=MLK&lang=en",
+      "station_data_available": true
+    },
+    {
+      "name": "Johor",
+      "code": "JHR",
+      "water_level_url": "https://publicinfobanjir.water.gov.my/aras-air/data-paras-air/?state=JHR&lang=en",
+      "rainfall_url": "https://publicinfobanjir.water.gov.my/hujan/data-hujan/?state=JHR&lang=en",
+      "station_data_available": true
+    },
+    {
+      "name": "Pahang",
+      "code": "PHG",
+      "water_level_url": "https://publicinfobanjir.water.gov.my/aras-air/data-paras-air/?state=PHG&lang=en",
+      "rainfall_url": "https://publicinfobanjir.water.gov.my/hujan/data-hujan/?state=PHG&lang=en",
+      "station_data_available": true
+    },
+    {
+      "name": "Terengganu",
+      "code": "TRG",
+      "water_level_url": "https://publicinfobanjir.water.gov.my/aras-air/data-paras-air/?state=TRG&lang=en",
+      "rainfall_url": "https://publicinfobanjir.water.gov.my/hujan/data-hujan/?state=TRG&lang=en",
+      "station_data_available": true
+    },
+    {
+      "name": "Kelantan",
+      "code": "KEL",
+      "water_level_url": "https://publicinfobanjir.water.gov.my/aras-air/data-paras-air/?state=KEL&lang=en",
+      "rainfall_url": "https://publicinfobanjir.water.gov.my/hujan/data-hujan/?state=KEL&lang=en",
+      "station_data_available": true
+    },
+    {
+      "name": "Sarawak",
+      "code": "SRK",
+      "water_level_url": "https://publicinfobanjir.water.gov.my/aras-air/data-paras-air/?state=SRK&lang=en",
+      "rainfall_url": "https://publicinfobanjir.water.gov.my/hujan/data-hujan/?state=SRK&lang=en",
+      "station_data_available": true
+    },
+    {
+      "name": "Sabah",
+      "code": "SAB",
+      "water_level_url": "https://publicinfobanjir.water.gov.my/aras-air/data-paras-air/?state=SAB&lang=en",
+      "rainfall_url": "https://publicinfobanjir.water.gov.my/hujan/data-hujan/?state=SAB&lang=en",
+      "station_data_available": true
+    },
+    {
+      "name": "Labuan",
+      "code": "WLP",
+      "water_level_url": "https://publicinfobanjir.water.gov.my/aras-air/data-paras-air/?state=WLP&lang=en",
+      "rainfall_url": "https://publicinfobanjir.water.gov.my/hujan/data-hujan/?state=WLP&lang=en",
+      "station_data_available": true
+    },
+    {
+      "name": "Putrajaya",
+      "code": "PTJ",
+      "water_level_url": "https://publicinfobanjir.water.gov.my/aras-air/data-paras-air/?state=PTJ&lang=en",
+      "rainfall_url": "https://publicinfobanjir.water.gov.my/hujan/data-hujan/?state=PTJ&lang=en",
+      "station_data_available": true,
+      "note": "State code observed in the Public InfoBanjir water-level page selector."
+    }
+  ]
+}
